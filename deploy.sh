@@ -14,11 +14,17 @@ if [ -z "$1" ]; then
     exit 1
 fi
 
+# Clean previous build
+echo "🧹 Cleaning previous build..."
+rm -rf out .next
+
 # Test build locally first
 echo "🔨 Testing build locally..."
 npm run build
 if [ $? -eq 0 ]; then
     echo "✅ Local build successful"
+    echo "📁 Static export created in 'out' directory"
+    ls -la out/ | head -5
 else
     echo "❌ Local build failed. Please fix errors before deploying."
     exit 1
