@@ -16,7 +16,7 @@ fi
 
 # Clean previous build
 echo "🧹 Cleaning previous build..."
-rm -rf out .next
+rm -rf out .next deploy
 
 # Test build locally first
 echo "🔨 Testing build locally..."
@@ -25,6 +25,13 @@ if [ $? -eq 0 ]; then
     echo "✅ Local build successful"
     echo "📁 Static export created in 'out' directory"
     ls -la out/ | head -5
+    
+    # Test the deploy directory approach
+    echo "🧪 Testing deploy directory structure..."
+    mkdir -p deploy
+    cp -r out/* deploy/
+    echo "📁 Deploy directory created successfully"
+    ls -la deploy/ | head -5
 else
     echo "❌ Local build failed. Please fix errors before deploying."
     exit 1
