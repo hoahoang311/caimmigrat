@@ -54,23 +54,22 @@ Before you begin, ensure you have:
 1. **Amplify will auto-detect the build settings** from the `amplify.yml` file:
    ```yaml
    version: 1
-   applications:
-     - frontend:
-         phases:
-           preBuild:
-             commands:
-               - npm ci
-           build:
-             commands:
-               - npm run build
-         artifacts:
-           baseDirectory: .next
-           files:
-             - '**/*'
-         cache:
-           paths:
-             - node_modules/**/*
-             - .next/cache/**/*
+   frontend:
+     phases:
+       preBuild:
+         commands:
+           - npm ci
+       build:
+         commands:
+           - npm run build
+     artifacts:
+       baseDirectory: out
+       files:
+         - '**/*'
+     cache:
+       paths:
+         - node_modules/**/*
+         - .next/cache/**/*
    ```
 
 2. **Review Settings**:
@@ -78,7 +77,7 @@ Before you begin, ensure you have:
    - Environment: `main`
    - Build command: `npm run build`
    - Base directory: `/` (root)
-   - Build output directory: `.next`
+   - Build output directory: `out` (static export)
 
 ### Step 4: Environment Variables (Optional)
 
@@ -192,18 +191,26 @@ Amplify automatically provides:
 
 ### Common Issues:
 
-1. **Build Failures**:
-   - Check Node.js version compatibility
+1. **"Illegal path found for appRoot" Error**:
+   - ✅ **Fixed**: Updated `amplify.yml` to remove incorrect `appRoot` setting
+   - ✅ **Solution**: Use correct Amplify YAML format for frontend apps
+   - If still occurring, delete and recreate the Amplify app
+
+2. **Build Failures**:
+   - Check Node.js version compatibility (use Node 18+)
    - Verify all dependencies are in `package.json`
    - Review build logs for specific errors
+   - Ensure `out` directory is being created during build
 
-2. **Images Not Loading**:
+3. **Images Not Loading**:
    - Ensure external domains are configured in `next.config.ts`
    - Check image paths and formats
+   - Verify `unoptimized: true` in Next.js config for static export
 
-3. **Routing Issues**:
+4. **Routing Issues**:
    - Verify `trailingSlash: true` in Next.js config
    - Check for case-sensitive path issues
+   - Ensure `output: 'export'` is set in Next.js config
 
 ### Getting Help:
 
