@@ -47,6 +47,7 @@ export default function AdminLogin() {
         router.refresh();
       }
     } catch (err) {
+      console.log(err);
       setError("An unexpected error occurred");
     } finally {
       setLoading(false);

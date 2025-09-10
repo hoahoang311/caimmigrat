@@ -1,41 +1,56 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import * as z from 'zod';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { 
-  Form, 
-  FormControl, 
-  FormField, 
-  FormItem, 
-  FormLabel, 
-  FormMessage 
-} from '@/components/ui/form';
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { CheckCircle, Send, User, Mail, MessageSquare, Phone, Globe, Briefcase } from 'lucide-react';
-import { serviceTypes } from '@/lib/supabase';
+} from "@/components/ui/select";
+import { Textarea } from "@/components/ui/textarea";
+import { serviceTypes } from "@/lib/supabase";
+import { zodResolver } from "@hookform/resolvers/zod";
+import {
+  Briefcase,
+  CheckCircle,
+  Globe,
+  Mail,
+  MessageSquare,
+  Phone,
+  Send,
+  User,
+} from "lucide-react";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import * as z from "zod";
 
 const contactSchema = z.object({
-  firstName: z.string().min(2, 'First name must be at least 2 characters'),
-  lastName: z.string().min(2, 'Last name must be at least 2 characters'),
-  email: z.string().email('Please enter a valid email address'),
+  firstName: z.string().min(2, "First name must be at least 2 characters"),
+  lastName: z.string().min(2, "Last name must be at least 2 characters"),
+  email: z.string().email("Please enter a valid email address"),
   phone: z.string().optional(),
   serviceType: z.string().optional(),
   subject: z.string().optional(),
-  message: z.string().min(10, 'Message must be at least 10 characters'),
+  message: z.string().min(10, "Message must be at least 10 characters"),
   countryOfOrigin: z.string().optional(),
-  preferredContactMethod: z.enum(['email', 'phone']).default('email'),
+  preferredContactMethod: z.enum(["email", "phone"]),
 });
 
 type ContactFormData = z.infer<typeof contactSchema>;
@@ -45,30 +60,30 @@ export default function ContactForm() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const form = useForm<ContactFormData>({
+  const form = useForm<ContactFormData, unknown, ContactFormData>({
     resolver: zodResolver(contactSchema),
     defaultValues: {
-      firstName: '',
-      lastName: '',
-      email: '',
-      phone: '',
-      serviceType: '',
-      subject: '',
-      message: '',
-      countryOfOrigin: '',
-      preferredContactMethod: 'email',
+      firstName: "",
+      lastName: "",
+      email: "",
+      phone: "",
+      serviceType: "",
+      subject: "",
+      message: "",
+      countryOfOrigin: "",
+      preferredContactMethod: "email",
     },
   });
 
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
     setError(null);
-    
+
     try {
-      const response = await fetch('/api/inquiries', {
-        method: 'POST',
+      const response = await fetch("/api/inquiries", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           first_name: data.firstName,
@@ -86,19 +101,18 @@ export default function ContactForm() {
       const result = await response.json();
 
       if (!response.ok) {
-        throw new Error(result.error || 'Failed to submit inquiry');
+        throw new Error(result.error || "Failed to submit inquiry");
       }
 
       setIsSubmitted(true);
-      
+
       // Reset form after showing success message
       setTimeout(() => {
         setIsSubmitted(false);
         form.reset();
       }, 5000);
-
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to submit inquiry');
+      setError(err instanceof Error ? err.message : "Failed to submit inquiry");
     } finally {
       setIsSubmitting(false);
     }
@@ -112,7 +126,8 @@ export default function ContactForm() {
           <span>Send us a Message</span>
         </CardTitle>
         <CardDescription>
-          Have questions about Canadian immigration? Get in touch with our expert team.
+          Have questions about Canadian immigration? Get in touch with our
+          expert team.
         </CardDescription>
       </CardHeader>
       <CardContent>
@@ -123,7 +138,8 @@ export default function ContactForm() {
               Message Sent Successfully!
             </h3>
             <p className="text-muted-foreground">
-              Thank you for contacting us. We&apos;ll get back to you within 24 hours.
+              Thank you for contacting us. We&apos;ll get back to you within 24
+              hours.
             </p>
           </div>
         ) : (
@@ -147,10 +163,7 @@ export default function ContactForm() {
                         <span>First Name *</span>
                       </FormLabel>
                       <FormControl>
-                        <Input 
-                          placeholder="Enter your first name" 
-                          {...field} 
-                        />
+                        <Input placeholder="Enter your first name" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -168,10 +181,7 @@ export default function ContactForm() {
                         <span>Last Name *</span>
                       </FormLabel>
                       <FormControl>
-                        <Input 
-                          placeholder="Enter your last name" 
-                          {...field} 
-                        />
+                        <Input placeholder="Enter your last name" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -189,10 +199,10 @@ export default function ContactForm() {
                         <span>Email Address *</span>
                       </FormLabel>
                       <FormControl>
-                        <Input 
+                        <Input
                           type="email"
-                          placeholder="Enter your email address" 
-                          {...field} 
+                          placeholder="Enter your email address"
+                          {...field}
                         />
                       </FormControl>
                       <FormMessage />
@@ -211,10 +221,10 @@ export default function ContactForm() {
                         <span>Phone Number</span>
                       </FormLabel>
                       <FormControl>
-                        <Input 
+                        <Input
                           type="tel"
-                          placeholder="Enter your phone number" 
-                          {...field} 
+                          placeholder="Enter your phone number"
+                          {...field}
                         />
                       </FormControl>
                       <FormMessage />
@@ -232,7 +242,10 @@ export default function ContactForm() {
                         <Briefcase className="h-4 w-4" />
                         <span>Service Interest</span>
                       </FormLabel>
-                      <Select onValueChange={field.onChange} defaultValue={field.value}>
+                      <Select
+                        onValueChange={field.onChange}
+                        defaultValue={field.value}
+                      >
                         <FormControl>
                           <SelectTrigger>
                             <SelectValue placeholder="Select a service" />
@@ -262,9 +275,9 @@ export default function ContactForm() {
                         <span>Country of Origin</span>
                       </FormLabel>
                       <FormControl>
-                        <Input 
-                          placeholder="Enter your country of origin" 
-                          {...field} 
+                        <Input
+                          placeholder="Enter your country of origin"
+                          {...field}
                         />
                       </FormControl>
                       <FormMessage />
@@ -281,9 +294,9 @@ export default function ContactForm() {
                   <FormItem>
                     <FormLabel>Subject</FormLabel>
                     <FormControl>
-                      <Input 
-                        placeholder="Brief subject of your inquiry" 
-                        {...field} 
+                      <Input
+                        placeholder="Brief subject of your inquiry"
+                        {...field}
                       />
                     </FormControl>
                     <FormMessage />
@@ -302,10 +315,10 @@ export default function ContactForm() {
                       <span>Message *</span>
                     </FormLabel>
                     <FormControl>
-                      <Textarea 
+                      <Textarea
                         placeholder="Tell us about your immigration needs..."
                         className="min-h-[120px]"
-                        {...field} 
+                        {...field}
                       />
                     </FormControl>
                     <FormMessage />
@@ -320,7 +333,10 @@ export default function ContactForm() {
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>Preferred Contact Method</FormLabel>
-                    <Select onValueChange={field.onChange} defaultValue={field.value}>
+                    <Select
+                      onValueChange={field.onChange}
+                      defaultValue={field.value}
+                    >
                       <FormControl>
                         <SelectTrigger>
                           <SelectValue />
@@ -337,13 +353,13 @@ export default function ContactForm() {
               />
 
               {/* Submit Button */}
-              <Button 
-                type="submit" 
-                className="w-full bg-blue-600 hover:bg-blue-700" 
+              <Button
+                type="submit"
+                className="w-full bg-blue-600 hover:bg-blue-700"
                 size="lg"
                 disabled={isSubmitting}
               >
-                {isSubmitting ? 'Sending Message...' : 'Send Message'}
+                {isSubmitting ? "Sending Message..." : "Send Message"}
               </Button>
             </form>
           </Form>
