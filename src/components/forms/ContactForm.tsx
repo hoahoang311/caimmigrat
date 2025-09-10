@@ -15,13 +15,27 @@ import {
   FormLabel, 
   FormMessage 
 } from '@/components/ui/form';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { CheckCircle, Send, User, Mail, MessageSquare } from 'lucide-react';
+import { CheckCircle, Send, User, Mail, MessageSquare, Phone, Globe, Briefcase } from 'lucide-react';
+import { serviceTypes } from '@/lib/supabase';
 
 const contactSchema = z.object({
-  name: z.string().min(2, 'Name must be at least 2 characters'),
+  firstName: z.string().min(2, 'First name must be at least 2 characters'),
+  lastName: z.string().min(2, 'Last name must be at least 2 characters'),
   email: z.string().email('Please enter a valid email address'),
+  phone: z.string().optional(),
+  serviceType: z.string().optional(),
+  subject: z.string().optional(),
   message: z.string().min(10, 'Message must be at least 10 characters'),
+  countryOfOrigin: z.string().optional(),
+  preferredContactMethod: z.enum(['email', 'phone']).default('email'),
 });
 
 type ContactFormData = z.infer<typeof contactSchema>;
@@ -29,33 +43,65 @@ type ContactFormData = z.infer<typeof contactSchema>;
 export default function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const form = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema),
     defaultValues: {
-      name: '',
+      firstName: '',
+      lastName: '',
       email: '',
+      phone: '',
+      serviceType: '',
+      subject: '',
       message: '',
+      countryOfOrigin: '',
+      preferredContactMethod: 'email',
     },
   });
 
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
+    setError(null);
     
-    // Log to console (as requested in requirements)
-    console.log('Contact form submission:', data);
-    
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    
-    // Reset form after showing success message
-    setTimeout(() => {
-      setIsSubmitted(false);
-      form.reset();
-    }, 5000);
+    try {
+      const response = await fetch('/api/inquiries', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          first_name: data.firstName,
+          last_name: data.lastName,
+          email: data.email,
+          phone: data.phone,
+          service_type: data.serviceType,
+          subject: data.subject,
+          message: data.message,
+          country_of_origin: data.countryOfOrigin,
+          preferred_contact_method: data.preferredContactMethod,
+        }),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Failed to submit inquiry');
+      }
+
+      setIsSubmitted(true);
+      
+      // Reset form after showing success message
+      setTimeout(() => {
+        setIsSubmitted(false);
+        form.reset();
+      }, 5000);
+
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Failed to submit inquiry');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -83,20 +129,47 @@ export default function ContactForm() {
         ) : (
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+              {error && (
+                <div className="p-4 bg-red-50 border border-red-200 rounded-md">
+                  <p className="text-red-700 text-sm">{error}</p>
+                </div>
+              )}
+
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-                {/* Name Field */}
+                {/* First Name Field */}
                 <FormField
                   control={form.control}
-                  name="name"
+                  name="firstName"
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel className="flex items-center space-x-2">
                         <User className="h-4 w-4" />
-                        <span>Full Name</span>
+                        <span>First Name *</span>
                       </FormLabel>
                       <FormControl>
                         <Input 
-                          placeholder="Enter your full name" 
+                          placeholder="Enter your first name" 
+                          {...field} 
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                {/* Last Name Field */}
+                <FormField
+                  control={form.control}
+                  name="lastName"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="flex items-center space-x-2">
+                        <User className="h-4 w-4" />
+                        <span>Last Name *</span>
+                      </FormLabel>
+                      <FormControl>
+                        <Input 
+                          placeholder="Enter your last name" 
                           {...field} 
                         />
                       </FormControl>
@@ -113,7 +186,7 @@ export default function ContactForm() {
                     <FormItem>
                       <FormLabel className="flex items-center space-x-2">
                         <Mail className="h-4 w-4" />
-                        <span>Email Address</span>
+                        <span>Email Address *</span>
                       </FormLabel>
                       <FormControl>
                         <Input 
@@ -126,7 +199,97 @@ export default function ContactForm() {
                     </FormItem>
                   )}
                 />
+
+                {/* Phone Field */}
+                <FormField
+                  control={form.control}
+                  name="phone"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="flex items-center space-x-2">
+                        <Phone className="h-4 w-4" />
+                        <span>Phone Number</span>
+                      </FormLabel>
+                      <FormControl>
+                        <Input 
+                          type="tel"
+                          placeholder="Enter your phone number" 
+                          {...field} 
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                {/* Service Type */}
+                <FormField
+                  control={form.control}
+                  name="serviceType"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="flex items-center space-x-2">
+                        <Briefcase className="h-4 w-4" />
+                        <span>Service Interest</span>
+                      </FormLabel>
+                      <Select onValueChange={field.onChange} defaultValue={field.value}>
+                        <FormControl>
+                          <SelectTrigger>
+                            <SelectValue placeholder="Select a service" />
+                          </SelectTrigger>
+                        </FormControl>
+                        <SelectContent>
+                          {serviceTypes.map((service) => (
+                            <SelectItem key={service} value={service}>
+                              {service}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                {/* Country of Origin */}
+                <FormField
+                  control={form.control}
+                  name="countryOfOrigin"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="flex items-center space-x-2">
+                        <Globe className="h-4 w-4" />
+                        <span>Country of Origin</span>
+                      </FormLabel>
+                      <FormControl>
+                        <Input 
+                          placeholder="Enter your country of origin" 
+                          {...field} 
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
               </div>
+
+              {/* Subject Field */}
+              <FormField
+                control={form.control}
+                name="subject"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Subject</FormLabel>
+                    <FormControl>
+                      <Input 
+                        placeholder="Brief subject of your inquiry" 
+                        {...field} 
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
 
               {/* Message Field */}
               <FormField
@@ -136,7 +299,7 @@ export default function ContactForm() {
                   <FormItem>
                     <FormLabel className="flex items-center space-x-2">
                       <MessageSquare className="h-4 w-4" />
-                      <span>Message</span>
+                      <span>Message *</span>
                     </FormLabel>
                     <FormControl>
                       <Textarea 
@@ -145,6 +308,29 @@ export default function ContactForm() {
                         {...field} 
                       />
                     </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              {/* Preferred Contact Method */}
+              <FormField
+                control={form.control}
+                name="preferredContactMethod"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Preferred Contact Method</FormLabel>
+                    <Select onValueChange={field.onChange} defaultValue={field.value}>
+                      <FormControl>
+                        <SelectTrigger>
+                          <SelectValue />
+                        </SelectTrigger>
+                      </FormControl>
+                      <SelectContent>
+                        <SelectItem value="email">Email</SelectItem>
+                        <SelectItem value="phone">Phone</SelectItem>
+                      </SelectContent>
+                    </Select>
                     <FormMessage />
                   </FormItem>
                 )}

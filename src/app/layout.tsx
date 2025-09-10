@@ -10,21 +10,26 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "CAimmigrat - Your Canadian Immigration Partner",
+  title: "ICBM Law - Your Canadian Immigration Partner",
   description: "Expert Canadian immigration services. We are a team of immigration lawyers, consultants, and experts ready to assist you with your Canadian immigration application.",
   keywords: "Canadian immigration, Express Entry, PNP, Family Sponsorship, Immigration lawyer, Immigration consultant, Canada visa",
-  authors: [{ name: "CAimmigrat Team" }],
+  authors: [{ name: "ICBM Law Team" }],
+  icons: {
+    icon: "/favicon.svg",
+    shortcut: "/favicon.svg",
+    apple: "/icbm-logo.svg",
+  },
   openGraph: {
-    title: "CAimmigrat - Your Canadian Immigration Partner",
+    title: "ICBM Law - Your Canadian Immigration Partner",
     description: "Expert Canadian immigration services with proven success rates.",
-    url: "https://caimmigrat.com",
-    siteName: "CAimmigrat",
+    url: "https://icbmlaw.com",
+    siteName: "ICBM Law",
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "CAimmigrat - Your Canadian Immigration Partner",
+    title: "ICBM Law - Your Canadian Immigration Partner",
     description: "Expert Canadian immigration services with proven success rates.",
   },
   robots: {

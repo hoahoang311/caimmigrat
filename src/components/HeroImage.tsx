@@ -1,35 +1,35 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import Image from 'next/image';
-import { MapPin } from 'lucide-react';
+import { MapPin } from "lucide-react";
+import Image from "next/image";
+import { useEffect, useState } from "react";
 
 const canadianCityImages = [
   {
-    src: "https://images.unsplash.com/photo-1517935706615-2717063c2225?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    src: "/vancouver.jpg",
     alt: "Vancouver skyline representing Canadian immigration opportunities",
-    city: "Vancouver"
+    city: "Vancouver",
   },
   {
-    src: "https://images.unsplash.com/photo-1571115764595-644a1f56a55c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-    alt: "Toronto downtown representing Canadian immigration opportunities", 
-    city: "Toronto"
+    src: "/toronto.jpg",
+    alt: "Toronto downtown representing Canadian immigration opportunities",
+    city: "Toronto",
   },
   {
-    src: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    src: "/ottawa.jpg",
     alt: "Ottawa Parliament Hill representing Canadian immigration opportunities",
-    city: "Ottawa"
+    city: "Ottawa",
   },
   {
-    src: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    src: "/montreal.jpg",
     alt: "Montreal cityscape representing Canadian immigration opportunities",
-    city: "Montreal"
+    city: "Montreal",
   },
   {
     src: "/canada-placeholder.svg",
     alt: "Canada immigration destination placeholder",
-    city: "Canada"
-  }
+    city: "Canada",
+  },
 ];
 
 export default function HeroImage() {
@@ -41,7 +41,11 @@ export default function HeroImage() {
   // Auto-rotate images every 10 seconds
   useEffect(() => {
     // Don't auto-rotate if we're showing an error, paused, or on the SVG placeholder
-    if (imageError || isPaused || currentImageIndex >= canadianCityImages.length - 1) {
+    if (
+      imageError ||
+      isPaused ||
+      currentImageIndex >= canadianCityImages.length - 1
+    ) {
       return;
     }
 
@@ -100,7 +104,7 @@ export default function HeroImage() {
   }
 
   return (
-    <div 
+    <div
       className="relative group"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
@@ -111,14 +115,14 @@ export default function HeroImage() {
           alt={currentImage.alt}
           fill
           className={`object-cover transition-opacity duration-1000 ${
-            isLoading ? 'opacity-70' : 'opacity-100'
+            isLoading ? "opacity-70" : "opacity-100"
           }`}
           priority
           onError={handleImageError}
           onLoad={handleImageLoad}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-        
+
         {/* Loading indicator */}
         {isLoading && (
           <div className="absolute inset-0 flex items-center justify-center">
@@ -138,8 +142,8 @@ export default function HeroImage() {
                 }}
                 className={`w-2 h-2 rounded-full transition-all duration-300 ${
                   index === currentImageIndex
-                    ? 'bg-white w-6'
-                    : 'bg-white/50 hover:bg-white/75'
+                    ? "bg-white w-6"
+                    : "bg-white/50 hover:bg-white/75"
                 }`}
                 aria-label={`View ${canadianCityImages[index].city} image`}
               />
@@ -152,13 +156,15 @@ export default function HeroImage() {
           {currentImage.city}
         </div>
       </div>
-      
+
       {/* Floating Card */}
       <div className="absolute -bottom-6 -left-6 bg-white rounded-lg shadow-lg p-4 border transition-transform duration-300 group-hover:scale-105">
         <div className="flex items-center space-x-3">
           <MapPin className="h-8 w-8 text-red-500" />
           <div>
-            <div className="font-semibold text-gray-900">{currentImage.city}</div>
+            <div className="font-semibold text-gray-900">
+              {currentImage.city}
+            </div>
             <div className="text-sm text-gray-600">Your new home awaits</div>
           </div>
         </div>

@@ -1,13 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Enable static export for better Amplify compatibility
-  output: 'export',
+  // Removed static export to support middleware and authentication
   trailingSlash: true,
   skipTrailingSlashRedirect: true,
   
   images: {
-    unoptimized: true, // Required for static export
     remotePatterns: [
       {
         protocol: 'https',

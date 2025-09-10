@@ -29,18 +29,34 @@ export default function NewsletterForm() {
   const onSubmit = async (data: NewsletterFormData) => {
     setIsSubmitting(true);
     
-    // Log to console (as requested in requirements)
-    console.log('Newsletter signup:', data);
-    
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    form.reset();
-    
-    // Reset success message after 3 seconds
-    setTimeout(() => setIsSubmitted(false), 3000);
+    try {
+      const response = await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        setIsSubmitted(true);
+        form.reset();
+        
+        // Reset success message after 3 seconds
+        setTimeout(() => setIsSubmitted(false), 3000);
+      } else {
+        // Handle error - you could show an error message here
+        console.error('Newsletter subscription failed:', result.error);
+        // For now, just show the error in console, but you could add error state
+      }
+    } catch (error) {
+      console.error('Error submitting newsletter form:', error);
+      // Handle network error
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
