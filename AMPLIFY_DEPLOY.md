@@ -20,6 +20,10 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
 
 ## Build Configuration
 
+This application uses Next.js App Router with server-side features (API routes, server components). The `amplify.yml` is configured for SSR deployment.
+
+**Important**: Do not use static export for this application as it has dynamic server-side functionality.
+
 The application includes fallback handling for missing environment variables to prevent build failures, but the database functionality will not work without proper Supabase configuration.
 
 ## Notes

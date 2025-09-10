@@ -9,17 +9,14 @@ frontend:
         - npm ci
     build:
       commands:
-        - echo "Building static website..."
+        - echo "Building Next.js application..."
         - npm run build
-        - echo "Preparing deployment files..."
-        - mkdir -p deploy
-        - cp -r out/* deploy/
-        - echo "Static files ready in deploy directory"
-        - ls -la deploy/
+        - echo "Build completed successfully"
   artifacts:
-    baseDirectory: deploy
+    baseDirectory: .next
     files:
       - '**/*'
   cache:
     paths:
       - node_modules/**/*
+      - .next/cache/**/*
