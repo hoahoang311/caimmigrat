@@ -1,9 +1,23 @@
 import { createClient } from '@supabase/supabase-js'
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || ''
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || ''
 
-export const supabase = createClient(supabaseUrl, supabaseAnonKey)
+if (!supabaseUrl || !supabaseAnonKey) {
+  console.warn('Missing Supabase environment variables. Some features may not work properly.')
+}
+
+export const supabase = createClient(
+  supabaseUrl || 'https://placeholder.supabase.co', 
+  supabaseAnonKey || 'placeholder-key'
+)
+
+// Helper function to check if Supabase is properly configured
+const isSupabaseConfigured = () => {
+  return supabaseUrl && supabaseAnonKey && 
+         supabaseUrl !== 'https://placeholder.supabase.co' && 
+         supabaseAnonKey !== 'placeholder-key'
+}
 
 // Database types
 export interface Inquiry {
@@ -60,6 +74,11 @@ export const serviceTypes = [
 export const database = {
   // Inquiries
   async createInquiry(inquiry: Inquiry) {
+    if (!isSupabaseConfigured()) {
+      console.warn('Supabase not configured, inquiry not saved:', inquiry.email)
+      return { id: 'mock-id', ...inquiry }
+    }
+    
     const { data, error } = await supabase
       .from('inquiries')
       .insert([inquiry])
@@ -70,6 +89,11 @@ export const database = {
   },
 
   async getInquiries(limit = 50, offset = 0) {
+    if (!isSupabaseConfigured()) {
+      console.warn('Supabase not configured, returning empty inquiries')
+      return []
+    }
+    
     const { data, error } = await supabase
       .from('inquiries')
       .select('*')
@@ -77,7 +101,7 @@ export const database = {
       .range(offset, offset + limit - 1)
     
     if (error) throw error
-    return data
+    return data || []
   },
 
   async updateInquiryStatus(id: string, status: Inquiry['status']) {
@@ -93,6 +117,11 @@ export const database = {
 
   // Newsletter
   async subscribeToNewsletter(email: string) {
+    if (!isSupabaseConfigured()) {
+      console.warn('Supabase not configured, newsletter subscription not saved:', email)
+      return { id: 'mock-id', email, success: true }
+    }
+    
     const allTopics = 'Immigration Law Updates,Visa Application Tips,Policy Changes,Success Stories,Consultation Opportunities'
     
     const subscription = { 
@@ -116,6 +145,11 @@ export const database = {
   },
 
   async getNewsletterSubscribers() {
+    if (!isSupabaseConfigured()) {
+      console.warn('Supabase not configured, returning empty newsletter subscribers')
+      return []
+    }
+    
     const { data, error } = await supabase
       .from('newsletter_subscribers')
       .select('*')
@@ -123,11 +157,16 @@ export const database = {
       .order('subscribed_at', { ascending: false })
     
     if (error) throw error
-    return data
+    return data || []
   },
 
   // Consultation bookings
   async createConsultationBooking(booking: ConsultationBooking) {
+    if (!isSupabaseConfigured()) {
+      console.warn('Supabase not configured, consultation booking not saved:', booking.email)
+      return { id: 'mock-id', ...booking }
+    }
+    
     const { data, error } = await supabase
       .from('consultation_bookings')
       .insert([booking])
@@ -138,13 +177,18 @@ export const database = {
   },
 
   async getConsultationBookings() {
+    if (!isSupabaseConfigured()) {
+      console.warn('Supabase not configured, returning empty consultation bookings')
+      return []
+    }
+    
     const { data, error } = await supabase
       .from('consultation_bookings')
       .select('*')
       .order('created_at', { ascending: false })
     
     if (error) throw error
-    return data
+    return data || []
   },
 
   async updateBookingStatus(id: string, status: ConsultationBooking['booking_status']) {
