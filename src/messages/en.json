@@ -1,0 +1,542 @@
+{
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "about": "About",
+    "contact": "Contact",
+    "book_consultation": "Book Consultation"
+  },
+  "hero": {
+    "title": "Your Canadian Immigration Partner",
+    "subtitle": "Expert immigration services with proven success rates. Let us guide you through your journey to Canada.",
+    "cta": "Get Started Today"
+  },
+  "services": {
+    "title": "Our Services",
+    "programs_title": "Immigration Programs We Handle",
+    "programs_subtitle": "From Express Entry to Family Sponsorship, we have expertise across all major Canadian immigration programs.",
+    "express_entry": {
+      "title": "Express Entry",
+      "description": "Fast-track your permanent residence application through Canada's Express Entry system.",
+      "benefits": [
+        "Processing in 6 months",
+        "No job offer required",
+        "Points-based system"
+      ]
+    },
+    "pnp": {
+      "title": "Provincial Nominee Program",
+      "description": "Provincial nomination to enhance your immigration application chances.",
+      "benefits": [
+        "Additional 600 points",
+        "Various streams available",
+        "Provincial support"
+      ]
+    },
+    "family_sponsorship": {
+      "title": "Family Sponsorship",
+      "description": "Reunite with your loved ones in Canada through family sponsorship programs.",
+      "benefits": [
+        "Sponsor spouse/children",
+        "Sponsor parents/grandparents",
+        "No points required"
+      ]
+    },
+    "study_permit": {
+      "title": "Study Permit",
+      "description": "Study in Canada with proper permits and guidance throughout the process."
+    },
+    "work_permit": {
+      "title": "Work Permit",
+      "description": "Work legally in Canada with appropriate work permits and documentation."
+    },
+    "citizenship": {
+      "title": "Citizenship",
+      "description": "Become a Canadian citizen with our comprehensive citizenship application services."
+    },
+    "page": {
+      "title": "Comprehensive Immigration Services",
+      "subtitle": "From temporary visits to permanent residence, we provide expert guidance for all your Canadian immigration needs",
+      "section_title": "Our Services",
+      "section_subtitle": "We offer comprehensive immigration services to help you achieve your Canadian dreams",
+      "why_choose_title": "Why Choose ICBM Law?",
+      "why_choose_subtitle": "Our commitment to excellence and client success sets us apart",
+      "special_programs_title": "Special Investment Programs",
+      "special_programs_subtitle": "Exclusive programs that don't require English proficiency and offer direct pathways to Permanent Residence or Work Permits for qualified investors",
+      "cta_title": "Ready to Start Your Immigration Journey?",
+      "cta_subtitle": "Our experienced team is here to guide you through every step of the process. Contact us today for a personalized consultation.",
+      "book_consultation": "Book Consultation",
+      "get_started": "Get Started Today",
+      "schedule_consultation": "Schedule Consultation"
+    },
+    "service_categories": {
+      "temporary_visa": {
+        "title": "Temporary Resident Visa",
+        "description": "Complete visa services for temporary stays in Canada",
+        "services": [
+          "Tourist Visa",
+          "Super Visa (for parents/grandparents)",
+          "Medical Visa",
+          "Exploratory Visa for Investors"
+        ]
+      },
+      "study": {
+        "title": "Study Programs",
+        "description": "Educational pathway guidance and study permit assistance",
+        "services": [
+          "School & Program Selection Guidance",
+          "Study Permit Applications",
+          "Summer Camp Programs",
+          "Winter Camp Programs"
+        ]
+      },
+      "skilled_worker": {
+        "title": "Skilled Worker Programs",
+        "description": "Permanent residence pathways for skilled professionals",
+        "services": [
+          "Express Entry System",
+          "Provincial Nominee Programs (PNP)",
+          "Atlantic Immigration Program (AIP)",
+          "Rural & Northern Immigration Pilot (RNIP)",
+          "Home Support Caregiver Program",
+          "LMIA & LMIA-exempt Work Permits",
+          "Vulnerable Open Work Permit (VOWP)",
+          "Charitable & Religious Work Permits"
+        ]
+      },
+      "investors": {
+        "title": "Investor Programs",
+        "description": "Business and investment immigration pathways",
+        "services": [
+          "Provincial Investor Programs (BC, AB, SK, MB, ON, NB, NS, PEI, NL)",
+          "Start-up Visa Program (SUV)",
+          "Self-employed Persons Program (C11)",
+          "Intra-Company Transfer (C12)",
+          "Special Programs (No English requirement for direct PR/Work Permit)"
+        ]
+      },
+      "sponsorship": {
+        "title": "Family Sponsorship",
+        "description": "Reunite with your loved ones in Canada",
+        "services": [
+          "Spousal & Partner Sponsorship",
+          "Parent & Grandparent Sponsorship",
+          "Dependent Children Sponsorship",
+          "Refugee Hearing & Appeals",
+          "Humanitarian & Compassionate Applications"
+        ]
+      },
+      "special_services": {
+        "title": "Specialized Legal Services",
+        "description": "Complex immigration matters and appeals",
+        "services": [
+          "Visa Refusal Review & Appeals",
+          "Federal Court Judicial Reviews",
+          "Procedural Fairness Letters",
+          "Removal Order Appeals",
+          "Authorization to Return (ARC)",
+          "Reconsideration Requests",
+          "Criminal Rehabilitation",
+          "Permanent Resident Travel Document (PRTD)",
+          "CBSA Matters & Detention Reviews"
+        ]
+      }
+    },
+    "why_choose": {
+      "expert_team": {
+        "title": "Expert Team",
+        "description": "Certified immigration consultants with 16+ years combined experience"
+      },
+      "success_rate": {
+        "title": "High Success Rate",
+        "description": "Proven track record with thousands of successful applications"
+      },
+      "comprehensive": {
+        "title": "Comprehensive Services",
+        "description": "Full spectrum of immigration services under one roof"
+      },
+      "legal_expertise": {
+        "title": "Legal Expertise",
+        "description": "Licensed paralegals handling complex legal matters"
+      }
+    },
+    "special_features": {
+      "no_english": {
+        "title": "No English Requirement",
+        "description": "Special pathways available"
+      },
+      "direct_pr": {
+        "title": "Direct PR Access",
+        "description": "Fast-track to permanent residence"
+      },
+      "work_permit": {
+        "title": "Work Permit Options",
+        "description": "Immediate work authorization"
+      }
+    }
+  },
+  "about": {
+    "title": "About ICBM Law",
+    "description": "We are a team of experienced immigration lawyers and consultants dedicated to helping you achieve your Canadian immigration goals.",
+    "experience": "Years of Experience",
+    "success_rate": "Success Rate",
+    "clients_helped": "Clients Helped",
+    "page": {
+      "title": "About ICBM Law",
+      "mission_intro": "Welcome to ICBM Law, a premier Canadian immigration consultancy founded by Moumita Chakraborty, a distinguished RCIC with an MBA, and Richard Brown, a Licensed Paralegal and certified Immigration Consultant. With over 16 years of combined expertise in immigration, education, and legal services, ICBM Law is dedicated to guiding clients worldwide through their journey to make Canada their permanent home, reunite with family, pursue studies, or advance professional opportunities.",
+      "mission_statement": "Our mission is to provide unwavering guidance to those embarking on their journey to Canada, while nurturing their contributions to its flourishing economic landscape.",
+      "tagline": "Let ICBM illuminate your path to a brighter future in Canada.",
+      "team_title": "Meet Our Leadership Team",
+      "moumita": {
+        "name": "Moumita Chakraborty",
+        "title": "MBA, Managing Partner",
+        "description": "Regulated Canadian Immigration Consultant (RCIC)",
+        "license": "License Number: 532939"
+      },
+      "richard": {
+        "name": "Richard Brown",
+        "title": "Paralegal, Senior Partner",
+        "description": "Licensed Paralegal & Certified Immigration Consultant",
+        "license": "License Number: 514425"
+      }
+    }
+  },
+  "features": {
+    "title": "Why Choose ICBM Law?",
+    "subtitle": "We combine expertise, experience, and personalized service to make your Canadian immigration journey as smooth as possible.",
+    "expert_team": {
+      "title": "Expert Team",
+      "description": "Our team of certified immigration lawyers and consultants have years of experience helping clients achieve their Canadian dreams."
+    },
+    "proven_success": {
+      "title": "Proven Success",
+      "description": "With thousands of successful applications, we have the expertise and track record to maximize your chances of approval."
+    },
+    "trusted_process": {
+      "title": "Trusted Process",
+      "description": "We follow a comprehensive, transparent process to ensure your application is completed accurately and submitted on time."
+    }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Ready to start your Canadian immigration journey?",
+    "page": {
+      "title": "Contact Our Expert Team",
+      "subtitle": "Ready to begin your Canadian immigration journey? Get in touch with our experienced consultants for personalized guidance and support.",
+      "office_address": "Office Address",
+      "phone": "Phone",
+      "email": "Email",
+      "business_hours": "Business Hours",
+      "business_hours_details": ["Monday - Friday: 10:00 AM - 5:00 PM", "Saturday & Sunday: Closed"],
+      "location_title": "Our Location",
+      "location_description": "Visit our office in Toronto for in-person consultations and personalized service.",
+      "visit_office_title": "Why Visit Our Office?",
+      "visit_office_benefits": [
+        "Personalized consultation with certified immigration experts",
+        "Document review and verification services",
+        "Assistance with complex application requirements",
+        "Translation and notarization services available"
+      ],
+      "urgent_assistance_title": "Urgent Assistance",
+      "urgent_assistance_description": "For urgent immigration matters or application deadlines, please call us directly:",
+      "follow_us_title": "Follow Us",
+      "follow_us_description": "Stay connected and get the latest immigration updates",
+      "faq_title": "Frequently Asked Questions",
+      "faq_description": "Common questions about our services and the immigration process.",
+      "faq_items": [
+        {
+          "question": "How long does the consultation take?",
+          "answer": "Initial consultations typically last 60-90 minutes, allowing us to thoroughly assess your situation and provide detailed recommendations."
+        },
+        {
+          "question": "What documents should I bring?",
+          "answer": "Bring your passport, educational credentials, work experience documents, language test results, and any previous immigration applications."
+        },
+        {
+          "question": "Do you offer virtual consultations?",
+          "answer": "Yes, we offer secure video consultations for clients who cannot visit our office in person. Contact us to schedule your virtual meeting."
+        },
+        {
+          "question": "What are your fees?",
+          "answer": "Our fees vary depending on the complexity of your case. We provide transparent pricing after your initial assessment and offer payment plans."
+        }
+      ]
+    },
+    "form": {
+      "title": "Send us a Message",
+      "description": "Have questions about Canadian immigration? Get in touch with our expert team.",
+      "first_name": "First Name",
+      "last_name": "Last Name",
+      "first_name_placeholder": "Enter your first name",
+      "last_name_placeholder": "Enter your last name",
+      "email": "Email Address",
+      "email_placeholder": "Enter your email address",
+      "phone": "Phone Number",
+      "phone_placeholder": "Enter your phone number",
+      "service": "Service Interest",
+      "service_placeholder": "Select a service",
+      "country_origin": "Country of Origin",
+      "country_origin_placeholder": "Enter your country of origin",
+      "subject": "Subject",
+      "subject_placeholder": "Brief subject of your inquiry",
+      "message": "Message",
+      "message_placeholder": "Tell us about your immigration needs...",
+      "preferred_contact": "Preferred Contact Method",
+      "contact_email": "Email",
+      "contact_phone": "Phone",
+      "submit": "Send Message",
+      "submitting": "Sending Message...",
+      "success_title": "Message Sent Successfully!",
+      "success_message": "Thank you for contacting us. We'll get back to you within 24 hours.",
+      "error": "Something went wrong. Please try again.",
+      "validation": {
+        "first_name_min": "First name must be at least 2 characters",
+        "last_name_min": "Last name must be at least 2 characters",
+        "email_invalid": "Please enter a valid email address",
+        "message_min": "Message must be at least 10 characters"
+      }
+    },
+    "info": {
+      "address": "Address",
+      "phone": "Phone",
+      "email": "Email",
+      "hours": "Business Hours"
+    }
+  },
+  "footer": {
+    "tagline": "Your trusted partner for Canadian immigration. We are a team of immigration lawyers, consultants, and experts ready to assist you with your Canadian immigration application.",
+    "contact_info": "Contact Information",
+    "business_hours": "Monday - Friday: 10am - 5pm",
+    "newsletter_title": "Stay Updated",
+    "newsletter_description": "Subscribe to our newsletter for the latest Canada Immigration news and updates.",
+    "copyright": "© 2024 ICBM Law. All rights reserved.",
+    "privacy_link": "Privacy Policy",
+    "terms": "Terms of Service"
+  },
+  "cta": {
+    "title": "Ready to Start Your Canadian Journey?",
+    "subtitle": "Don't let complex immigration processes hold you back. Our expert team is here to guide you every step of the way.",
+    "ask_question": "Ask Us A Question",
+    "call_now": "Call Us Now"
+  },
+  "stats": {
+    "applications": "Successful Applications",
+    "experience": "Years Experience",
+    "success_rate": "Success Rate"
+  },
+  "newsletter": {
+    "email_placeholder": "Enter your email",
+    "subscribe": "Subscribe",
+    "subscribing": "Subscribing...",
+    "success": "Successfully subscribed!",
+    "error": "Failed to subscribe. Please try again.",
+    "validation": {
+      "email_invalid": "Please enter a valid email address"
+    }
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "last_updated": "Last updated:",
+    "sections": {
+      "introduction": {
+        "title": "Introduction",
+        "content": "ICBM Law (\"we,\" \"us,\" or \"our\") is committed to protecting your privacy and personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our immigration consultation services."
+      },
+      "information_collect": {
+        "title": "Information We Collect",
+        "personal_info_title": "Personal Information",
+        "personal_info_content": "We may collect the following types of personal information:",
+        "personal_info_items": [
+          "Name, address, phone number, and email address",
+          "Date of birth, place of birth, and citizenship information",
+          "Education and employment history",
+          "Immigration history and status",
+          "Family information for sponsorship applications",
+          "Financial information for immigration purposes",
+          "Government-issued identification documents"
+        ],
+        "technical_info_title": "Technical Information",
+        "technical_info_content": "We automatically collect certain technical information when you visit our website, including IP address, browser type, device information, and website usage patterns through cookies and similar technologies."
+      },
+      "how_we_use": {
+        "title": "How We Use Your Information",
+        "content": "We use your personal information for the following purposes:",
+        "items": [
+          "Providing immigration consultation and legal services",
+          "Preparing and submitting immigration applications",
+          "Communicating with government agencies on your behalf",
+          "Responding to your inquiries and providing customer support",
+          "Improving our services and website functionality",
+          "Complying with legal and regulatory requirements",
+          "Maintaining accurate records for professional obligations"
+        ]
+      },
+      "information_sharing": {
+        "title": "Information Sharing and Disclosure",
+        "content": "We may share your personal information in the following circumstances:",
+        "items": [
+          "With Immigration, Refugees and Citizenship Canada (IRCC) and other government agencies",
+          "With third-party service providers who assist us in delivering our services",
+          "When required by law, court order, or government investigation",
+          "With your explicit consent for specific purposes",
+          "To protect our legal rights and interests"
+        ]
+      },
+      "data_security": {
+        "title": "Data Security",
+        "content": "We implement appropriate technical and organizational security measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. This includes secure file storage, encrypted communications, and regular security assessments."
+      },
+      "data_retention": {
+        "title": "Data Retention",
+        "content": "We retain your personal information for as long as necessary to provide our services and comply with legal and professional obligations. Immigration-related documents are typically retained for a minimum of seven years after the completion of your case, as required by regulatory standards."
+      },
+      "your_rights": {
+        "title": "Your Rights",
+        "content": "Under Canadian privacy legislation, you have the right to:",
+        "items": [
+          "Access your personal information in our possession",
+          "Request correction of inaccurate information",
+          "Withdraw consent where applicable",
+          "File a complaint with privacy authorities",
+          "Receive information about our privacy practices"
+        ]
+      },
+      "cookies_tracking": {
+        "title": "Cookies and Tracking",
+        "content": "Our website uses cookies to enhance user experience and analyze website traffic. You can control cookie settings through your browser preferences. Some features of our website may not function properly if cookies are disabled."
+      },
+      "third_party_links": {
+        "title": "Third-Party Links",
+        "content": "Our website may contain links to third-party websites. We are not responsible for the privacy practices of these external sites and encourage you to review their privacy policies."
+      },
+      "updates": {
+        "title": "Updates to This Policy",
+        "content": "We may update this Privacy Policy periodically to reflect changes in our practices or applicable laws. We will notify you of significant changes by posting the updated policy on our website with a new effective date."
+      },
+      "contact": {
+        "title": "Contact Information",
+        "content": "If you have questions about this Privacy Policy or wish to exercise your privacy rights, please contact us:",
+        "company_name": "ICBM Law",
+        "email": "Email: info@icbmlaw.com",
+        "phone": "Phone: +1 416-992-7429",
+        "address": "Address: 240 Humberline Dr, Toronto, ON M9W 5X1",
+        "business_hours": "Business Hours: Monday - Friday: 10:00 AM - 5:00 PM"
+      }
+    }
+  },
+  "terms": {
+    "title": "Terms of Service",
+    "last_updated": "Last updated:",
+    "sections": {
+      "acceptance": {
+        "title": "Acceptance of Terms",
+        "content": "By accessing and using the services provided by ICBM Law, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use our services or website."
+      },
+      "services": {
+        "title": "About Our Services",
+        "content": "ICBM Law provides immigration consultation services including:",
+        "items": [
+          "Immigration assessment and eligibility reviews",
+          "Application preparation and submission",
+          "Representation before Immigration, Refugees and Citizenship Canada (IRCC)",
+          "Legal advice on Canadian immigration matters",
+          "Document review and translation services",
+          "Appeal and judicial review representation"
+        ]
+      },
+      "qualifications": {
+        "title": "Professional Qualifications",
+        "content": "ICBM Law is operated by qualified professionals:",
+        "moumita": "Moumita Chakraborty: Regulated Canadian Immigration Consultant (RCIC), License #532939",
+        "richard": "Richard Brown: Licensed Paralegal and Certified Immigration Consultant, License #514425",
+        "membership": "Our consultants are members in good standing with the College of Immigration and Citizenship Consultants (CICC) and/or Law Society of Ontario, as applicable."
+      },
+      "client_responsibilities": {
+        "title": "Client Responsibilities",
+        "content": "As our client, you agree to:",
+        "items": [
+          "Provide complete, accurate, and truthful information",
+          "Respond promptly to our requests for information or documentation",
+          "Pay all fees and costs as agreed in our retainer agreement",
+          "Comply with all immigration laws and regulations",
+          "Inform us immediately of any changes in circumstances",
+          "Follow our professional advice and recommendations",
+          "Maintain confidentiality of sensitive case information"
+        ]
+      },
+      "fees": {
+        "title": "Fees and Payment Terms",
+        "content": "Our fees are outlined in individual retainer agreements and may include:",
+        "items": [
+          "Professional service fees",
+          "Government filing fees",
+          "Third-party costs (translations, medical exams, etc.)",
+          "Administrative and document handling fees"
+        ],
+        "important": "Important: Fees are generally non-refundable once work has commenced. Government fees are never refundable, regardless of application outcome."
+      },
+      "guarantee": {
+        "title": "No Guarantee of Success",
+        "disclaimer": "Disclaimer: While we provide professional immigration services with expertise and diligence, we cannot guarantee the success of any immigration application. Final decisions rest with Canadian immigration authorities, and outcomes depend on various factors beyond our control."
+      },
+      "confidentiality": {
+        "title": "Confidentiality and Privacy",
+        "content": "We maintain strict confidentiality regarding all client information in accordance with professional standards and privacy legislation. Client information will only be disclosed as necessary to provide services or as required by law. Please refer to our Privacy Policy for detailed information about data handling practices."
+      },
+      "communication": {
+        "title": "Communication and Updates",
+        "content": "We commit to:",
+        "items": [
+          "Provide regular updates on case progress",
+          "Respond to client inquiries within reasonable timeframes",
+          "Maintain professional communication standards",
+          "Forward all government correspondence promptly"
+        ]
+      },
+      "liability": {
+        "title": "Limitation of Liability",
+        "content": "Our liability is limited to the fees paid for services rendered. We are not liable for indirect, consequential, or punitive damages, including but not limited to lost opportunities, emotional distress, or costs associated with application delays or refusals."
+      },
+      "termination": {
+        "title": "Termination of Services",
+        "content": "Either party may terminate the professional relationship with reasonable notice. Upon termination:",
+        "items": [
+          "You remain responsible for all fees incurred to the date of termination",
+          "We will provide your file and documents as requested",
+          "We may complete work in progress at our discretion",
+          "Confidentiality obligations continue indefinitely"
+        ]
+      },
+      "disputes": {
+        "title": "Dispute Resolution",
+        "content": "Any disputes arising from our services will first be addressed through direct communication. If unresolved, disputes may be subject to mediation or arbitration as outlined in individual retainer agreements. You also have the right to file complaints with relevant professional regulatory bodies."
+      },
+      "governing_law": {
+        "title": "Governing Law",
+        "content": "These Terms of Service are governed by the laws of Ontario, Canada. Any legal proceedings will be conducted in the appropriate courts of Ontario."
+      },
+      "changes": {
+        "title": "Changes to Terms",
+        "content": "We reserve the right to modify these Terms of Service at any time. Updated terms will be posted on our website with a new effective date. Continued use of our services constitutes acceptance of revised terms."
+      },
+      "contact": {
+        "title": "Contact Information",
+        "content": "For questions about these Terms of Service or to discuss our services, please contact us:",
+        "company_name": "ICBM Law",
+        "email": "Email: info@icbmlaw.com",
+        "phone": "Phone: +1 416-992-7429",
+        "address": "Address: 240 Humberline Dr, Toronto, ON M9W 5X1",
+        "business_hours": "Business Hours: Monday - Friday: 10:00 AM - 5:00 PM",
+        "license_note": "Licensed immigration consultants providing professional services across Canada"
+      }
+    }
+  },
+  "common": {
+    "learn_more": "Learn More",
+    "read_more": "Read More",
+    "back_to_top": "Back to Top",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success"
+  }
+}

@@ -1,9 +1,24 @@
+"use client";
+
 import NewsletterForm from "@/components/forms/NewsletterForm";
 import ICBMLogo from "@/components/ui/ICBMLogo";
 import { Clock, Facebook, Instagram, Mail, MapPin, Phone } from "lucide-react";
+import { useTranslations } from "next-intl";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export default function Footer() {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const t = useTranslations();
+
+  if (!mounted) {
+    return null;
+  }
   return (
     <footer className="bg-slate-900 text-white">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
@@ -18,15 +33,15 @@ export default function Footer() {
               <span className="text-xl font-bold">ICBM Law</span>
             </div>
             <p className="text-slate-300 text-sm leading-relaxed">
-              Your trusted partner for Canadian immigration. We are a team of
-              immigration lawyers, consultants, and experts ready to assist you
-              with your Canadian immigration application.
+              {t("footer.tagline")}
             </p>
           </div>
 
           {/* Contact Information */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold">Contact Information</h3>
+            <h3 className="text-lg font-semibold">
+              {t("footer.contact_info")}
+            </h3>
             <div className="space-y-3 text-sm text-slate-300">
               <div className="flex items-start space-x-2">
                 <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0" />
@@ -56,7 +71,7 @@ export default function Footer() {
               </div>
               <div className="flex items-start space-x-2">
                 <Clock className="h-4 w-4 mt-0.5 flex-shrink-0" />
-                <span>Monday - Friday: 10am - 5pm</span>
+                <span>{t("footer.business_hours")}</span>
               </div>
             </div>
 
@@ -109,10 +124,11 @@ export default function Footer() {
 
           {/* Newsletter Signup */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold">Stay Updated</h3>
+            <h3 className="text-lg font-semibold">
+              {t("footer.newsletter_title")}
+            </h3>
             <p className="text-sm text-slate-300">
-              Subscribe to our newsletter for the latest Canada Immigration news
-              and updates.
+              {t("footer.newsletter_description")}
             </p>
             <NewsletterForm />
           </div>
@@ -122,20 +138,23 @@ export default function Footer() {
         <div className="mt-8 border-t border-slate-800 pt-8">
           <div className="flex flex-col items-center justify-between space-y-4 sm:flex-row sm:space-y-0">
             <p className="text-sm text-slate-400">
-              © {new Date().getFullYear()} ICBM Law. All rights reserved.
+              {t("footer.copyright").replace(
+                "2024",
+                new Date().getFullYear().toString()
+              )}
             </p>
             <div className="flex space-x-6 text-sm text-slate-400">
               <Link
                 href="/privacy"
                 className="hover:text-blue-400 transition-colors"
               >
-                Privacy Policy
+{t("footer.privacy_link")}
               </Link>
               <Link
                 href="/terms"
                 className="hover:text-blue-400 transition-colors"
               >
-                Terms of Service
+                {t("footer.terms")}
               </Link>
             </div>
           </div>

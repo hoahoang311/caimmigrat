@@ -19,7 +19,7 @@ import {
   Users,
   X,
 } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 interface Inquiry {
   id: string;
@@ -40,18 +40,30 @@ interface InquiryCalendarProps {
 }
 
 export default function InquiryCalendar({ inquiries }: InquiryCalendarProps) {
-  const [currentDate, setCurrentDate] = useState(new Date());
+  const [currentDate, setCurrentDate] = useState<Date | null>(null);
   const [selectedDate, setSelectedDate] = useState<string | null>(null);
-  const [filteredInquiries, setFilteredInquiries] =
-    useState<Inquiry[]>(inquiries);
+  const [filteredInquiries, setFilteredInquiries] = useState<Inquiry[]>([]);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setCurrentDate(new Date());
+    setFilteredInquiries(inquiries);
+    setMounted(true);
+  }, []);
 
   // Get current month and year
-  const currentMonth = currentDate.getMonth();
-  const currentYear = currentDate.getFullYear();
+  const currentMonth = currentDate?.getMonth();
+  const currentYear = currentDate?.getFullYear();
 
   // Get first day of the month and number of days
-  const firstDayOfMonth = new Date(currentYear, currentMonth, 1);
-  const lastDayOfMonth = new Date(currentYear, currentMonth + 1, 0);
+  const firstDayOfMonth =
+    currentMonth !== undefined && currentYear !== undefined
+      ? new Date(currentYear, currentMonth, 1)
+      : new Date();
+  const lastDayOfMonth =
+    currentMonth !== undefined && currentYear !== undefined
+      ? new Date(currentYear, currentMonth + 1, 0)
+      : new Date();
   const daysInMonth = lastDayOfMonth.getDate();
   const startingDayOfWeek = firstDayOfMonth.getDay();
 
@@ -70,9 +82,18 @@ export default function InquiryCalendar({ inquiries }: InquiryCalendarProps) {
 
   // Get inquiries for a specific date
   const getInquiriesForDate = (day: number) => {
-    const dateStr = `${currentYear}-${(currentMonth + 1)
-      .toString()
-      .padStart(2, "0")}-${day.toString().padStart(2, "0")}`;
+    if (currentMonth === undefined || currentYear === undefined) {
+      return [];
+    }
+    const dateStr =
+      currentMonth !== undefined && currentYear !== undefined
+        ? `${currentYear}-${(currentMonth + 1)
+            .toString()
+            .padStart(2, "0")}-${day.toString().padStart(2, "0")}`
+        : "";
+    if (!dateStr) {
+      return [];
+    }
     return inquiries.filter((inquiry) =>
       inquiry.created_at.startsWith(dateStr)
     );
@@ -80,9 +101,15 @@ export default function InquiryCalendar({ inquiries }: InquiryCalendarProps) {
 
   // Handle date selection
   const handleDateSelect = (day: number) => {
-    const dateStr = `${currentYear}-${(currentMonth + 1)
-      .toString()
-      .padStart(2, "0")}-${day.toString().padStart(2, "0")}`;
+    if (currentMonth === undefined || currentYear === undefined) {
+      return;
+    }
+    const dateStr =
+      currentMonth !== undefined && currentYear !== undefined
+        ? `${currentYear}-${(currentMonth + 1)
+            .toString()
+            .padStart(2, "0")}-${day.toString().padStart(2, "0")}`
+        : "";
     if (selectedDate === dateStr) {
       // Deselect if clicking the same date
       setSelectedDate(null);
@@ -96,13 +123,17 @@ export default function InquiryCalendar({ inquiries }: InquiryCalendarProps) {
 
   // Navigate months
   const goToPreviousMonth = () => {
-    setCurrentDate(new Date(currentYear, currentMonth - 1, 1));
+    if (currentYear !== undefined && currentMonth !== undefined) {
+      setCurrentDate(new Date(currentYear, currentMonth - 1, 1));
+    }
     setSelectedDate(null);
     setFilteredInquiries(inquiries);
   };
 
   const goToNextMonth = () => {
-    setCurrentDate(new Date(currentYear, currentMonth + 1, 1));
+    if (currentYear !== undefined && currentMonth !== undefined) {
+      setCurrentDate(new Date(currentYear, currentMonth + 1, 1));
+    }
     setSelectedDate(null);
     setFilteredInquiries(inquiries);
   };
@@ -128,6 +159,10 @@ export default function InquiryCalendar({ inquiries }: InquiryCalendarProps) {
   ];
 
   const weekDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  if (!mounted) {
+    return null;
+  }
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -161,7 +196,8 @@ export default function InquiryCalendar({ inquiries }: InquiryCalendarProps) {
               <ChevronLeft className="h-4 w-4" />
             </Button>
             <h3 className="font-medium">
-              {months[currentMonth]} {currentYear}
+              {currentMonth !== undefined ? months[currentMonth] : ""}{" "}
+              {currentYear ?? ""}
             </h3>
             <Button variant="ghost" size="sm" onClick={goToNextMonth}>
               <ChevronRight className="h-4 w-4" />
@@ -170,9 +206,9 @@ export default function InquiryCalendar({ inquiries }: InquiryCalendarProps) {
 
           {/* Calendar Grid */}
           <div className="grid grid-cols-7 gap-1 mb-2">
-            {weekDays.map((day) => (
+            {weekDays.map((day, idx) => (
               <div
-                key={day}
+                key={`${day}-${idx}`}
                 className="text-center text-xs font-medium text-gray-500 p-2"
               >
                 {day}
@@ -183,22 +219,27 @@ export default function InquiryCalendar({ inquiries }: InquiryCalendarProps) {
           <div className="grid grid-cols-7 gap-1">
             {calendarDays.map((day, index) => {
               if (day === null) {
-                return <div key={index} className="p-2"></div>;
+                return <div key={(day || "") + index} className="p-2"></div>;
               }
 
               const inquiriesForDay = getInquiriesForDate(day);
               const hasInquiries = inquiriesForDay.length > 0;
-              const dateStr = `${currentYear}-${(currentMonth + 1)
-                .toString()
-                .padStart(2, "0")}-${day.toString().padStart(2, "0")}`;
+              let dateStr = "";
+              if (currentMonth !== undefined && currentYear !== undefined) {
+                dateStr = `${currentYear}-${(currentMonth + 1)
+                  .toString()
+                  .padStart(2, "0")}-${day.toString().padStart(2, "0")}`;
+              }
               const isSelected = selectedDate === dateStr;
               const isToday =
+                currentMonth !== undefined &&
+                currentYear !== undefined &&
                 new Date().toDateString() ===
-                new Date(currentYear, currentMonth, day).toDateString();
+                  new Date(currentYear, currentMonth, day).toDateString();
 
               return (
                 <button
-                  key={day}
+                  key={day + index}
                   onClick={() => handleDateSelect(day)}
                   className={`
                     p-2 text-sm rounded-md transition-colors relative
@@ -255,8 +296,8 @@ export default function InquiryCalendar({ inquiries }: InquiryCalendarProps) {
         </CardHeader>
         <CardContent>
           <div className="space-y-4 max-h-96 overflow-y-auto">
-            {filteredInquiries.slice(0, 10).map((inquiry) => (
-              <div key={inquiry.id} className="border rounded-lg p-4">
+            {filteredInquiries.slice(0, 10).map((inquiry, idx) => (
+              <div key={inquiry.id + idx} className="border rounded-lg p-4">
                 <div className="flex justify-between items-start mb-2">
                   <h4 className="font-semibold">
                     {inquiry.first_name} {inquiry.last_name}

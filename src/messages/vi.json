@@ -1,0 +1,542 @@
+{
+  "nav": {
+    "home": "Trang Chủ",
+    "services": "Dịch Vụ",
+    "about": "Về Chúng Tôi",
+    "contact": "Liên Hệ",
+    "book_consultation": "Đặt Lịch Tư Vấn"
+  },
+  "hero": {
+    "title": "Đối Tác Định Cư Canada Của Bạn",
+    "subtitle": "Dịch vụ định cư chuyên nghiệp với tỷ lệ thành công đã được chứng minh. Hãy để chúng tôi hướng dẫn bạn trong hành trình đến Canada.",
+    "cta": "Bắt Đầu Ngay Hôm Nay"
+  },
+  "services": {
+    "title": "Dịch Vụ Của Chúng Tôi",
+    "programs_title": "Các Chương Trình Định Cư Chúng Tôi Xử Lý",
+    "programs_subtitle": "Từ Express Entry đến Bảo Lãnh Gia Đình, chúng tôi có chuyên môn trong tất cả các chương trình định cư Canada chính.",
+    "express_entry": {
+      "title": "Express Entry",
+      "description": "Xử lý nhanh đơn xin thường trú qua hệ thống Express Entry của Canada.",
+      "benefits": [
+        "Xử lý trong 6 tháng",
+        "Không cần có job offer",
+        "Hệ thống tính điểm"
+      ]
+    },
+    "pnp": {
+      "title": "Chương Trình Đề Cử Tỉnh Bang",
+      "description": "Đề cử tỉnh bang để tăng cơ hội định cư của bạn.",
+      "benefits": [
+        "Thêm 600 điểm",
+        "Nhiều luồng khác nhau có sẵn",
+        "Hỗ trợ từ tỉnh bang"
+      ]
+    },
+    "family_sponsorship": {
+      "title": "Bảo Lãnh Gia Đình",
+      "description": "Đoàn tụ với người thân yêu tại Canada thông qua chương trình bảo lãnh gia đình.",
+      "benefits": [
+        "Bảo lãnh vợ/chồng/con",
+        "Bảo lãnh cha mẹ/ông bà",
+        "Không cần tính điểm"
+      ]
+    },
+    "study_permit": {
+      "title": "Giấy Phép Du Học",
+      "description": "Du học tại Canada với giấy phép phù hợp và hướng dẫn trong suốt quá trình."
+    },
+    "work_permit": {
+      "title": "Giấy Phép Lao Động",
+      "description": "Làm việc hợp pháp tại Canada với giấy phép lao động và hồ sơ phù hợp."
+    },
+    "citizenship": {
+      "title": "Quốc Tịch",
+      "description": "Trở thành công dân Canada với dịch vụ nộp đơn quốc tịch toàn diện của chúng tôi."
+    },
+    "page": {
+      "title": "Dịch Vụ Định Cư Toàn Diện",
+      "subtitle": "Từ thăm viếng tạm thời đến thường trú, chúng tôi cung cấp hướng dẫn chuyên nghiệp cho tất cả nhu cầu định cư Canada của bạn",
+      "section_title": "Dịch Vụ Của Chúng Tôi",
+      "section_subtitle": "Chúng tôi cung cấp dịch vụ định cư toàn diện để giúp bạn thực hiện giấc mơ Canada",
+      "why_choose_title": "Tại Sao Chọn ICBM Law?",
+      "why_choose_subtitle": "Cam kết xuất sắc và thành công của khách hàng là điều khiến chúng tôi khác biệt",
+      "special_programs_title": "Chương Trình Đầu Tư Đặc Biệt",
+      "special_programs_subtitle": "Các chương trình độc quyền không yêu cầu tiếng Anh và cung cấp con đường trực tiếp đến Thường Trú hoặc Giấy Phép Lao Động cho các nhà đầu tư đủ điều kiện",
+      "cta_title": "Sẵn Sàng Bắt Đầu Hành Trình Định Cư?",
+      "cta_subtitle": "Đội ngũ giàu kinh nghiệm của chúng tôi sẵn sàng hướng dẫn bạn từng bước trong quá trình. Liên hệ với chúng tôi ngay hôm nay để được tư vấn cá nhân hóa.",
+      "book_consultation": "Đặt Lịch Tư Vấn",
+      "get_started": "Bắt Đầu Ngay Hôm Nay",
+      "schedule_consultation": "Đặt Lịch Tư Vấn"
+    },
+    "service_categories": {
+      "temporary_visa": {
+        "title": "Visa Cư Trú Tạm Thời",
+        "description": "Dịch vụ visa hoàn chỉnh cho lưu trú tạm thời tại Canada",
+        "services": [
+          "Visa Du Lịch",
+          "Super Visa (cho cha mẹ/ông bà)",
+          "Visa Y Tế",
+          "Visa Khám Phá cho Nhà Đầu Tư"
+        ]
+      },
+      "study": {
+        "title": "Chương Trình Du Học",
+        "description": "Hướng dẫn con đường giáo dục và hỗ trợ giấy phép du học",
+        "services": [
+          "Hướng Dẫn Chọn Trường & Chương Trình",
+          "Đơn Xin Giấy Phép Du Học",
+          "Chương Trình Trại Hè",
+          "Chương Trình Trại Đông"
+        ]
+      },
+      "skilled_worker": {
+        "title": "Chương Trình Lao Động Lành Nghề",
+        "description": "Con đường thường trú cho các chuyên gia lành nghề",
+        "services": [
+          "Hệ Thống Express Entry",
+          "Chương Trình Đề Cử Tỉnh Bang (PNP)",
+          "Chương Trình Định Cư Atlantic (AIP)",
+          "Chương Trình Thí Điểm Nông Thôn & Miền Bắc (RNIP)",
+          "Chương Trình Chăm Sóc Tại Nhà",
+          "Giấy Phép Lao Động LMIA & Miễn LMIA",
+          "Giấy Phép Lao Động Mở Dễ Bị Tổn Thương (VOWP)",
+          "Giấy Phép Lao Động Từ Thiện & Tôn Giáo"
+        ]
+      },
+      "investors": {
+        "title": "Chương Trình Nhà Đầu Tư",
+        "description": "Con đường định cư kinh doanh và đầu tư",
+        "services": [
+          "Chương Trình Đầu Tư Tỉnh Bang (BC, AB, SK, MB, ON, NB, NS, PEI, NL)",
+          "Chương Trình Visa Khởi Nghiệp (SUV)",
+          "Chương Trình Tự Làm Chủ (C11)",
+          "Chuyển Giao Nội Bộ Công Ty (C12)",
+          "Chương Trình Đặc Biệt (Không yêu cầu tiếng Anh cho PR/Giấy Phép Lao Động trực tiếp)"
+        ]
+      },
+      "sponsorship": {
+        "title": "Bảo Lãnh Gia Đình",
+        "description": "Đoàn tụ với người thân yêu tại Canada",
+        "services": [
+          "Bảo Lãnh Vợ/Chồng & Đối Tác",
+          "Bảo Lãnh Cha Mẹ & Ông Bà",
+          "Bảo Lãnh Con Phụ Thuộc",
+          "Phiên Tòa & Kháng Cáo Người Tị Nạn",
+          "Đơn Xin Nhân Đạo & Thương Cảm"
+        ]
+      },
+      "special_services": {
+        "title": "Dịch Vụ Pháp Lý Chuyên Môn",
+        "description": "Các vấn đề định cư phức tạp và kháng cáo",
+        "services": [
+          "Xem Xét & Kháng Cáo Từ Chối Visa",
+          "Xem Xét Tư Pháp Tòa Án Liên Bang",
+          "Thư Công Bằng Thủ Tục",
+          "Kháng Cáo Lệnh Trục Xuất",
+          "Giấy Phép Trở Lại (ARC)",
+          "Yêu Cầu Xem Xét Lại",
+          "Phục Hồi Tội Phạm",
+          "Tài Liệu Du Lịch Thường Trú (PRTD)",
+          "Vấn Đề CBSA & Xem Xét Giam Giữ"
+        ]
+      }
+    },
+    "why_choose": {
+      "expert_team": {
+        "title": "Đội Ngũ Chuyên Gia",
+        "description": "Tư vấn định cư được chứng nhận với 16+ năm kinh nghiệm kết hợp"
+      },
+      "success_rate": {
+        "title": "Tỷ Lệ Thành Công Cao",
+        "description": "Thành tích đã được chứng minh với hàng nghìn hồ sơ thành công"
+      },
+      "comprehensive": {
+        "title": "Dịch Vụ Toàn Diện",
+        "description": "Phạm vi đầy đủ các dịch vụ định cư dưới một mái nhà"
+      },
+      "legal_expertise": {
+        "title": "Chuyên Môn Pháp Lý",
+        "description": "Trợ lý pháp lý được cấp phép xử lý các vấn đề pháp lý phức tạp"
+      }
+    },
+    "special_features": {
+      "no_english": {
+        "title": "Không Yêu Cầu Tiếng Anh",
+        "description": "Có sẵn các con đường đặc biệt"
+      },
+      "direct_pr": {
+        "title": "Truy Cập PR Trực Tiếp",
+        "description": "Con đường nhanh đến thường trú"
+      },
+      "work_permit": {
+        "title": "Tùy Chọn Giấy Phép Lao Động",
+        "description": "Ủy quyền làm việc ngay lập tức"
+      }
+    }
+  },
+  "about": {
+    "title": "Về ICBM Law",
+    "description": "Chúng tôi là đội ngũ luật sư và tư vấn định cư giàu kinh nghiệm, tận tâm giúp bạn đạt được mục tiêu định cư Canada.",
+    "experience": "Năm Kinh Nghiệm",
+    "success_rate": "Tỷ Lệ Thành Công",
+    "clients_helped": "Khách Hàng Đã Hỗ Trợ",
+    "page": {
+      "title": "Về ICBM Law",
+      "mission_intro": "Chào mừng đến với ICBM Law, công ty tư vấn định cư Canada hàng đầu được thành lập bởi Moumita Chakraborty, một RCIC xuất sắc có MBA, và Richard Brown, một Trợ lý Pháp lý Có Giấy phép và Tư vấn Định cư Được chứng nhận. Với hơn 16 năm kinh nghiệm kết hợp trong lĩnh vực định cư, giáo dục và dịch vụ pháp lý, ICBM Law cam kết hướng dẫn khách hàng trên toàn thế giới trong hành trình biến Canada thành ngôi nhà vĩnh viễn, đoàn tụ gia đình, theo đuổi việc học hoặc thăng tiến cơ hội nghề nghiệp.",
+      "mission_statement": "Sứ mệnh của chúng tôi là cung cấp sự hướng dẫn kiên định cho những ai bắt đầu hành trình đến Canada, đồng thời nuôi dưỡng những đóng góp của họ cho cảnh quan kinh tế thịnh vượng của đất nước này.",
+      "tagline": "Hãy để ICBM thắp sáng con đường đến một tương lai tươi sáng hơn ở Canada.",
+      "team_title": "Gặp Gỡ Đội Ngũ Lãnh Đạo",
+      "moumita": {
+        "name": "Moumita Chakraborty",
+        "title": "MBA, Đối Tác Quản Lý",
+        "description": "Tư Vấn Định Cư Canada Được Quy Định (RCIC)",
+        "license": "Số Giấy Phép: 532939"
+      },
+      "richard": {
+        "name": "Richard Brown",
+        "title": "Trợ Lý Pháp Lý, Đối Tác Cấp Cao",
+        "description": "Trợ Lý Pháp Lý Có Giấy Phép & Tư Vấn Định Cư Được Chứng Nhận",
+        "license": "Số Giấy Phép: 514425"
+      }
+    }
+  },
+  "features": {
+    "title": "Tại Sao Chọn ICBM Law?",
+    "subtitle": "Chúng tôi kết hợp chuyên môn, kinh nghiệm và dịch vụ cá nhân hóa để làm cho hành trình định cư Canada của bạn trở nên suôn sẻ nhất có thể.",
+    "expert_team": {
+      "title": "Đội Ngũ Chuyên Gia",
+      "description": "Đội ngũ luật sư và tư vấn định cư được chứng nhận của chúng tôi có nhiều năm kinh nghiệm giúp khách hàng thực hiện ước mơ Canada."
+    },
+    "proven_success": {
+      "title": "Thành Công Đã Chứng Minh",
+      "description": "Với hàng nghìn hồ sơ thành công, chúng tôi có chuyên môn và thành tích để tối đa hóa cơ hội phê duyệt của bạn."
+    },
+    "trusted_process": {
+      "title": "Quy Trình Đáng Tin Cậy",
+      "description": "Chúng tôi tuân theo quy trình toàn diện, minh bạch để đảm bảo hồ sơ của bạn được hoàn thành chính xác và nộp đúng thời hạn."
+    }
+  },
+  "contact": {
+    "title": "Liên Hệ Với Chúng Tôi",
+    "subtitle": "Sẵn sàng bắt đầu hành trình định cư Canada?",
+    "page": {
+      "title": "Liên Hệ Đội Ngũ Chuyên Gia",
+      "subtitle": "Sẵn sàng bắt đầu hành trình định cư Canada? Liên hệ với các tư vấn viên giàu kinh nghiệm của chúng tôi để được hướng dẫn và hỗ trợ cá nhân hóa.",
+      "office_address": "Địa Chỉ Văn Phòng",
+      "phone": "Điện Thoại",
+      "email": "Email",
+      "business_hours": "Giờ Làm Việc",
+      "business_hours_details": ["Thứ Hai - Thứ Sáu: 10:00 AM - 5:00 PM", "Thứ Bảy & Chủ Nhật: Đóng Cửa"],
+      "location_title": "Vị Trí Của Chúng Tôi",
+      "location_description": "Ghé thăm văn phòng của chúng tôi tại Toronto để được tư vấn trực tiếp và dịch vụ cá nhân hóa.",
+      "visit_office_title": "Tại Sao Nên Đến Văn Phòng?",
+      "visit_office_benefits": [
+        "Tư vấn cá nhân hóa với các chuyên gia định cư được chứng nhận",
+        "Dịch vụ xem xét và xác minh tài liệu",
+        "Hỗ trợ các yêu cầu hồ sơ phức tạp",
+        "Có sẵn dịch vụ dịch thuật và công chứng"
+      ],
+      "urgent_assistance_title": "Hỗ Trợ Khẩn Cấp",
+      "urgent_assistance_description": "Đối với các vấn đề định cư khẩn cấp hoặc thời hạn nộp hồ sơ, vui lòng gọi trực tiếp cho chúng tôi:",
+      "follow_us_title": "Theo Dõi Chúng Tôi",
+      "follow_us_description": "Duy trì kết nối và nhận cập nhật mới nhất về định cư",
+      "faq_title": "Câu Hỏi Thường Gặp",
+      "faq_description": "Các câu hỏi phổ biến về dịch vụ và quy trình định cư của chúng tôi.",
+      "faq_items": [
+        {
+          "question": "Buổi tư vấn kéo dài bao lâu?",
+          "answer": "Buổi tư vấn ban đầu thường kéo dài 60-90 phút, cho phép chúng tôi đánh giá kỹ lưỡng tình huống của bạn và đưa ra khuyến nghị chi tiết."
+        },
+        {
+          "question": "Tôi nên mang theo những tài liệu gì?",
+          "answer": "Mang theo hộ chiếu, bằng cấp học vấn, tài liệu kinh nghiệm làm việc, kết quả kiểm tra ngôn ngữ và bất kỳ đơn xin định cư nào trước đây."
+        },
+        {
+          "question": "Bạn có cung cấp tư vấn trực tuyến không?",
+          "answer": "Có, chúng tôi cung cấp tư vấn video an toàn cho khách hàng không thể đến văn phòng trực tiếp. Liên hệ với chúng tôi để đặt lịch cuộc họp trực tuyến."
+        },
+        {
+          "question": "Chi phí của bạn là bao nhiêu?",
+          "answer": "Chi phí của chúng tôi khác nhau tùy thuộc vào độ phức tạp của trường hợp. Chúng tôi cung cấp định giá minh bạch sau khi đánh giá ban đầu và cung cấp kế hoạch thanh toán."
+        }
+      ]
+    },
+    "form": {
+      "title": "Gửi Tin Nhắn Cho Chúng Tôi",
+      "description": "Có câu hỏi về định cư Canada? Liên hệ với đội ngũ chuyên gia của chúng tôi.",
+      "first_name": "Tên",
+      "last_name": "Họ",
+      "first_name_placeholder": "Nhập tên của bạn",
+      "last_name_placeholder": "Nhập họ của bạn",
+      "email": "Địa Chỉ Email",
+      "email_placeholder": "Nhập địa chỉ email của bạn",
+      "phone": "Số Điện Thoại",
+      "phone_placeholder": "Nhập số điện thoại của bạn",
+      "service": "Dịch Vụ Quan Tâm",
+      "service_placeholder": "Chọn một dịch vụ",
+      "country_origin": "Quốc Gia Xuất Xứ",
+      "country_origin_placeholder": "Nhập quốc gia xuất xứ của bạn",
+      "subject": "Chủ Đề",
+      "subject_placeholder": "Chủ đề ngắn gọn của câu hỏi",
+      "message": "Tin Nhắn",
+      "message_placeholder": "Hãy cho chúng tôi biết về nhu cầu định cư của bạn...",
+      "preferred_contact": "Phương Thức Liên Hệ Ưa Thích",
+      "contact_email": "Email",
+      "contact_phone": "Điện Thoại",
+      "submit": "Gửi Tin Nhắn",
+      "submitting": "Đang Gửi Tin Nhắn...",
+      "success_title": "Gửi Tin Nhắn Thành Công!",
+      "success_message": "Cảm ơn bạn đã liên hệ với chúng tôi. Chúng tôi sẽ phản hồi trong vòng 24 giờ.",
+      "error": "Có lỗi xảy ra. Vui lòng thử lại.",
+      "validation": {
+        "first_name_min": "Tên phải có ít nhất 2 ký tự",
+        "last_name_min": "Họ phải có ít nhất 2 ký tự",
+        "email_invalid": "Vui lòng nhập địa chỉ email hợp lệ",
+        "message_min": "Tin nhắn phải có ít nhất 10 ký tự"
+      }
+    },
+    "info": {
+      "address": "Địa Chỉ",
+      "phone": "Điện Thoại",
+      "email": "Email",
+      "hours": "Giờ Làm Việc"
+    }
+  },
+  "footer": {
+    "tagline": "Đối tác tin cậy cho định cư Canada. Chúng tôi là đội ngũ luật sư, tư vấn và chuyên gia định cư sẵn sàng hỗ trợ bạn trong việc nộp đơn định cư Canada.",
+    "contact_info": "Thông Tin Liên Hệ",
+    "business_hours": "Thứ Hai - Thứ Sáu: 10am - 5pm",
+    "newsletter_title": "Cập Nhật Thông Tin",
+    "newsletter_description": "Đăng ký nhận bản tin để cập nhật tin tức và thông tin mới nhất về Định Cư Canada.",
+    "copyright": "© 2024 ICBM Law. Tất cả quyền được bảo lưu.",
+    "privacy_link": "Chính Sách Bảo Mật",
+    "terms": "Điều Khoản Dịch Vụ"
+  },
+  "cta": {
+    "title": "Sẵn Sàng Bắt Đầu Hành Trình Canada Của Bạn?",
+    "subtitle": "Đừng để các quy trình định cư phức tạp cản trở bạn. Đội ngũ chuyên gia của chúng tôi sẵn sàng hướng dẫn bạn từng bước.",
+    "ask_question": "Đặt Câu Hỏi",
+    "call_now": "Gọi Ngay"
+  },
+  "stats": {
+    "applications": "Hồ Sơ Thành Công",
+    "experience": "Năm Kinh Nghiệm",
+    "success_rate": "Tỷ Lệ Thành Công"
+  },
+  "newsletter": {
+    "email_placeholder": "Nhập email của bạn",
+    "subscribe": "Đăng Ký",
+    "subscribing": "Đang Đăng Ký...",
+    "success": "Đăng ký thành công!",
+    "error": "Đăng ký thất bại. Vui lòng thử lại.",
+    "validation": {
+      "email_invalid": "Vui lòng nhập địa chỉ email hợp lệ"
+    }
+  },
+  "privacy": {
+    "title": "Chính Sách Bảo Mật",
+    "last_updated": "Cập nhật lần cuối:",
+    "sections": {
+      "introduction": {
+        "title": "Giới Thiệu",
+        "content": "ICBM Law (\"chúng tôi,\" \"chúng tôi,\" hoặc \"của chúng tôi\") cam kết bảo vệ quyền riêng tư và thông tin cá nhân của bạn. Chính Sách Bảo Mật này giải thích cách chúng tôi thu thập, sử dụng, tiết lộ và bảo vệ thông tin của bạn khi bạn truy cập trang web của chúng tôi hoặc sử dụng dịch vụ tư vấn định cư của chúng tôi."
+      },
+      "information_collect": {
+        "title": "Thông Tin Chúng Tôi Thu Thập",
+        "personal_info_title": "Thông Tin Cá Nhân",
+        "personal_info_content": "Chúng tôi có thể thu thập các loại thông tin cá nhân sau:",
+        "personal_info_items": [
+          "Tên, địa chỉ, số điện thoại và địa chỉ email",
+          "Ngày sinh, nơi sinh và thông tin quốc tịch",
+          "Lịch sử giáo dục và việc làm",
+          "Lịch sử và tình trạng định cư",
+          "Thông tin gia đình cho đơn xin bảo lãnh",
+          "Thông tin tài chính cho mục đích định cư",
+          "Tài liệu nhận dạng do chính phủ cấp"
+        ],
+        "technical_info_title": "Thông Tin Kỹ Thuật",
+        "technical_info_content": "Chúng tôi tự động thu thập một số thông tin kỹ thuật nhất định khi bạn truy cập trang web của chúng tôi, bao gồm địa chỉ IP, loại trình duyệt, thông tin thiết bị và các mẫu sử dụng trang web thông qua cookies và các công nghệ tương tự."
+      },
+      "how_we_use": {
+        "title": "Cách Chúng Tôi Sử Dụng Thông Tin Của Bạn",
+        "content": "Chúng tôi sử dụng thông tin cá nhân của bạn cho các mục đích sau:",
+        "items": [
+          "Cung cấp dịch vụ tư vấn định cư và pháp lý",
+          "Chuẩn bị và nộp đơn xin định cư",
+          "Liên lạc với các cơ quan chính phủ thay mặt bạn",
+          "Phản hồi các câu hỏi của bạn và cung cấp hỗ trợ khách hàng",
+          "Cải thiện dịch vụ và chức năng trang web của chúng tôi",
+          "Tuân thủ các yêu cầu pháp lý và quy định",
+          "Duy trì hồ sơ chính xác cho các nghĩa vụ nghề nghiệp"
+        ]
+      },
+      "information_sharing": {
+        "title": "Chia Sẻ và Tiết Lộ Thông Tin",
+        "content": "Chúng tôi có thể chia sẻ thông tin cá nhân của bạn trong các trường hợp sau:",
+        "items": [
+          "Với Bộ Di trú, Người tị nạn và Công dân Canada (IRCC) và các cơ quan chính phủ khác",
+          "Với các nhà cung cấp dịch vụ bên thứ ba hỗ trợ chúng tôi cung cấp dịch vụ",
+          "Khi được yêu cầu theo pháp luật, lệnh của tòa án hoặc điều tra của chính phủ",
+          "Với sự đồng ý rõ ràng của bạn cho các mục đích cụ thể",
+          "Để bảo vệ quyền và lợi ích pháp lý của chúng tôi"
+        ]
+      },
+      "data_security": {
+        "title": "Bảo Mật Dữ Liệu",
+        "content": "Chúng tôi thực hiện các biện pháp bảo mật kỹ thuật và tổ chức phù hợp để bảo vệ thông tin cá nhân của bạn khỏi việc truy cập, thay đổi, tiết lộ hoặc phá hủy trái phép. Điều này bao gồm lưu trữ tệp an toàn, liên lạc được mã hóa và đánh giá bảo mật thường xuyên."
+      },
+      "data_retention": {
+        "title": "Lưu Trữ Dữ Liệu",
+        "content": "Chúng tôi lưu giữ thông tin cá nhân của bạn trong thời gian cần thiết để cung cấp dịch vụ và tuân thủ các nghĩa vụ pháp lý và nghề nghiệp. Các tài liệu liên quan đến định cư thường được lưu giữ tối thiểu bảy năm sau khi hoàn thành trường hợp của bạn, theo yêu cầu của các tiêu chuẩn quy định."
+      },
+      "your_rights": {
+        "title": "Quyền Của Bạn",
+        "content": "Theo luật bảo mật Canada, bạn có quyền:",
+        "items": [
+          "Truy cập thông tin cá nhân của bạn trong sở hữu của chúng tôi",
+          "Yêu cầu sửa chữa thông tin không chính xác",
+          "Rút lại sự đồng ý khi có thể áp dụng",
+          "Nộp đơn khiếu nại với các cơ quan bảo mật",
+          "Nhận thông tin về các thực hành bảo mật của chúng tôi"
+        ]
+      },
+      "cookies_tracking": {
+        "title": "Cookies và Theo Dõi",
+        "content": "Trang web của chúng tôi sử dụng cookies để nâng cao trải nghiệm người dùng và phân tích lưu lượng truy cập trang web. Bạn có thể kiểm soát cài đặt cookie thông qua tùy chọn trình duyệt của mình. Một số tính năng của trang web có thể không hoạt động đúng cách nếu cookies bị vô hiệu hóa."
+      },
+      "third_party_links": {
+        "title": "Liên Kết Bên Thứ Ba",
+        "content": "Trang web của chúng tôi có thể chứa các liên kết đến các trang web của bên thứ ba. Chúng tôi không chịu trách nhiệm về các thực hành bảo mật của các trang web bên ngoài này và khuyến khích bạn xem xét các chính sách bảo mật của họ."
+      },
+      "updates": {
+        "title": "Cập Nhật Chính Sách Này",
+        "content": "Chúng tôi có thể cập nhật Chính Sách Bảo Mật này định kỳ để phản ánh những thay đổi trong thực hành hoặc luật pháp áp dụng. Chúng tôi sẽ thông báo cho bạn về những thay đổi quan trọng bằng cách đăng chính sách cập nhật trên trang web với ngày hiệu lực mới."
+      },
+      "contact": {
+        "title": "Thông Tin Liên Hệ",
+        "content": "Nếu bạn có câu hỏi về Chính Sách Bảo Mật này hoặc muốn thực hiện quyền bảo mật của mình, vui lòng liên hệ với chúng tôi:",
+        "company_name": "ICBM Law",
+        "email": "Email: info@icbmlaw.com",
+        "phone": "Điện thoại: +1 416-992-7429",
+        "address": "Địa chỉ: 240 Humberline Dr, Toronto, ON M9W 5X1",
+        "business_hours": "Giờ làm việc: Thứ Hai - Thứ Sáu: 10:00 AM - 5:00 PM"
+      }
+    }
+  },
+  "terms": {
+    "title": "Điều Khoản Dịch Vụ",
+    "last_updated": "Cập nhật lần cuối:",
+    "sections": {
+      "acceptance": {
+        "title": "Chấp Nhận Điều Khoản",
+        "content": "Bằng việc truy cập và sử dụng các dịch vụ được cung cấp bởi ICBM Law, bạn xác nhận rằng bạn đã đọc, hiểu và đồng ý bị ràng buộc bởi các Điều Khoản Dịch Vụ này. Nếu bạn không đồng ý với các điều khoản này, vui lòng không sử dụng dịch vụ hoặc trang web của chúng tôi."
+      },
+      "services": {
+        "title": "Về Dịch Vụ Của Chúng Tôi",
+        "content": "ICBM Law cung cấp các dịch vụ tư vấn định cư bao gồm:",
+        "items": [
+          "Đánh giá định cư và xem xét điều kiện",
+          "Chuẩn bị và nộp đơn",
+          "Đại diện trước Bộ Di Trú, Tị Nạn và Quốc Tịch Canada (IRCC)",
+          "Tư vấn pháp lý về các vấn đề định cư Canada",
+          "Dịch vụ xem xét và dịch thuật tài liệu",
+          "Đại diện trong khiếu nại và xem xét tư pháp"
+        ]
+      },
+      "qualifications": {
+        "title": "Trình Độ Chuyên Môn",
+        "content": "ICBM Law được điều hành bởi các chuyên gia có trình độ:",
+        "moumita": "Moumita Chakraborty: Tư Vấn Định Cư Canada Được Quản Lý (RCIC), Giấy Phép #532939",
+        "richard": "Richard Brown: Trợ Lý Pháp Lý Có Giấy Phép và Tư Vấn Định Cư Được Chứng Nhận, Giấy Phép #514425",
+        "membership": "Các tư vấn của chúng tôi là thành viên có uy tín của Trường Cao Đẳng Tư Vấn Định Cư và Quốc Tịch (CICC) và/hoặc Hội Luật Sư Ontario, tùy trường hợp."
+      },
+      "client_responsibilities": {
+        "title": "Trách Nhiệm Khách Hàng",
+        "content": "Với tư cách khách hàng của chúng tôi, bạn đồng ý:",
+        "items": [
+          "Cung cấp thông tin đầy đủ, chính xác và trung thực",
+          "Phản hồi nhanh chóng các yêu cầu thông tin hoặc tài liệu của chúng tôi",
+          "Thanh toán tất cả các phí và chi phí như đã thỏa thuận trong hợp đồng",
+          "Tuân thủ tất cả luật và quy định về định cư",
+          "Thông báo ngay lập tức cho chúng tôi về bất kỳ thay đổi nào trong hoàn cảnh",
+          "Làm theo lời khuyên và khuyến nghị chuyên môn của chúng tôi",
+          "Duy trì tính bảo mật của thông tin vụ án nhạy cảm"
+        ]
+      },
+      "fees": {
+        "title": "Phí và Điều Khoản Thanh Toán",
+        "content": "Phí của chúng tôi được nêu trong các hợp đồng cá nhân và có thể bao gồm:",
+        "items": [
+          "Phí dịch vụ chuyên môn",
+          "Phí nộp đơn chính phủ",
+          "Chi phí bên thứ ba (dịch thuật, khám y tế, v.v.)",
+          "Phí hành chính và xử lý tài liệu"
+        ],
+        "important": "Quan trọng: Các khoản phí thường không được hoàn lại sau khi công việc đã bắt đầu. Phí chính phủ không bao giờ được hoàn lại, bất kể kết quả đơn như thế nào."
+      },
+      "guarantee": {
+        "title": "Không Đảm Bảo Thành Công",
+        "disclaimer": "Tuyên bố từ chối: Mặc dù chúng tôi cung cấp dịch vụ định cư chuyên nghiệp với chuyên môn và sự tận tâm, chúng tôi không thể đảm bảo sự thành công của bất kỳ đơn định cư nào. Quyết định cuối cùng thuộc về các cơ quan định cư Canada, và kết quả phụ thuộc vào nhiều yếu tố ngoài tầm kiểm soát của chúng tôi."
+      },
+      "confidentiality": {
+        "title": "Bảo Mật và Riêng Tư",
+        "content": "Chúng tôi duy trì tính bảo mật nghiêm ngặt đối với tất cả thông tin khách hàng theo tiêu chuẩn nghề nghiệp và luật bảo mật. Thông tin khách hàng sẽ chỉ được tiết lộ khi cần thiết để cung cấp dịch vụ hoặc theo yêu cầu của pháp luật. Vui lòng tham khảo Chính Sách Bảo Mật của chúng tôi để biết thông tin chi tiết về các thực hành xử lý dữ liệu."
+      },
+      "communication": {
+        "title": "Giao Tiếp và Cập Nhật",
+        "content": "Chúng tôi cam kết:",
+        "items": [
+          "Cung cấp cập nhật thường xuyên về tiến trình vụ án",
+          "Phản hồi các câu hỏi của khách hàng trong thời gian hợp lý",
+          "Duy trì tiêu chuẩn giao tiếp chuyên nghiệp",
+          "Chuyển tiếp tất cả thư từ chính phủ một cách nhanh chóng"
+        ]
+      },
+      "liability": {
+        "title": "Giới Hạn Trách Nhiệm Pháp Lý",
+        "content": "Trách nhiệm của chúng tôi được giới hạn trong các khoản phí đã thanh toán cho dịch vụ được cung cấp. Chúng tôi không chịu trách nhiệm về thiệt hại gián tiếp, hậu quả hoặc thiệt hại trừng phạt, bao gồm nhưng không giới hạn ở các cơ hội bị mất, đau khổ tinh thần hoặc chi phí liên quan đến sự chậm trễ hoặc từ chối đơn."
+      },
+      "termination": {
+        "title": "Chấm Dứt Dịch Vụ",
+        "content": "Một trong hai bên có thể chấm dứt mối quan hệ nghề nghiệp với thông báo hợp lý. Khi chấm dứt:",
+        "items": [
+          "Bạn vẫn chịu trách nhiệm về tất cả các khoản phí phát sinh đến ngày chấm dứt",
+          "Chúng tôi sẽ cung cấp hồ sơ và tài liệu của bạn theo yêu cầu",
+          "Chúng tôi có thể hoàn thành công việc đang thực hiện theo quyết định của chúng tôi",
+          "Nghĩa vụ bảo mật tiếp tục vô thời hạn"
+        ]
+      },
+      "disputes": {
+        "title": "Giải Quyết Tranh Chấp",
+        "content": "Bất kỳ tranh chấp nào phát sinh từ dịch vụ của chúng tôi trước tiên sẽ được giải quyết thông qua giao tiếp trực tiếp. Nếu không được giải quyết, tranh chấp có thể được đưa ra hòa giải hoặc trọng tài như được nêu trong các hợp đồng cá nhân. Bạn cũng có quyền nộp đơn khiếu nại với các cơ quan quản lý nghề nghiệp có liên quan."
+      },
+      "governing_law": {
+        "title": "Luật Điều Chỉnh",
+        "content": "Các Điều Khoản Dịch Vụ này được điều chỉnh bởi luật pháp của Ontario, Canada. Bất kỳ thủ tục pháp lý nào sẽ được tiến hành tại các tòa án thích hợp của Ontario."
+      },
+      "changes": {
+        "title": "Thay Đổi Điều Khoản",
+        "content": "Chúng tôi bảo lưu quyền sửa đổi các Điều Khoản Dịch Vụ này bất cứ lúc nào. Các điều khoản được cập nhật sẽ được đăng trên trang web của chúng tôi với ngày hiệu lực mới. Việc tiếp tục sử dụng dịch vụ của chúng tôi cấu thành sự chấp nhận các điều khoản được sửa đổi."
+      },
+      "contact": {
+        "title": "Thông Tin Liên Hệ",
+        "content": "Để biết thêm thông tin về các Điều Khoản Dịch Vụ này hoặc để thảo luận về dịch vụ của chúng tôi, vui lòng liên hệ với chúng tôi:",
+        "company_name": "ICBM Law",
+        "email": "Email: info@icbmlaw.com",
+        "phone": "Điện thoại: +1 416-992-7429",
+        "address": "Địa chỉ: 240 Humberline Dr, Toronto, ON M9W 5X1",
+        "business_hours": "Giờ làm việc: Thứ Hai - Thứ Sáu: 10:00 AM - 5:00 PM",
+        "license_note": "Tư vấn định cư có giấy phép cung cấp dịch vụ chuyên nghiệp trên khắp Canada"
+      }
+    }
+  },
+  "common": {
+    "learn_more": "Tìm Hiểu Thêm",
+    "read_more": "Đọc Thêm",
+    "back_to_top": "Về Đầu Trang",
+    "loading": "Đang Tải...",
+    "error": "Lỗi",
+    "success": "Thành Công"
+  }
+}

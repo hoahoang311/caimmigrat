@@ -40,22 +40,25 @@ import {
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
+import { useTranslations } from 'next-intl';
 
-const contactSchema = z.object({
-  firstName: z.string().min(2, "First name must be at least 2 characters"),
-  lastName: z.string().min(2, "Last name must be at least 2 characters"),
-  email: z.string().email("Please enter a valid email address"),
+const createContactSchema = (t: (key: string) => string) => z.object({
+  firstName: z.string().min(2, t('contact.form.validation.first_name_min')),
+  lastName: z.string().min(2, t('contact.form.validation.last_name_min')),
+  email: z.string().email(t('contact.form.validation.email_invalid')),
   phone: z.string().optional(),
   serviceType: z.string().optional(),
   subject: z.string().optional(),
-  message: z.string().min(10, "Message must be at least 10 characters"),
+  message: z.string().min(10, t('contact.form.validation.message_min')),
   countryOfOrigin: z.string().optional(),
   preferredContactMethod: z.enum(["email", "phone"]),
 });
 
-type ContactFormData = z.infer<typeof contactSchema>;
-
 export default function ContactForm() {
+  const t = useTranslations();
+  const contactSchema = createContactSchema(t);
+  type ContactFormData = z.infer<typeof contactSchema>;
+  
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -112,7 +115,7 @@ export default function ContactForm() {
         form.reset();
       }, 5000);
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Failed to submit inquiry");
+      setError(err instanceof Error ? err.message : t('contact.form.error'));
     } finally {
       setIsSubmitting(false);
     }
@@ -123,11 +126,10 @@ export default function ContactForm() {
       <CardHeader>
         <CardTitle className="flex items-center space-x-2">
           <Send className="h-6 w-6 text-blue-600" />
-          <span>Send us a Message</span>
+          <span>{t('contact.form.title')}</span>
         </CardTitle>
         <CardDescription>
-          Have questions about Canadian immigration? Get in touch with our
-          expert team.
+          {t('contact.form.description')}
         </CardDescription>
       </CardHeader>
       <CardContent>
@@ -135,11 +137,10 @@ export default function ContactForm() {
           <div className="text-center space-y-4 py-8">
             <CheckCircle className="h-16 w-16 text-green-600 mx-auto" />
             <h3 className="text-xl font-semibold text-green-600">
-              Message Sent Successfully!
+              {t('contact.form.success_title')}
             </h3>
             <p className="text-muted-foreground">
-              Thank you for contacting us. We&apos;ll get back to you within 24
-              hours.
+              {t('contact.form.success_message')}
             </p>
           </div>
         ) : (
@@ -160,10 +161,10 @@ export default function ContactForm() {
                     <FormItem>
                       <FormLabel className="flex items-center space-x-2">
                         <User className="h-4 w-4" />
-                        <span>First Name *</span>
+                        <span>{t('contact.form.first_name')} *</span>
                       </FormLabel>
                       <FormControl>
-                        <Input placeholder="Enter your first name" {...field} />
+                        <Input placeholder={t('contact.form.first_name_placeholder')} {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -178,10 +179,10 @@ export default function ContactForm() {
                     <FormItem>
                       <FormLabel className="flex items-center space-x-2">
                         <User className="h-4 w-4" />
-                        <span>Last Name *</span>
+                        <span>{t('contact.form.last_name')} *</span>
                       </FormLabel>
                       <FormControl>
-                        <Input placeholder="Enter your last name" {...field} />
+                        <Input placeholder={t('contact.form.last_name_placeholder')} {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -196,12 +197,12 @@ export default function ContactForm() {
                     <FormItem>
                       <FormLabel className="flex items-center space-x-2">
                         <Mail className="h-4 w-4" />
-                        <span>Email Address *</span>
+                        <span>{t('contact.form.email')} *</span>
                       </FormLabel>
                       <FormControl>
                         <Input
                           type="email"
-                          placeholder="Enter your email address"
+                          placeholder={t('contact.form.email_placeholder')}
                           {...field}
                         />
                       </FormControl>
@@ -218,12 +219,12 @@ export default function ContactForm() {
                     <FormItem>
                       <FormLabel className="flex items-center space-x-2">
                         <Phone className="h-4 w-4" />
-                        <span>Phone Number</span>
+                        <span>{t('contact.form.phone')}</span>
                       </FormLabel>
                       <FormControl>
                         <Input
                           type="tel"
-                          placeholder="Enter your phone number"
+                          placeholder={t('contact.form.phone_placeholder')}
                           {...field}
                         />
                       </FormControl>
@@ -240,7 +241,7 @@ export default function ContactForm() {
                     <FormItem>
                       <FormLabel className="flex items-center space-x-2">
                         <Briefcase className="h-4 w-4" />
-                        <span>Service Interest</span>
+                        <span>{t('contact.form.service')}</span>
                       </FormLabel>
                       <Select
                         onValueChange={field.onChange}
@@ -248,7 +249,7 @@ export default function ContactForm() {
                       >
                         <FormControl>
                           <SelectTrigger>
-                            <SelectValue placeholder="Select a service" />
+                            <SelectValue placeholder={t('contact.form.service_placeholder')} />
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
@@ -272,11 +273,11 @@ export default function ContactForm() {
                     <FormItem>
                       <FormLabel className="flex items-center space-x-2">
                         <Globe className="h-4 w-4" />
-                        <span>Country of Origin</span>
+                        <span>{t('contact.form.country_origin')}</span>
                       </FormLabel>
                       <FormControl>
                         <Input
-                          placeholder="Enter your country of origin"
+                          placeholder={t('contact.form.country_origin_placeholder')}
                           {...field}
                         />
                       </FormControl>
@@ -292,10 +293,10 @@ export default function ContactForm() {
                 name="subject"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Subject</FormLabel>
+                    <FormLabel>{t('contact.form.subject')}</FormLabel>
                     <FormControl>
                       <Input
-                        placeholder="Brief subject of your inquiry"
+                        placeholder={t('contact.form.subject_placeholder')}
                         {...field}
                       />
                     </FormControl>
@@ -312,11 +313,11 @@ export default function ContactForm() {
                   <FormItem>
                     <FormLabel className="flex items-center space-x-2">
                       <MessageSquare className="h-4 w-4" />
-                      <span>Message *</span>
+                      <span>{t('contact.form.message')} *</span>
                     </FormLabel>
                     <FormControl>
                       <Textarea
-                        placeholder="Tell us about your immigration needs..."
+                        placeholder={t('contact.form.message_placeholder')}
                         className="min-h-[120px]"
                         {...field}
                       />
@@ -332,7 +333,7 @@ export default function ContactForm() {
                 name="preferredContactMethod"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Preferred Contact Method</FormLabel>
+                    <FormLabel>{t('contact.form.preferred_contact')}</FormLabel>
                     <Select
                       onValueChange={field.onChange}
                       defaultValue={field.value}
@@ -343,8 +344,8 @@ export default function ContactForm() {
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent>
-                        <SelectItem value="email">Email</SelectItem>
-                        <SelectItem value="phone">Phone</SelectItem>
+                        <SelectItem value="email">{t('contact.form.contact_email')}</SelectItem>
+                        <SelectItem value="phone">{t('contact.form.contact_phone')}</SelectItem>
                       </SelectContent>
                     </Select>
                     <FormMessage />
@@ -359,7 +360,7 @@ export default function ContactForm() {
                 size="lg"
                 disabled={isSubmitting}
               >
-                {isSubmitting ? "Sending Message..." : "Send Message"}
+                {isSubmitting ? t('contact.form.submitting') : t('contact.form.submit')}
               </Button>
             </form>
           </Form>

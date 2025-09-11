@@ -25,6 +25,7 @@ import {
   Users,
 } from "lucide-react";
 import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -35,130 +36,136 @@ export const metadata: Metadata = {
     "Canadian immigration services, temporary visa, study permit, express entry, PNP, investor programs, sponsorship, immigration appeals",
 };
 
-const services = [
-  {
-    id: "temporary-visa",
-    icon: Plane,
-    title: "Temporary Resident Visa",
-    description: "Complete visa services for temporary stays in Canada",
-    services: [
-      "Tourist Visa",
-      "Super Visa (for parents/grandparents)",
-      "Medical Visa",
-      "Exploratory Visa for Investors",
-    ],
-    color: "bg-white border-gray-200",
-    iconColor: "text-blue-600",
-  },
-  {
-    id: "study",
-    icon: GraduationCap,
-    title: "Study Programs",
-    description: "Educational pathway guidance and study permit assistance",
-    services: [
-      "School & Program Selection Guidance",
-      "Study Permit Applications",
-      "Summer Camp Programs",
-      "Winter Camp Programs",
-    ],
-    color: "bg-white border-gray-200",
-    iconColor: "text-green-600",
-  },
-  {
-    id: "skilled-worker",
-    icon: Briefcase,
-    title: "Skilled Worker Programs",
-    description: "Permanent residence pathways for skilled professionals",
-    services: [
-      "Express Entry System",
-      "Provincial Nominee Programs (PNP)",
-      "Atlantic Immigration Program (AIP)",
-      "Rural & Northern Immigration Pilot (RNIP)",
-      "Home Support Caregiver Program",
-      "LMIA & LMIA-exempt Work Permits",
-      "Vulnerable Open Work Permit (VOWP)",
-      "Charitable & Religious Work Permits",
-    ],
-    color: "bg-white border-gray-200",
-    iconColor: "text-purple-600",
-  },
-  {
-    id: "investors",
-    icon: TrendingUp,
-    title: "Investor Programs",
-    description: "Business and investment immigration pathways",
-    services: [
-      "Provincial Investor Programs (BC, AB, SK, MB, ON, NB, NS, PEI, NL)",
-      "Start-up Visa Program (SUV)",
-      "Self-employed Persons Program (C11)",
-      "Intra-Company Transfer (C12)",
-      "Special Programs (No English requirement for direct PR/Work Permit)",
-    ],
-    color: "bg-white border-gray-200",
-    iconColor: "text-orange-600",
-  },
-  {
-    id: "sponsorship",
-    icon: Heart,
-    title: "Family Sponsorship",
-    description: "Reunite with your loved ones in Canada",
-    services: [
-      "Spousal & Partner Sponsorship",
-      "Parent & Grandparent Sponsorship",
-      "Dependent Children Sponsorship",
-      "Refugee Hearing & Appeals",
-      "Humanitarian & Compassionate Applications",
-    ],
-    color: "bg-white border-gray-200",
-    iconColor: "text-pink-600",
-  },
-  {
-    id: "special-services",
-    icon: Shield,
-    title: "Specialized Legal Services",
-    description: "Complex immigration matters and appeals",
-    services: [
-      "Visa Refusal Review & Appeals",
-      "Federal Court Judicial Reviews",
-      "Procedural Fairness Letters",
-      "Removal Order Appeals",
-      "Authorization to Return (ARC)",
-      "Reconsideration Requests",
-      "Criminal Rehabilitation",
-      "Permanent Resident Travel Document (PRTD)",
-      "CBSA Matters & Detention Reviews",
-    ],
-    color: "bg-white border-gray-200",
-    iconColor: "text-red-600",
-  },
-];
+type Props = {
+  params: Promise<{ locale: string }>;
+};
 
-const whyChooseUs = [
-  {
-    icon: Users,
-    title: "Expert Team",
-    description:
-      "Certified immigration consultants with 16+ years combined experience",
-  },
-  {
-    icon: Award,
-    title: "High Success Rate",
-    description:
-      "Proven track record with thousands of successful applications",
-  },
-  {
-    icon: Globe,
-    title: "Comprehensive Services",
-    description: "Full spectrum of immigration services under one roof",
-  },
-  {
-    icon: Scale,
-    title: "Legal Expertise",
-    description: "Licensed paralegals handling complex legal matters",
-  },
-];
+export default async function ServicesPage({ params }: Props) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale });
 
-export default function ServicesPage() {
+  const services = [
+    {
+      id: "temporary-visa",
+      icon: Plane,
+      title: t("services.service_categories.temporary_visa.title"),
+      description: t("services.service_categories.temporary_visa.description"),
+      services: [
+        t("services.service_categories.temporary_visa.services.0"),
+        t("services.service_categories.temporary_visa.services.1"),
+        t("services.service_categories.temporary_visa.services.2"),
+        t("services.service_categories.temporary_visa.services.3"),
+      ],
+      color: "bg-white border-gray-200",
+      iconColor: "text-blue-600",
+    },
+    {
+      id: "study",
+      icon: GraduationCap,
+      title: t("services.service_categories.study.title"),
+      description: t("services.service_categories.study.description"),
+      services: [
+        t("services.service_categories.study.services.0"),
+        t("services.service_categories.study.services.1"),
+        t("services.service_categories.study.services.2"),
+        t("services.service_categories.study.services.3"),
+      ],
+      color: "bg-white border-gray-200",
+      iconColor: "text-green-600",
+    },
+    {
+      id: "skilled-worker",
+      icon: Briefcase,
+      title: t("services.service_categories.skilled_worker.title"),
+      description: t("services.service_categories.skilled_worker.description"),
+      services: [
+        t("services.service_categories.skilled_worker.services.0"),
+        t("services.service_categories.skilled_worker.services.1"),
+        t("services.service_categories.skilled_worker.services.2"),
+        t("services.service_categories.skilled_worker.services.3"),
+        t("services.service_categories.skilled_worker.services.4"),
+        t("services.service_categories.skilled_worker.services.5"),
+        t("services.service_categories.skilled_worker.services.6"),
+        t("services.service_categories.skilled_worker.services.7"),
+      ],
+      color: "bg-white border-gray-200",
+      iconColor: "text-purple-600",
+    },
+    {
+      id: "investors",
+      icon: TrendingUp,
+      title: t("services.service_categories.investors.title"),
+      description: t("services.service_categories.investors.description"),
+      services: [
+        t("services.service_categories.investors.services.0"),
+        t("services.service_categories.investors.services.1"),
+        t("services.service_categories.investors.services.2"),
+        t("services.service_categories.investors.services.3"),
+        t("services.service_categories.investors.services.4"),
+      ],
+      color: "bg-white border-gray-200",
+      iconColor: "text-orange-600",
+    },
+    {
+      id: "sponsorship",
+      icon: Heart,
+      title: t("services.service_categories.sponsorship.title"),
+      description: t("services.service_categories.sponsorship.description"),
+      services: [
+        t("services.service_categories.sponsorship.services.0"),
+        t("services.service_categories.sponsorship.services.1"),
+        t("services.service_categories.sponsorship.services.2"),
+        t("services.service_categories.sponsorship.services.3"),
+        t("services.service_categories.sponsorship.services.4"),
+      ],
+      color: "bg-white border-gray-200",
+      iconColor: "text-pink-600",
+    },
+    {
+      id: "special-services",
+      icon: Shield,
+      title: t("services.service_categories.special_services.title"),
+      description: t(
+        "services.service_categories.special_services.description"
+      ),
+      services: [
+        t("services.service_categories.special_services.services.0"),
+        t("services.service_categories.special_services.services.1"),
+        t("services.service_categories.special_services.services.2"),
+        t("services.service_categories.special_services.services.3"),
+        t("services.service_categories.special_services.services.4"),
+        t("services.service_categories.special_services.services.5"),
+        t("services.service_categories.special_services.services.6"),
+        t("services.service_categories.special_services.services.7"),
+        t("services.service_categories.special_services.services.8"),
+      ],
+      color: "bg-white border-gray-200",
+      iconColor: "text-red-600",
+    },
+  ];
+
+  const whyChooseUs = [
+    {
+      icon: Users,
+      title: t("services.why_choose.expert_team.title"),
+      description: t("services.why_choose.expert_team.description"),
+    },
+    {
+      icon: Award,
+      title: t("services.why_choose.success_rate.title"),
+      description: t("services.why_choose.success_rate.description"),
+    },
+    {
+      icon: Globe,
+      title: t("services.why_choose.comprehensive.title"),
+      description: t("services.why_choose.comprehensive.description"),
+    },
+    {
+      icon: Scale,
+      title: t("services.why_choose.legal_expertise.title"),
+      description: t("services.why_choose.legal_expertise.description"),
+    },
+  ];
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
       {/* Hero Section */}
@@ -166,11 +173,10 @@ export default function ServicesPage() {
         <div className="container mx-auto px-6">
           <div className="text-center text-white">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Comprehensive Immigration Services
+              {t("services.page.title")}
             </h1>
             <p className="text-xl md:text-2xl mb-8 max-w-4xl mx-auto opacity-90">
-              From temporary visits to permanent residence, we provide expert
-              guidance for all your Canadian immigration needs
+              {t("services.page.subtitle")}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
@@ -184,7 +190,7 @@ export default function ServicesPage() {
                   rel="noopener noreferrer"
                 >
                   <Calendar className="mr-2 h-5 w-5" />
-                  Book Consultation
+                  {t("services.page.book_consultation")}
                 </Link>
               </Button>
               <Button
@@ -194,7 +200,7 @@ export default function ServicesPage() {
               >
                 <Link href="tel:+14169927429" className="flex items-center">
                   <Phone className="mr-2 h-5 w-5" />
-                  Call Us Now
+                  {t("cta.call_now")}
                 </Link>
               </Button>
             </div>
@@ -207,12 +213,11 @@ export default function ServicesPage() {
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Our Services
+              {t("services.page.section_title")}
             </h2>
             <div className="w-24 h-1 bg-blue-600 mx-auto mb-6"></div>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              We offer comprehensive immigration services to help you achieve
-              your Canadian dreams
+              {t("services.page.section_subtitle")}
             </p>
           </div>
 
@@ -256,11 +261,11 @@ export default function ServicesPage() {
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Why Choose ICBM Law?
+              {t("services.page.why_choose_title")}
             </h2>
             <div className="w-24 h-1 bg-blue-600 mx-auto mb-6"></div>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Our commitment to excellence and client success sets us apart
+              {t("services.page.why_choose_subtitle")}
             </p>
           </div>
 
@@ -291,28 +296,34 @@ export default function ServicesPage() {
           <div className="text-center text-white">
             <Building className="h-16 w-16 mx-auto mb-6 opacity-80" />
             <h2 className="text-3xl font-bold mb-4">
-              Special Investment Programs
+              {t("services.page.special_programs_title")}
             </h2>
             <p className="text-xl mb-8 max-w-3xl mx-auto opacity-90">
-              Exclusive programs that don&#39;t require English proficiency and
-              offer direct pathways to Permanent Residence or Work Permits for
-              qualified investors
+              {t("services.page.special_programs_subtitle")}
             </p>
             <div className="grid gap-4 md:grid-cols-3 max-w-4xl mx-auto">
               <div className="bg-white/10 rounded-lg p-4 backdrop-blur-sm">
-                <h3 className="font-semibold mb-2">No English Requirement</h3>
-                <p className="text-sm opacity-90">Special pathways available</p>
-              </div>
-              <div className="bg-white/10 rounded-lg p-4 backdrop-blur-sm">
-                <h3 className="font-semibold mb-2">Direct PR Access</h3>
+                <h3 className="font-semibold mb-2">
+                  {t("services.special_features.no_english.title")}
+                </h3>
                 <p className="text-sm opacity-90">
-                  Fast-track to permanent residence
+                  {t("services.special_features.no_english.description")}
                 </p>
               </div>
               <div className="bg-white/10 rounded-lg p-4 backdrop-blur-sm">
-                <h3 className="font-semibold mb-2">Work Permit Options</h3>
+                <h3 className="font-semibold mb-2">
+                  {t("services.special_features.direct_pr.title")}
+                </h3>
                 <p className="text-sm opacity-90">
-                  Immediate work authorization
+                  {t("services.special_features.direct_pr.description")}
+                </p>
+              </div>
+              <div className="bg-white/10 rounded-lg p-4 backdrop-blur-sm">
+                <h3 className="font-semibold mb-2">
+                  {t("services.special_features.work_permit.title")}
+                </h3>
+                <p className="text-sm opacity-90">
+                  {t("services.special_features.work_permit.description")}
                 </p>
               </div>
             </div>
@@ -325,11 +336,10 @@ export default function ServicesPage() {
         <div className="container mx-auto px-6">
           <div className="text-center text-white">
             <h2 className="text-3xl font-bold mb-4">
-              Ready to Start Your Immigration Journey?
+              {t("services.page.cta_title")}
             </h2>
             <p className="text-xl mb-8 max-w-3xl mx-auto opacity-90">
-              Our experienced team is here to guide you through every step of
-              the process. Contact us today for a personalized consultation.
+              {t("services.page.cta_subtitle")}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
@@ -339,7 +349,7 @@ export default function ServicesPage() {
               >
                 <Link href="/contact">
                   <FileText className="mr-2 h-5 w-5" />
-                  Get Started Today
+                  {t("services.page.get_started")}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
@@ -354,7 +364,7 @@ export default function ServicesPage() {
                   rel="noopener noreferrer"
                 >
                   <Calendar className="mr-2 h-5 w-5" />
-                  Schedule Consultation
+                  {t("services.page.schedule_consultation")}
                 </Link>
               </Button>
             </div>

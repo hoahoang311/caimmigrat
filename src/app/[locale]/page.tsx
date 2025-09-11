@@ -18,62 +18,67 @@ import {
   MessageCircle,
 } from "lucide-react";
 import Link from "next/link";
+import { getTranslations } from 'next-intl/server';
 
-const features = [
-  {
-    icon: Users,
-    title: "Expert Team",
-    description:
-      "Our team of certified immigration lawyers and consultants have years of experience helping clients achieve their Canadian dreams.",
-  },
-  {
-    icon: Award,
-    title: "Proven Success",
-    description:
-      "With thousands of successful applications, we have the expertise and track record to maximize your chances of approval.",
-  },
-  {
-    icon: Shield,
-    title: "Trusted Process",
-    description:
-      "We follow a comprehensive, transparent process to ensure your application is completed accurately and submitted on time.",
-  },
-];
+export function generateStaticParams() {
+  return [{locale: 'en'}, {locale: 'vi'}];
+}
 
-const immigrationPrograms = [
-  {
-    title: "Express Entry",
-    description:
-      "The fastest pathway to Canadian permanent residence for skilled workers.",
-    benefits: [
-      "Processing in 6 months",
-      "No job offer required",
-      "Points-based system",
-    ],
-  },
-  {
-    title: "Provincial Nominee Program",
-    description:
-      "Province-specific programs designed to meet local economic needs.",
-    benefits: [
-      "Additional 600 points",
-      "Various streams available",
-      "Provincial support",
-    ],
-  },
-  {
-    title: "Family Sponsorship",
-    description:
-      "Reunite with your loved ones in Canada through family sponsorship.",
-    benefits: [
-      "Sponsor spouse/children",
-      "Sponsor parents/grandparents",
-      "No points required",
-    ],
-  },
-];
+type Props = {
+  params: Promise<{ locale: string }>;
+};
 
-export default function HomePage() {
+export default async function HomePage({ params }: Props) {
+  const { locale } = await params;
+  const t = await getTranslations({locale});
+
+  const features = [
+    {
+      icon: Users,
+      title: t('features.expert_team.title'),
+      description: t('features.expert_team.description'),
+    },
+    {
+      icon: Award,
+      title: t('features.proven_success.title'),
+      description: t('features.proven_success.description'),
+    },
+    {
+      icon: Shield,
+      title: t('features.trusted_process.title'),
+      description: t('features.trusted_process.description'),
+    },
+  ];
+
+  const immigrationPrograms = [
+    {
+      title: t('services.express_entry.title'),
+      description: t('services.express_entry.description'),
+      benefits: [
+        t('services.express_entry.benefits.0'),
+        t('services.express_entry.benefits.1'),
+        t('services.express_entry.benefits.2'),
+      ],
+    },
+    {
+      title: t('services.pnp.title'),
+      description: t('services.pnp.description'),
+      benefits: [
+        t('services.pnp.benefits.0'),
+        t('services.pnp.benefits.1'),
+        t('services.pnp.benefits.2'),
+      ],
+    },
+    {
+      title: t('services.family_sponsorship.title'),
+      description: t('services.family_sponsorship.description'),
+      benefits: [
+        t('services.family_sponsorship.benefits.0'),
+        t('services.family_sponsorship.benefits.1'),
+        t('services.family_sponsorship.benefits.2'),
+      ],
+    },
+  ];
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
@@ -89,14 +94,10 @@ export default function HomePage() {
             <div className="space-y-8">
               <div className="space-y-4">
                 <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl">
-                  Your Journey to <span className="text-blue-600">Canada</span>{" "}
-                  Starts Here
+                  {t('hero.title')}
                 </h1>
                 <p className="text-xl text-gray-600 leading-relaxed">
-                  We are a team of immigration lawyers, consultants, and experts
-                  ready to assist you with your Canadian immigration
-                  application. Let us guide you through every step of the
-                  process.
+                  {t('hero.subtitle')}
                 </p>
               </div>
 
@@ -107,7 +108,7 @@ export default function HomePage() {
                   className="bg-blue-600 hover:bg-blue-700"
                 >
                   <Link href="/contact">
-                    Get Started Today
+                    {t('hero.cta')}
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>
                 </Button>
@@ -118,7 +119,7 @@ export default function HomePage() {
                     rel="noopener noreferrer"
                   >
                     <Calendar className="mr-2 h-5 w-5" />
-                    Book Consultation
+                    {t('nav.book_consultation')}
                   </Link>
                 </Button>
               </div>
@@ -128,16 +129,16 @@ export default function HomePage() {
                 <div className="text-center">
                   <div className="text-2xl font-bold text-blue-600">5000+</div>
                   <div className="text-sm text-gray-600">
-                    Successful Applications
+                    {t('stats.applications')}
                   </div>
                 </div>
                 <div className="text-center">
                   <div className="text-2xl font-bold text-blue-600">10+</div>
-                  <div className="text-sm text-gray-600">Years Experience</div>
+                  <div className="text-sm text-gray-600">{t('stats.experience')}</div>
                 </div>
                 <div className="text-center">
                   <div className="text-2xl font-bold text-blue-600">98%</div>
-                  <div className="text-sm text-gray-600">Success Rate</div>
+                  <div className="text-sm text-gray-600">{t('stats.success_rate')}</div>
                 </div>
               </div>
             </div>
@@ -152,11 +153,10 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center space-y-4 mb-16">
             <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">
-              Why Choose ICBM Law?
+              {t('features.title')}
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We combine expertise, experience, and personalized service to make
-              your Canadian immigration journey as smooth as possible.
+              {t('features.subtitle')}
             </p>
           </div>
 
@@ -188,11 +188,10 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center space-y-4 mb-16">
             <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">
-              Immigration Programs We Handle
+              {t('services.programs_title')}
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              From Express Entry to Family Sponsorship, we have expertise across
-              all major Canadian immigration programs.
+              {t('services.programs_subtitle')}
             </p>
           </div>
 
@@ -231,16 +230,15 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center space-y-8">
             <h2 className="text-3xl font-bold text-white sm:text-4xl">
-              Ready to Start Your Canadian Journey?
+              {t('cta.title')}
             </h2>
             <p className="text-xl text-blue-100 max-w-3xl mx-auto">
-              Don&apos;t let complex immigration processes hold you back. Our
-              expert team is here to guide you every step of the way.
+              {t('cta.subtitle')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" variant="secondary">
                 <Link href="/contact">
-                  Ask Us A Question
+                  {t('cta.ask_question')}
                   <MessageCircle className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
@@ -251,7 +249,7 @@ export default function HomePage() {
               >
                 <Link href="tel:+14169927429" className="flex items-center">
                   <Phone className="mr-2 h-5 w-5" />
-                  Call Us Now
+                  {t('cta.call_now')}
                 </Link>
               </Button>
             </div>

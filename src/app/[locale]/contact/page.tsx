@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { MapPin, Phone, Clock, Mail, Facebook, Instagram } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import ContactForm from '@/components/forms/ContactForm';
+import { getTranslations } from 'next-intl/server';
 
 export const metadata: Metadata = {
   title: "Contact Us - ICBM Law",
@@ -9,32 +10,42 @@ export const metadata: Metadata = {
   keywords: "contact immigration lawyer, Canadian immigration consultation, ICBM Law Toronto, immigration consultant contact, book consultation, immigration help"
 };
 
-const contactInfo = [
-  {
-    icon: MapPin,
-    title: 'Office Address',
-    details: ['240 Humberline Dr', 'Toronto, ON M9W 5X1', 'Canada'],
-  },
-  {
-    icon: Phone,
-    title: 'Phone',
-    details: ['+1 416-992-7429'],
-    link: 'tel:+14169927429',
-  },
-  {
-    icon: Mail,
-    title: 'Email',
-    details: ['info@icbmlaw.com'],
-    link: 'mailto:info@icbmlaw.com',
-  },
-  {
-    icon: Clock,
-    title: 'Business Hours',
-    details: ['Monday - Friday: 10:00 AM - 5:00 PM', 'Saturday & Sunday: Closed'],
-  },
-];
 
-export default function ContactPage() {
+type Props = {
+  params: Promise<{ locale: string }>;
+};
+
+export default async function ContactPage({ params }: Props) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale });
+
+  const contactInfo = [
+    {
+      icon: MapPin,
+      title: t('contact.page.office_address'),
+      details: ['240 Humberline Dr', 'Toronto, ON M9W 5X1', 'Canada'],
+    },
+    {
+      icon: Phone,
+      title: t('contact.page.phone'),
+      details: ['+1 416-992-7429'],
+      link: 'tel:+14169927429',
+    },
+    {
+      icon: Mail,
+      title: t('contact.page.email'),
+      details: ['info@icbmlaw.com'],
+      link: 'mailto:info@icbmlaw.com',
+    },
+    {
+      icon: Clock,
+      title: t('contact.page.business_hours'),
+      details: [
+        t('contact.page.business_hours_details.0'),
+        t('contact.page.business_hours_details.1'),
+      ],
+    },
+  ];
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
@@ -42,11 +53,10 @@ export default function ContactPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center space-y-4">
             <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-              Contact Our Expert Team
+              {t('contact.page.title')}
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Ready to begin your Canadian immigration journey? Get in touch with our 
-              experienced consultants for personalized guidance and support.
+              {t('contact.page.subtitle')}
             </p>
           </div>
         </div>
@@ -104,10 +114,10 @@ export default function ContactPage() {
                 <CardHeader>
                   <CardTitle className="flex items-center space-x-2">
                     <MapPin className="h-6 w-6 text-blue-600" />
-                    <span>Our Location</span>
+                    <span>{t('contact.page.location_title')}</span>
                   </CardTitle>
                   <CardDescription>
-                    Visit our office in Toronto for in-person consultations and personalized service.
+                    {t('contact.page.location_description')}
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="p-0">
@@ -129,25 +139,25 @@ export default function ContactPage() {
               {/* Additional Information */}
               <Card>
                 <CardHeader>
-                  <CardTitle>Why Visit Our Office?</CardTitle>
+                  <CardTitle>{t('contact.page.visit_office_title')}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <ul className="space-y-3 text-sm text-muted-foreground">
                     <li className="flex items-start space-x-2">
                       <div className="w-1.5 h-1.5 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
-                      <span>Personalized consultation with certified immigration experts</span>
+                      <span>{t('contact.page.visit_office_benefits.0')}</span>
                     </li>
                     <li className="flex items-start space-x-2">
                       <div className="w-1.5 h-1.5 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
-                      <span>Document review and verification services</span>
+                      <span>{t('contact.page.visit_office_benefits.1')}</span>
                     </li>
                     <li className="flex items-start space-x-2">
                       <div className="w-1.5 h-1.5 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
-                      <span>Assistance with complex application requirements</span>
+                      <span>{t('contact.page.visit_office_benefits.2')}</span>
                     </li>
                     <li className="flex items-start space-x-2">
                       <div className="w-1.5 h-1.5 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
-                      <span>Translation and notarization services available</span>
+                      <span>{t('contact.page.visit_office_benefits.3')}</span>
                     </li>
                   </ul>
                 </CardContent>
@@ -156,11 +166,11 @@ export default function ContactPage() {
               {/* Emergency Contact */}
               <Card className="border-orange-200 bg-orange-50">
                 <CardHeader>
-                  <CardTitle className="text-orange-800">Urgent Assistance</CardTitle>
+                  <CardTitle className="text-orange-800">{t('contact.page.urgent_assistance_title')}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm text-orange-700 mb-3">
-                    For urgent immigration matters or application deadlines, please call us directly:
+                    {t('contact.page.urgent_assistance_description')}
                   </p>
                   <a 
                     href="tel:+14169927429"
@@ -176,10 +186,10 @@ export default function ContactPage() {
               <Card className="bg-gradient-to-br from-blue-50 to-indigo-50 border-blue-200">
                 <CardHeader>
                   <CardTitle className="text-blue-800 flex items-center space-x-2">
-                    <span>Follow Us</span>
+                    <span>{t('contact.page.follow_us_title')}</span>
                   </CardTitle>
                   <CardDescription className="text-blue-600">
-                    Stay connected and get the latest immigration updates
+                    {t('contact.page.follow_us_description')}
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -213,61 +223,26 @@ export default function ContactPage() {
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="text-center space-y-4 mb-12">
             <h2 className="text-3xl font-bold text-gray-900">
-              Frequently Asked Questions
+              {t('contact.page.faq_title')}
             </h2>
             <p className="text-lg text-gray-600">
-              Common questions about our services and the immigration process.
+              {t('contact.page.faq_description')}
             </p>
           </div>
 
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-lg">How long does the consultation take?</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-muted-foreground">
-                  Initial consultations typically last 60-90 minutes, allowing us to thoroughly 
-                  assess your situation and provide detailed recommendations.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-lg">What documents should I bring?</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-muted-foreground">
-                  Bring your passport, educational credentials, work experience documents, 
-                  language test results, and any previous immigration applications.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-lg">Do you offer virtual consultations?</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-muted-foreground">
-                  Yes, we offer secure video consultations for clients who cannot visit our 
-                  office in person. Contact us to schedule your virtual meeting.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-lg">What are your fees?</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-muted-foreground">
-                  Our fees vary depending on the complexity of your case. We provide transparent 
-                  pricing after your initial assessment and offer payment plans.
-                </p>
-              </CardContent>
-            </Card>
+            {[0, 1, 2, 3].map((index) => (
+              <Card key={index}>
+                <CardHeader>
+                  <CardTitle className="text-lg">{t(`contact.page.faq_items.${index}.question`)}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-muted-foreground">
+                    {t(`contact.page.faq_items.${index}.answer`)}
+                  </p>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>

@@ -1,26 +1,39 @@
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
+import createIntlMiddleware from 'next-intl/middleware';
 import { updateSession } from "./lib/supabase-middleware";
+
+const intlMiddleware = createIntlMiddleware({
+  locales: ['en', 'vi'],
+  defaultLocale: 'en',
+  localePrefix: 'always'
+});
 
 export async function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
   
-  // Handle /admin route - redirect based on authentication status
-  if (pathname === "/admin") {
-    console.log("🔒 /admin accessed, checking authentication for redirect...");
+  // Skip internationalization for admin routes
+  if (pathname.startsWith('/admin') || pathname.startsWith('/api')) {
+    // Handle /admin route - redirect based on authentication status
+    if (pathname === "/admin") {
+      console.log("🔒 /admin accessed, checking authentication for redirect...");
+      
+      // Check authentication and redirect accordingly
+      const authResult = await checkAuthAndRedirect(request, "/admin/dashboard", "/admin/login");
+      return authResult;
+    }
     
-    // Check authentication and redirect accordingly
-    const authResult = await checkAuthAndRedirect(request, "/admin/dashboard", "/admin/login");
-    return authResult;
-  }
-  
-  // Handle admin dashboard and other protected admin routes
-  if (pathname.startsWith("/admin/dashboard") || pathname.startsWith("/admin/") && !pathname.startsWith("/admin/login")) {
-    console.log("🔒 Protected admin route accessed, checking authentication...");
-    return await updateSession(request);
+    // Handle admin dashboard and other protected admin routes
+    if (pathname.startsWith("/admin/dashboard") || (pathname.startsWith("/admin/") && !pathname.startsWith("/admin/login"))) {
+      console.log("🔒 Protected admin route accessed, checking authentication...");
+      return await updateSession(request);
+    }
+
+    return NextResponse.next();
   }
 
-  return NextResponse.next();
+  // Apply internationalization middleware for all other routes
+  return intlMiddleware(request);
 }
 
 // Helper function to check auth and redirect appropriately
@@ -67,5 +80,10 @@ async function checkAuthAndRedirect(request: NextRequest, authenticatedRedirect:
 }
 
 export const config = {
-  matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],
+  matcher: [
+    // Skip all internal paths (_next)
+    // Skip all API routes  
+    // Skip all static files (images, fonts, etc.)
+    '/((?!api|_next/static|_next/image|favicon.ico|team|.*\\.(?:png|jpg|jpeg|gif|svg|webp|ico|css|js|woff|woff2|ttf|eot)).*)'
+  ],
 };

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { getTranslations } from 'next-intl/server';
 
 export const metadata: Metadata = {
   title: "About Us - ICBM Law",
@@ -7,14 +8,20 @@ export const metadata: Metadata = {
     "Learn about ICBM Law, a premier Canadian immigration consultancy founded by Moumita Chakraborty and Richard Brown with over 16 years of combined expertise.",
 };
 
-export default function AboutPage() {
+type Props = {
+  params: Promise<{ locale: string }>;
+};
+
+export default async function AboutPage({ params }: Props) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale });
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
       <div className="container mx-auto px-6 py-16">
         {/* Header Section */}
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            About ICBM Law
+            {t('about.page.title')}
           </h1>
           <div className="w-24 h-1 bg-blue-600 mx-auto mb-8"></div>
         </div>
@@ -23,26 +30,15 @@ export default function AboutPage() {
         <div className="max-w-4xl mx-auto mb-16">
           <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
             <p className="text-lg md:text-xl text-gray-700 leading-relaxed mb-8">
-              Welcome to{" "}
-              <span className="font-bold text-blue-600">ICBM Law</span>, a
-              premier Canadian immigration consultancy founded by Moumita
-              Chakraborty, a distinguished RCIC with an MBA, and Richard Brown,
-              a Licensed Paralegal and certified Immigration Consultant. With
-              over 16 years of combined expertise in immigration, education, and
-              legal services, ICBM Law is dedicated to guiding clients worldwide
-              through their journey to make Canada their permanent home, reunite
-              with family, pursue studies, or advance professional
-              opportunities.
+              {t('about.page.mission_intro')}
             </p>
             <div className="border-l-4 border-blue-600 pl-6 mb-8">
               <p className="text-xl text-gray-800 font-medium italic">
-                Our mission is to provide unwavering guidance to those embarking
-                on their journey to Canada, while nurturing their contributions
-                to its flourishing economic landscape.
+                {t('about.page.mission_statement')}
               </p>
             </div>
             <p className="text-lg text-blue-600 font-semibold text-center">
-              Let ICBM illuminate your path to a brighter future in Canada.
+              {t('about.page.tagline')}
             </p>
           </div>
         </div>
@@ -50,7 +46,7 @@ export default function AboutPage() {
         {/* Team Section */}
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
-            Meet Our Leadership Team
+            {t('about.page.team_title')}
           </h2>
 
           <div className="grid md:grid-cols-2 gap-8 md:gap-12 max-w-4xl mx-auto">
@@ -67,17 +63,17 @@ export default function AboutPage() {
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-bold text-gray-900 mb-2">
-                  Moumita Chakraborty
+                  {t('about.page.moumita.name')}
                 </h3>
                 <p className="text-blue-600 font-semibold mb-2">
-                  MBA, Managing Partner
+                  {t('about.page.moumita.title')}
                 </p>
                 <p className="text-gray-600 mb-4">
-                  Regulated Canadian Immigration Consultant (RCIC)
+                  {t('about.page.moumita.description')}
                 </p>
                 <div className="bg-blue-50 rounded-lg p-3">
                   <p className="text-sm font-medium text-blue-800">
-                    License Number: 532939
+                    {t('about.page.moumita.license')}
                   </p>
                 </div>
               </div>
@@ -96,17 +92,17 @@ export default function AboutPage() {
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-bold text-gray-900 mb-2">
-                  Richard Brown
+                  {t('about.page.richard.name')}
                 </h3>
                 <p className="text-blue-600 font-semibold mb-2">
-                  Paralegal, Senior Partner
+                  {t('about.page.richard.title')}
                 </p>
                 <p className="text-gray-600 mb-4">
-                  Licensed Paralegal & Certified Immigration Consultant
+                  {t('about.page.richard.description')}
                 </p>
                 <div className="bg-blue-50 rounded-lg p-3">
                   <p className="text-sm font-medium text-blue-800">
-                    License Number: 514425
+                    {t('about.page.richard.license')}
                   </p>
                 </div>
               </div>
