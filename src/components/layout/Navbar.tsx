@@ -21,19 +21,33 @@ export default function Navbar() {
   const router = useRouter();
 
   // Check if we're on an admin route (except /admin and /admin/login)
-  const isAdminRoute =
-    pathname.startsWith("/admin") &&
-    pathname !== "/admin" &&
-    pathname !== "/admin/login";
+  const isAdminRoute = pathname.startsWith("/admin/dashboard");
 
   const supabase = createClientComponentClient();
 
   const handleLogout = async () => {
     try {
-      await supabase.auth.signOut();
-      router.push("/admin/login");
+      // Call our API route to properly clear cookies
+      const response = await fetch("/api/auth/logout", {
+        method: "POST",
+        credentials: "include", // Include cookies in request
+      });
+
+      if (response.ok) {
+        // Also clear client-side auth state
+        await supabase.auth.signOut();
+
+        // Force reload to clear any cached state
+        window.location.href = "/admin/login";
+      } else {
+        console.error("Logout API call failed");
+        // Fallback: just redirect even if API failed
+        window.location.href = "/admin/login";
+      }
     } catch (error) {
       console.error("Logout failed:", error);
+      // Fallback: redirect even if logout failed
+      window.location.href = "/admin/login";
     }
   };
 

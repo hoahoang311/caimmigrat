@@ -26,8 +26,18 @@ This application uses Next.js App Router with server-side features (API routes, 
 
 The application includes fallback handling for missing environment variables to prevent build failures, but the database functionality will not work without proper Supabase configuration.
 
+## Cookie Configuration for Production
+
+The application includes production-ready cookie settings that automatically:
+- Set `Secure` flag for HTTPS in production
+- Use `SameSite: 'lax'` for proper cross-site behavior
+- Ensure `httpOnly: false` for client-side access to auth tokens
+
+This ensures authentication cookies work properly in production environments.
+
 ## Notes
 
 - The app will build successfully even without environment variables configured
 - Database operations will show console warnings and return mock data when Supabase is not configured
+- Authentication cookies are automatically configured for production security requirements
 - Make sure to configure the environment variables before going live to enable full functionality

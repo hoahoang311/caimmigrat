@@ -6,7 +6,6 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { isAdminCookie } from "@/lib/auth";
 import { database } from "@/lib/supabase";
 import {
   Calendar,
@@ -16,18 +15,9 @@ import {
   Phone,
   Users,
 } from "lucide-react";
-import { cookies } from "next/headers";
-import { redirect } from "next/navigation";
 import InquiryCalendar from "./components/InquiryCalendar";
 
 export default async function AdminDashboard() {
-  const cookieStore = await cookies();
-  const adminAccess = await isAdminCookie(cookieStore);
-
-  if (!adminAccess) {
-    redirect("/admin/login");
-  }
-
   let inquiries = [];
   let newsletterSubs = [];
   let consultations = [];

@@ -3,7 +3,8 @@ import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "About Us - ICBM Law",
-  description: "Learn about ICBM Law, a premier Canadian immigration consultancy founded by Moumita Chakraborty and Richard Brown with over 16 years of combined expertise.",
+  description:
+    "Learn about ICBM Law, a premier Canadian immigration consultancy founded by Moumita Chakraborty and Richard Brown with over 16 years of combined expertise.",
 };
 
 export default function AboutPage() {
@@ -22,11 +23,22 @@ export default function AboutPage() {
         <div className="max-w-4xl mx-auto mb-16">
           <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
             <p className="text-lg md:text-xl text-gray-700 leading-relaxed mb-8">
-              Welcome to <span className="font-bold text-blue-600">ICBM Law</span>, a premier Canadian immigration consultancy founded by Moumita Chakraborty, a distinguished RCIC with an MBA, and Richard Brown, a Licensed Paralegal and certified Immigration Consultant. With over 16 years of combined expertise in immigration, education, and legal services, ICBM Law is dedicated to guiding clients worldwide through their journey to make Canada their permanent home, reunite with family, pursue studies, or advance professional opportunities.
+              Welcome to{" "}
+              <span className="font-bold text-blue-600">ICBM Law</span>, a
+              premier Canadian immigration consultancy founded by Moumita
+              Chakraborty, a distinguished RCIC with an MBA, and Richard Brown,
+              a Licensed Paralegal and certified Immigration Consultant. With
+              over 16 years of combined expertise in immigration, education, and
+              legal services, ICBM Law is dedicated to guiding clients worldwide
+              through their journey to make Canada their permanent home, reunite
+              with family, pursue studies, or advance professional
+              opportunities.
             </p>
             <div className="border-l-4 border-blue-600 pl-6 mb-8">
               <p className="text-xl text-gray-800 font-medium italic">
-                Our mission is to provide unwavering guidance to those embarking on their journey to Canada, while nurturing their contributions to its flourishing economic landscape.
+                Our mission is to provide unwavering guidance to those embarking
+                on their journey to Canada, while nurturing their contributions
+                to its flourishing economic landscape.
               </p>
             </div>
             <p className="text-lg text-blue-600 font-semibold text-center">
@@ -40,7 +52,7 @@ export default function AboutPage() {
           <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
             Meet Our Leadership Team
           </h2>
-          
+
           <div className="grid md:grid-cols-2 gap-8 md:gap-12 max-w-4xl mx-auto">
             {/* Moumita Chakraborty */}
             <div className="bg-white rounded-2xl shadow-xl overflow-hidden transform hover:scale-105 transition-transform duration-300">
@@ -103,7 +115,7 @@ export default function AboutPage() {
         </div>
 
         {/* Call to Action */}
-        <div className="text-center mt-16">
+        {/* <div className="text-center mt-16">
           <div className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-8 md:p-12 text-white">
             <h3 className="text-2xl md:text-3xl font-bold mb-4">
               Ready to Start Your Canadian Journey?
@@ -118,7 +130,7 @@ export default function AboutPage() {
               Contact Us Today
             </a>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );
