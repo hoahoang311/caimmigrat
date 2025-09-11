@@ -3,12 +3,13 @@
 import NewsletterForm from "@/components/forms/NewsletterForm";
 import ICBMLogo from "@/components/ui/ICBMLogo";
 import { Clock, Facebook, Instagram, Mail, MapPin, Phone } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export default function Footer() {
   const [mounted, setMounted] = useState(false);
+  const locale = useLocale();
 
   useEffect(() => {
     setMounted(true);
@@ -145,13 +146,13 @@ export default function Footer() {
             </p>
             <div className="flex space-x-6 text-sm text-slate-400">
               <Link
-                href="/privacy"
+                href={`/${locale}/privacy`}
                 className="hover:text-blue-400 transition-colors"
               >
 {t("footer.privacy_link")}
               </Link>
               <Link
-                href="/terms"
+                href={`/${locale}/terms`}
                 className="hover:text-blue-400 transition-colors"
               >
                 {t("footer.terms")}

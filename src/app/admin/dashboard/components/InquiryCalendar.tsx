@@ -19,7 +19,7 @@ import {
   Users,
   X,
 } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 interface Inquiry {
   id: string;
@@ -40,10 +40,18 @@ interface InquiryCalendarProps {
 }
 
 export default function InquiryCalendar({ inquiries }: InquiryCalendarProps) {
-  const [currentDate, setCurrentDate] = useState(new Date());
+  const [currentDate, setCurrentDate] = useState<Date | null>(null);
   const [selectedDate, setSelectedDate] = useState<string | null>(null);
   const [filteredInquiries, setFilteredInquiries] =
     useState<Inquiry[]>(inquiries);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setCurrentDate(new Date());
+    setFilteredInquiries(inquiries);
+    setMounted(true);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // Get current month and year
   const currentMonth = currentDate?.getMonth();
@@ -153,6 +161,10 @@ export default function InquiryCalendar({ inquiries }: InquiryCalendarProps) {
   ];
 
   const weekDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  if (!mounted) {
+    return null;
+  }
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">

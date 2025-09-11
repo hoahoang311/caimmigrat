@@ -4,13 +4,14 @@ import { Button } from "@/components/ui/button";
 import ICBMLogo from "@/components/ui/ICBMLogo";
 import { LanguageSwitcher } from "@/components/ui/LanguageSwitcher";
 import { Menu, X } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const t = useTranslations("nav");
+  const locale = useLocale();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -18,10 +19,10 @@ export default function Navbar() {
   }, []);
 
   const navigation = [
-    { name: t("home"), href: "/" },
-    { name: t("services"), href: "/services" },
-    { name: t("about"), href: "/about" },
-    { name: t("contact"), href: "/contact" },
+    { name: t("home"), href: `/${locale}` },
+    { name: t("services"), href: `/${locale}/services` },
+    { name: t("about"), href: `/${locale}/about` },
+    { name: t("contact"), href: `/${locale}/contact` },
   ];
 
   if (!mounted) {
@@ -64,7 +65,7 @@ export default function Navbar() {
           <div className="hidden md:flex items-center space-x-4">
             <LanguageSwitcher />
             <Button asChild className="bg-blue-600 hover:bg-blue-700">
-              <Link href="/contact">{t("book_consultation")}</Link>
+              <Link href={`/${locale}/contact`}>{t("book_consultation")}</Link>
             </Button>
           </div>
 
@@ -109,7 +110,7 @@ export default function Navbar() {
                   asChild
                   className="w-full bg-blue-600 hover:bg-blue-700"
                 >
-                  <Link href="/contact" onClick={() => setIsMenuOpen(false)}>
+                  <Link href={`/${locale}/contact`} onClick={() => setIsMenuOpen(false)}>
                     {t("book_consultation")}
                   </Link>
                 </Button>
