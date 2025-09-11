@@ -47,7 +47,7 @@ const services = [
       "Medical Visa",
       "Exploratory Visa for Investors",
     ],
-    color: "bg-blue-50 border-blue-200",
+    color: "bg-white border-gray-200",
     iconColor: "text-blue-600",
   },
   {
@@ -61,7 +61,7 @@ const services = [
       "Summer Camp Programs",
       "Winter Camp Programs",
     ],
-    color: "bg-green-50 border-green-200",
+    color: "bg-white border-gray-200",
     iconColor: "text-green-600",
   },
   {
@@ -79,7 +79,7 @@ const services = [
       "Vulnerable Open Work Permit (VOWP)",
       "Charitable & Religious Work Permits",
     ],
-    color: "bg-purple-50 border-purple-200",
+    color: "bg-white border-gray-200",
     iconColor: "text-purple-600",
   },
   {
@@ -94,7 +94,7 @@ const services = [
       "Intra-Company Transfer (C12)",
       "Special Programs (No English requirement for direct PR/Work Permit)",
     ],
-    color: "bg-orange-50 border-orange-200",
+    color: "bg-white border-gray-200",
     iconColor: "text-orange-600",
   },
   {
@@ -109,7 +109,7 @@ const services = [
       "Refugee Hearing & Appeals",
       "Humanitarian & Compassionate Applications",
     ],
-    color: "bg-pink-50 border-pink-200",
+    color: "bg-white border-gray-200",
     iconColor: "text-pink-600",
   },
   {
@@ -128,7 +128,7 @@ const services = [
       "Permanent Resident Travel Document (PRTD)",
       "CBSA Matters & Detention Reviews",
     ],
-    color: "bg-red-50 border-red-200",
+    color: "bg-white border-gray-200",
     iconColor: "text-red-600",
   },
 ];
