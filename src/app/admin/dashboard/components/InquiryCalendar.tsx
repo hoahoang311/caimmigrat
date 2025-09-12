@@ -8,6 +8,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Inquiry } from "@/lib/supabase";
 import {
   Calendar,
   ChevronLeft,
@@ -21,20 +22,6 @@ import {
 } from "lucide-react";
 import { useEffect, useState } from "react";
 
-interface Inquiry {
-  id: string;
-  first_name: string;
-  last_name: string;
-  email: string;
-  phone?: string;
-  service_type?: string;
-  subject?: string;
-  country_of_origin?: string;
-  preferred_contact_method?: string;
-  message: string;
-  created_at: string;
-}
-
 interface InquiryCalendarProps {
   inquiries: Inquiry[];
 }
@@ -42,16 +29,19 @@ interface InquiryCalendarProps {
 export default function InquiryCalendar({ inquiries }: InquiryCalendarProps) {
   const [currentDate, setCurrentDate] = useState<Date | null>(null);
   const [selectedDate, setSelectedDate] = useState<string | null>(null);
-  const [filteredInquiries, setFilteredInquiries] =
-    useState<Inquiry[]>(inquiries);
+  const [filteredInquiries, setFilteredInquiries] = useState<Inquiry[]>([]);
   const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setCurrentDate(new Date());
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     setCurrentDate(new Date());
     setFilteredInquiries(inquiries);
     setMounted(true);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [inquiries]);
 
   // Get current month and year
   const currentMonth = currentDate?.getMonth();
@@ -97,7 +87,7 @@ export default function InquiryCalendar({ inquiries }: InquiryCalendarProps) {
       return [];
     }
     return inquiries.filter((inquiry) =>
-      inquiry.created_at.startsWith(dateStr)
+      inquiry.created_at?.startsWith(dateStr)
     );
   };
 
@@ -305,13 +295,18 @@ export default function InquiryCalendar({ inquiries }: InquiryCalendarProps) {
         <CardContent>
           <div className="space-y-4 max-h-96 overflow-y-auto">
             {filteredInquiries.slice(0, 10).map((inquiry, idx) => (
-              <div key={inquiry.id + idx} className="border rounded-lg p-4">
+              <div
+                key={inquiry?.id || "" + idx}
+                className="border rounded-lg p-4"
+              >
                 <div className="flex justify-between items-start mb-2">
                   <h4 className="font-semibold">
                     {inquiry.first_name} {inquiry.last_name}
                   </h4>
                   <span className="text-xs text-gray-500">
-                    {new Date(inquiry.created_at).toLocaleString()}
+                    {inquiry.created_at
+                      ? new Date(inquiry.created_at).toLocaleString()
+                      : ""}
                   </span>
                 </div>
 

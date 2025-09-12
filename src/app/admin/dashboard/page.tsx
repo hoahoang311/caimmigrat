@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Card,
   CardContent,
@@ -6,7 +8,12 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { database } from "@/lib/supabase";
+import {
+  ConsultationBooking,
+  database,
+  Inquiry,
+  NewsletterSubscriber,
+} from "@/lib/supabase";
 import {
   Calendar,
   Clock,
@@ -15,22 +22,27 @@ import {
   Phone,
   Users,
 } from "lucide-react";
+import { useEffect, useState } from "react";
 import InquiryCalendar from "./components/InquiryCalendar";
 
-export default async function AdminDashboard() {
-  let inquiries = [];
-  let newsletterSubs = [];
-  let consultations = [];
+export default function AdminDashboard() {
+  const [inquiries, setInquiries] = useState<Inquiry[]>([]);
+  const [newsletterSubs, setNewsletterSubs] = useState<NewsletterSubscriber[]>(
+    []
+  );
+  const [consultations, setConsultations] = useState<ConsultationBooking[]>([]);
 
-  try {
-    [inquiries, newsletterSubs, consultations] = await Promise.all([
+  useEffect(() => {
+    Promise.all([
       database.getInquiries(10), // Get latest 10
       database.getNewsletterSubscribers(),
       database.getConsultationBookings(),
-    ]);
-  } catch (error) {
-    console.error("Error fetching admin data:", error);
-  }
+    ]).then((data) => {
+      setInquiries(data[0] || []);
+      setNewsletterSubs(data[1] || []);
+      setConsultations(data[2] || []);
+    });
+  }, []);
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -118,7 +130,11 @@ export default async function AdminDashboard() {
                       <div className="flex justify-between items-start mb-2">
                         <h4 className="font-semibold">{subscriber.email}</h4>
                         <span className="text-xs text-gray-500">
-                          {new Date(subscriber.created_at).toLocaleDateString()}
+                          {subscriber.subscribed_at
+                            ? new Date(
+                                subscriber.subscribed_at
+                              ).toLocaleDateString()
+                            : ""}
                         </span>
                       </div>
                       {subscriber.preferred_topics && (
@@ -177,7 +193,9 @@ export default async function AdminDashboard() {
                           {booking.first_name} {booking.last_name}
                         </h4>
                         <span className="text-xs text-gray-500">
-                          {new Date(booking.created_at).toLocaleDateString()}
+                          {booking.created_at
+                            ? new Date(booking.created_at).toLocaleDateString()
+                            : ""}
                         </span>
                       </div>
                       <div className="space-y-1 text-sm text-gray-600">
