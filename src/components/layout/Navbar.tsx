@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import ICBMLogo from "@/components/ui/ICBMLogo";
 import { LanguageSwitcher } from "@/components/ui/LanguageSwitcher";
 import { Menu, X } from "lucide-react";
-import { useTranslations, useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -38,7 +38,7 @@ export default function Navbar() {
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <div className="flex items-center">
-            <Link href="/" className="flex items-center space-x-2">
+            <Link href={`/${locale}`} className="flex items-center space-x-2">
               <ICBMLogo size="md" />
               <span className="text-xl font-bold text-foreground">
                 ICBM Law
@@ -110,7 +110,10 @@ export default function Navbar() {
                   asChild
                   className="w-full bg-blue-600 hover:bg-blue-700"
                 >
-                  <Link href={`/${locale}/contact`} onClick={() => setIsMenuOpen(false)}>
+                  <Link
+                    href={`/${locale}/contact`}
+                    onClick={() => setIsMenuOpen(false)}
+                  >
                     {t("book_consultation")}
                   </Link>
                 </Button>
