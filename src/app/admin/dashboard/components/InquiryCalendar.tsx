@@ -112,6 +112,7 @@ export default function InquiryCalendar({ inquiries }: InquiryCalendarProps) {
             .toString()
             .padStart(2, "0")}-${day.toString().padStart(2, "0")}`
         : "";
+
     if (selectedDate === dateStr) {
       // Deselect if clicking the same date
       setSelectedDate(null);
@@ -186,7 +187,10 @@ export default function InquiryCalendar({ inquiries }: InquiryCalendarProps) {
             Click on a date to filter inquiries
             {selectedDate && (
               <span className="block text-blue-600 font-medium mt-1">
-                Showing: {new Date(selectedDate).toLocaleDateString()}
+                Showing:{" "}
+                {new Date(selectedDate).toLocaleDateString("en-US", {
+                  timeZone: "UTC",
+                })}
               </span>
             )}
           </CardDescription>
@@ -292,7 +296,9 @@ export default function InquiryCalendar({ inquiries }: InquiryCalendarProps) {
             {selectedDate
               ? `${filteredInquiries.length} inquiry(ies) on ${new Date(
                   selectedDate
-                ).toLocaleDateString()}`
+                ).toLocaleDateString("en-US", {
+                  timeZone: "UTC",
+                })}`
               : `Showing ${filteredInquiries.length} recent inquiries`}
           </CardDescription>
         </CardHeader>
