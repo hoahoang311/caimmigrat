@@ -1,32 +1,33 @@
-import createNextIntlPlugin from 'next-intl/plugin';
 import type { NextConfig } from "next";
+import createNextIntlPlugin from "next-intl/plugin";
 
-const withNextIntl = createNextIntlPlugin('./src/i18n.ts');
+const withNextIntl = createNextIntlPlugin("./src/i18n.ts");
 
 const nextConfig: NextConfig = {
   // Removed static export to support middleware and authentication
   trailingSlash: true,
   skipTrailingSlashRedirect: true,
-  
+
   images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'images.unsplash.com',
-        port: '',
-        pathname: '/**',
+        protocol: "https",
+        hostname: "images.unsplash.com",
+        port: "",
+        pathname: "/**",
       },
       {
-        protocol: 'https',
-        hostname: 'plus.unsplash.com',
-        port: '',
-        pathname: '/**',
+        protocol: "https",
+        hostname: "plus.unsplash.com",
+        port: "",
+        pathname: "/**",
       },
     ],
     dangerouslyAllowSVG: true,
-    contentDispositionType: 'attachment',
+    contentDispositionType: "attachment",
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
+  experimental: { ppr: true },
 
   // Environment variables that will be available at build time
   env: {

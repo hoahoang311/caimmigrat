@@ -108,9 +108,6 @@ export const database = {
       .order("created_at", { ascending: false })
       .range(offset, offset + limit - 1);
 
-    console.log(data);
-    console.log(error);
-
     if (error) throw error;
     return data || [];
   },
@@ -168,9 +165,6 @@ export const database = {
       .select("*")
       .eq("is_active", true)
       .order("subscribed_at", { ascending: false });
-
-    console.log(data);
-    console.log(error);
 
     if (error) throw error;
     return data || [];

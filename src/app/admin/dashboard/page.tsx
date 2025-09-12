@@ -1,5 +1,3 @@
-"use client";
-
 import {
   Card,
   CardContent,
@@ -22,27 +20,18 @@ import {
   Phone,
   Users,
 } from "lucide-react";
-import { useEffect, useState } from "react";
 import InquiryCalendar from "./components/InquiryCalendar";
 
-export default function AdminDashboard() {
-  const [inquiries, setInquiries] = useState<Inquiry[]>([]);
-  const [newsletterSubs, setNewsletterSubs] = useState<NewsletterSubscriber[]>(
-    []
-  );
-  const [consultations, setConsultations] = useState<ConsultationBooking[]>([]);
-
-  useEffect(() => {
-    Promise.all([
-      database.getInquiries(10), // Get latest 10
-      database.getNewsletterSubscribers(),
-      database.getConsultationBookings(),
-    ]).then((data) => {
-      setInquiries(data[0] || []);
-      setNewsletterSubs(data[1] || []);
-      setConsultations(data[2] || []);
-    });
-  }, []);
+export default async function AdminDashboard() {
+  const [inquiries, newsletterSubs, consultations]: [
+    Inquiry[],
+    NewsletterSubscriber[],
+    ConsultationBooking[]
+  ] = await Promise.all([
+    database.getInquiries(),
+    database.getNewsletterSubscribers(),
+    database.getConsultationBookings(),
+  ]);
 
   return (
     <div className="min-h-screen bg-gray-50">
