@@ -347,7 +347,7 @@ export default async function ServicesPage({ params }: Props) {
                 size="lg"
                 className="bg-white text-blue-600 hover:bg-gray-100"
               >
-                <Link href={`${locale}/contact`}>
+                <Link href="/contact">
                   <FileText className="mr-2 h-5 w-5" />
                   {t("services.page.get_started")}
                   <ArrowRight className="ml-2 h-5 w-5" />

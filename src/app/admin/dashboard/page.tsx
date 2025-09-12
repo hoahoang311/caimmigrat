@@ -20,9 +20,12 @@ import {
   Phone,
   Users,
 } from "lucide-react";
+import { unstable_noStore as noStore } from "next/cache";
 import InquiryCalendar from "./components/InquiryCalendar";
 
 export default async function AdminDashboard() {
+  noStore();
+  
   const [inquiries, newsletterSubs, consultations]: [
     Inquiry[],
     NewsletterSubscriber[],
