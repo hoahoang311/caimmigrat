@@ -115,9 +115,9 @@ export default async function TermsPage({ params }: Props) {
                   <li>{t("terms.sections.fees.items.3")}</li>
                 </ul>
                 <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4">
-                  <p className="text-gray-700 leading-relaxed">
+                  <div className="text-gray-700 leading-relaxed">
                     <p>{t("terms.sections.fees.important")}</p>
-                  </p>
+                  </div>
                 </div>
               </div>
             </section>
@@ -127,9 +127,9 @@ export default async function TermsPage({ params }: Props) {
                 6. {t("terms.sections.guarantee.title")}
               </h2>
               <div className="bg-red-50 border-l-4 border-red-400 p-4">
-                <p className="text-gray-700 leading-relaxed">
+                <div className="text-gray-700 leading-relaxed">
                   <p>{t("terms.sections.guarantee.disclaimer")}</p>
-                </p>
+                </div>
               </div>
             </section>
 

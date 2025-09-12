@@ -15,7 +15,6 @@ export default async function PrivacyPage({ params }: Props) {
   const { locale } = await params;
 
   const t = await getTranslations({ locale });
-  console.log(t("privacy.sections.introduction.content"));
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
