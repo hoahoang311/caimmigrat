@@ -68,7 +68,7 @@ export default async function TermsPage({ params }: Props) {
                 <p className="text-gray-700 leading-relaxed mb-3">
                   {t("terms.sections.qualifications.content")}
                 </p>
-                <ul className="list-disc list-inside text-gray-700 space-y-1 ml-4">
+                <ul className="list-disc list-outside text-gray-700 space-y-1 ml-4">
                   <li>
                     <p>{t("terms.sections.qualifications.moumita")}</p>
                   </li>

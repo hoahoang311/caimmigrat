@@ -1,6 +1,5 @@
 import createIntlMiddleware from "next-intl/middleware";
-import type { NextRequest } from "next/server";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
 const intlMiddleware = createIntlMiddleware({
   locales: ["en", "vi"],
@@ -14,13 +13,14 @@ export async function middleware(request: NextRequest) {
   // Skip internationalization for admin routes
   if (pathname.startsWith("/admin") || pathname.startsWith("/api")) {
     // Handle /admin route - redirect based on authentication status
-    if (pathname === "/admin") {
+    if (pathname.startsWith("/admin")) {
       console.log(
         "🔒 /admin accessed, checking authentication for redirect..."
       );
 
       // Check authentication and redirect accordingly
       const authResult = await checkAuthAndRedirect(
+        pathname,
         request,
         "/admin/dashboard",
         "/admin/login"
@@ -48,6 +48,7 @@ export async function middleware(request: NextRequest) {
 
 // Helper function to check auth and redirect appropriately
 async function checkAuthAndRedirect(
+  pathname: string,
   request: NextRequest,
   authenticatedRedirect: string,
   unauthenticatedRedirect: string
@@ -80,7 +81,15 @@ async function checkAuthAndRedirect(
     if (user) {
       console.log("✅ User authenticated, redirecting to dashboard");
       url.pathname = authenticatedRedirect;
+
+      if (pathname === "/admin/dashboard") {
+        return NextResponse.next();
+      }
     } else {
+      if (pathname === "/admin/login") {
+        return NextResponse.next();
+      }
+
       console.log("🚫 No user found, redirecting to login");
       url.pathname = unauthenticatedRedirect;
     }
