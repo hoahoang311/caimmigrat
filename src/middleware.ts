@@ -1,7 +1,6 @@
 import createIntlMiddleware from "next-intl/middleware";
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
-import { updateSession } from "./lib/supabase-middleware";
 
 const intlMiddleware = createIntlMiddleware({
   locales: ["en", "vi"],
@@ -15,7 +14,7 @@ export async function middleware(request: NextRequest) {
   // Skip internationalization for admin routes
   if (pathname.startsWith("/admin") || pathname.startsWith("/api")) {
     // Handle /admin route - redirect based on authentication status
-    if (pathname === "/admin" || pathname === "/admin/login") {
+    if (pathname === "/admin") {
       console.log(
         "🔒 /admin accessed, checking authentication for redirect..."
       );
@@ -30,15 +29,15 @@ export async function middleware(request: NextRequest) {
     }
 
     // Handle admin dashboard and other protected admin routes
-    if (
-      pathname.startsWith("/admin/dashboard") ||
-      (pathname.startsWith("/admin/") && !pathname.startsWith("/admin/login"))
-    ) {
-      console.log(
-        "🔒 Protected admin route accessed, checking authentication..."
-      );
-      return await updateSession(request);
-    }
+    // if (
+    //   pathname.startsWith("/admin/dashboard") ||
+    //   (pathname.startsWith("/admin/") && !pathname.startsWith("/admin/login"))
+    // ) {
+    //   console.log(
+    //     "🔒 Protected admin route accessed, checking authentication..."
+    //   );
+    //   return await updateSession(request);
+    // }
 
     return NextResponse.next();
   }
