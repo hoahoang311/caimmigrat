@@ -18,9 +18,12 @@ export const metadata: Metadata = {
     "Canadian immigration, Express Entry, PNP, Family Sponsorship, Immigration lawyer, Immigration consultant, Canada visa",
   authors: [{ name: "ICBM Law Team" }],
   icons: {
-    icon: "/favicon.svg",
-    shortcut: "/favicon.svg",
-    apple: "/icbm-logo.svg",
+    icon: [
+      { url: "/icon", type: "image/png", sizes: "32x32" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+    ],
+    shortcut: "/icon",
+    apple: "/icon",
   },
   openGraph: {
     title: "ICBM Law - Your Canadian Immigration Partner",

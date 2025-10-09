@@ -37,18 +37,15 @@ export default function Navbar() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center h-full">
-            <Link
-              href={`/${locale}`}
-              className="flex items-center space-x-3 h-full py-2"
-            >
-              <ICBMLogo size="md" className="h-full" />
+          <div className="flex items-start">
+            <Link href={`/${locale}`} className="flex items-center">
+              <ICBMLogo size="md" />
             </Link>
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-4">
+          <div className="hidden md:flex md:flex-1 md:justify-center">
+            <div className="flex items-center space-x-4">
               {navigation.map((item) => (
                 <Link
                   key={item.name}

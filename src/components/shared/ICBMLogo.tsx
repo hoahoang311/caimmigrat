@@ -10,19 +10,19 @@ export default function ICBMLogo({
   size = "md",
 }: ICBMLogoProps) {
   const sizeClasses = {
-    sm: "h-8 w-auto",
-    md: "h-12 w-auto",
-    lg: "h-16 w-auto",
-    xl: "h-32 w-auto",
+    sm: "h-8",
+    md: "h-12",
+    lg: "h-16",
+    xl: "h-32",
   };
 
   return (
-    <div className={`${sizeClasses[size]} relative ${className}`}>
+    <div className={`${sizeClasses[size]} relative ${className} `}>
       <Image
         src="/official_logo.jpeg"
         alt="ICBM Law Logo"
         fill
-        className="object-contain !relative"
+        className="object-contain !relative !w-auto"
       />
     </div>
   );
