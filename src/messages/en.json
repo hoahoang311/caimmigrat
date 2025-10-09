@@ -77,7 +77,7 @@
           "Tourist Visa",
           "Super Visa (for parents/grandparents)",
           "Medical Visa",
-          "Exploratory Visa for Investors"
+          "Business Visa for Investors"
         ]
       },
       "study": {
@@ -97,7 +97,7 @@
           "Express Entry System",
           "Provincial Nominee Programs (PNP)",
           "Atlantic Immigration Program (AIP)",
-          "Rural & Northern Immigration Pilot (RNIP)",
+          "Rural Community Immigration Pilots (RCIP)",
           "Home Support Caregiver Program",
           "LMIA & LMIA-exempt Work Permits",
           "Vulnerable Open Work Permit (VOWP)",
@@ -108,18 +108,18 @@
         "title": "Investor Programs",
         "description": "Business and investment immigration pathways",
         "services": [
-          "Provincial Investor Programs (BC, AB, SK, MB, ON, NB, NS, PEI, NL)",
+          "Provincial Investment Programs (BC, AB, SK, MB, ON, NB, NS, PEI, NL)",
           "Start-up Visa Program (SUV)",
-          "Self-employed Persons Program (C11)",
-          "Intra-Company Transfer (C12)",
-          "Special Programs (No English requirement for direct PR/Work Permit)"
+          "Business Owner Operator Program (C11) - Work Permit",
+          "Intra-Company Transfer (C12) - Work Permit",
+          "Special Investment Programs (No English requirement for direct PR)"
         ]
       },
       "sponsorship": {
         "title": "Family Sponsorship",
         "description": "Reunite with your loved ones in Canada",
         "services": [
-          "Spousal & Partner Sponsorship",
+          "Spousal & Common Law Sponsorship",
           "Parent & Grandparent Sponsorship",
           "Dependent Children Sponsorship",
           "Refugee Hearing & Appeals",
@@ -138,7 +138,8 @@
           "Reconsideration Requests",
           "Criminal Rehabilitation",
           "Permanent Resident Travel Document (PRTD)",
-          "CBSA Matters & Detention Reviews"
+          "CBSA Matters & Detention Reviews",
+          "Temporary Resident Permit"
         ]
       }
     },
@@ -183,21 +184,21 @@
     "clients_helped": "Clients Helped",
     "page": {
       "title": "About ICBM Law",
-      "mission_intro": "Welcome to ICBM Law, a premier Canadian immigration consultancy founded by Moumita Chakraborty, a distinguished RCIC with an MBA, and Richard Brown, a Licensed Paralegal and certified Immigration Consultant. With over 16 years of combined expertise in immigration, education, and legal services, ICBM Law is dedicated to guiding clients worldwide through their journey to make Canada their permanent home, reunite with family, pursue studies, or advance professional opportunities.",
-      "mission_statement": "Our mission is to provide unwavering guidance to those embarking on their journey to Canada, while nurturing their contributions to its flourishing economic landscape.",
-      "tagline": "Let ICBM illuminate your path to a brighter future in Canada.",
+      "mission_intro": "Step into a world of unparalleled expertise and personalized guidance with ICBM Law, a distinguished Canadian immigration consultancy crafted to transform your aspirations of calling Canada home into reality. Founded by Moumita Chakraborty, a highly accomplished Regulated Canadian Immigration Consultant (RCIC) with an MBA, and Richard Brown, a Licensed Paralegal with Law Society of Ontario and certified Immigration Consultant, our firm embodies a legacy of excellence. With over 20 years of collective experience in immigration, education, and legal services, we are your trusted partners in navigating the intricate pathways to permanent residency, family reunification, academic pursuits, or professional advancement in Canada.",
+      "mission_statement": "At ICBM Law, we don't just process applications—we direct journeys. Our bespoke approach ensures that every client, from every corner of the globe, receives tailored solutions, unwavering support, and a seamless experience as they embark on their Canadian dream.",
+      "tagline": "Let us guide you with precision, passion, and a commitment to your success.",
       "team_title": "Meet Our Leadership Team",
       "moumita": {
         "name": "Moumita Chakraborty",
         "title": "MBA, Managing Partner",
         "description": "Regulated Canadian Immigration Consultant (RCIC)",
-        "license": "License Number: 532939"
+        "license": "License Number: R532939"
       },
       "richard": {
         "name": "Richard Brown",
         "title": "Paralegal, Senior Partner",
         "description": "Licensed Paralegal & Certified Immigration Consultant",
-        "license": "License Number: 514425"
+        "license": "License Number: R514425"
       }
     }
   },
@@ -227,7 +228,10 @@
       "phone": "Phone",
       "email": "Email",
       "business_hours": "Business Hours",
-      "business_hours_details": ["Monday - Friday: 10:00 AM - 5:00 PM", "Saturday & Sunday: Closed"],
+      "business_hours_details": [
+        "Monday - Friday: 10:00 AM - 5:00 PM",
+        "Saturday & Sunday: Closed"
+      ],
       "location_title": "Our Location",
       "location_description": "Visit our office in Toronto for in-person consultations and personalized service.",
       "visit_office_title": "Why Visit Our Office?",
@@ -246,7 +250,7 @@
       "faq_items": [
         {
           "question": "How long does the consultation take?",
-          "answer": "Initial consultations typically last 60-90 minutes, allowing us to thoroughly assess your situation and provide detailed recommendations."
+          "answer": "Initial consultations typically last 30 minutes, allowing us to assess your situation and provide recommendations."
         },
         {
           "question": "What documents should I bring?",
@@ -417,8 +421,8 @@
         "title": "Contact Information",
         "content": "If you have questions about this Privacy Policy or wish to exercise your privacy rights, please contact us:",
         "company_name": "ICBM Law",
-        "email": "Email: info@icbmlaw.com",
-        "phone": "Phone: +1 416-992-7429",
+        "email": "Email: info@icbmlaw.ca",
+        "phone": "Phone: +1 416-639-2655",
         "address": "Address: 240 Humberline Dr, Toronto, ON M9W 5X1",
         "business_hours": "Business Hours: Monday - Friday: 10:00 AM - 5:00 PM"
       }
@@ -447,8 +451,8 @@
       "qualifications": {
         "title": "Professional Qualifications",
         "content": "ICBM Law is operated by qualified professionals:",
-        "moumita": "Moumita Chakraborty: Regulated Canadian Immigration Consultant (RCIC), License #532939",
-        "richard": "Richard Brown: Licensed Paralegal and Certified Immigration Consultant, License #514425",
+        "moumita": "Moumita Chakraborty: Regulated Canadian Immigration Consultant (RCIC), License #R532939",
+        "richard": "Richard Brown: Licensed Paralegal and Certified Immigration Consultant, License #R514425",
         "membership": "Our consultants are members in good standing with the College of Immigration and Citizenship Consultants (CICC) and/or Law Society of Ontario, as applicable."
       },
       "client_responsibilities": {
@@ -523,8 +527,8 @@
         "title": "Contact Information",
         "content": "For questions about these Terms of Service or to discuss our services, please contact us:",
         "company_name": "ICBM Law",
-        "email": "Email: info@icbmlaw.com",
-        "phone": "Phone: +1 416-992-7429",
+        "email": "Email: info@icbmlaw.ca",
+        "phone": "Phone: +1 416-639-2655",
         "address": "Address: 240 Humberline Dr, Toronto, ON M9W 5X1",
         "business_hours": "Business Hours: Monday - Friday: 10:00 AM - 5:00 PM",
         "license_note": "Licensed immigration consultants providing professional services across Canada"

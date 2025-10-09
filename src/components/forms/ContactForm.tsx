@@ -125,7 +125,7 @@ export default function ContactForm() {
     <Card className="w-full">
       <CardHeader>
         <CardTitle className="flex items-center space-x-2">
-          <Send className="h-6 w-6 text-blue-600" />
+          <Send className="h-6 w-6 text-primary" />
           <span>{t('contact.form.title')}</span>
         </CardTitle>
         <CardDescription>
@@ -135,8 +135,8 @@ export default function ContactForm() {
       <CardContent>
         {isSubmitted ? (
           <div className="text-center space-y-4 py-8">
-            <CheckCircle className="h-16 w-16 text-green-600 mx-auto" />
-            <h3 className="text-xl font-semibold text-green-600">
+            <CheckCircle className="h-16 w-16 text-[#D9BA4E] mx-auto" />
+            <h3 className="text-xl font-semibold text-primary">
               {t('contact.form.success_title')}
             </h3>
             <p className="text-muted-foreground">
@@ -147,8 +147,8 @@ export default function ContactForm() {
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
               {error && (
-                <div className="p-4 bg-red-50 border border-red-200 rounded-md">
-                  <p className="text-red-700 text-sm">{error}</p>
+                <div className="p-4 bg-primary/5 border border-primary/20 rounded-md">
+                  <p className="text-primary text-sm">{error}</p>
                 </div>
               )}
 
@@ -356,7 +356,7 @@ export default function ContactForm() {
               {/* Submit Button */}
               <Button
                 type="submit"
-                className="w-full bg-blue-600 hover:bg-blue-700"
+                className="w-full bg-primary hover:bg-primary/90"
                 size="lg"
                 disabled={isSubmitting}
               >

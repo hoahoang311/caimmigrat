@@ -7,13 +7,11 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import {
-  ArrowRight,
   Award,
   Briefcase,
   Building,
   Calendar,
   CheckCircle,
-  FileText,
   Globe,
   GraduationCap,
   Heart,
@@ -57,7 +55,7 @@ export default async function ServicesPage({ params }: Props) {
         t("services.service_categories.temporary_visa.services.3"),
       ],
       color: "bg-white border-gray-200",
-      iconColor: "text-blue-600",
+      iconColor: "text-primary",
     },
     {
       id: "study",
@@ -71,7 +69,7 @@ export default async function ServicesPage({ params }: Props) {
         t("services.service_categories.study.services.3"),
       ],
       color: "bg-white border-gray-200",
-      iconColor: "text-green-600",
+      iconColor: "text-primary",
     },
     {
       id: "skilled-worker",
@@ -89,7 +87,7 @@ export default async function ServicesPage({ params }: Props) {
         t("services.service_categories.skilled_worker.services.7"),
       ],
       color: "bg-white border-gray-200",
-      iconColor: "text-purple-600",
+      iconColor: "text-primary",
     },
     {
       id: "investors",
@@ -104,7 +102,7 @@ export default async function ServicesPage({ params }: Props) {
         t("services.service_categories.investors.services.4"),
       ],
       color: "bg-white border-gray-200",
-      iconColor: "text-orange-600",
+      iconColor: "text-[#D9BA4E]",
     },
     {
       id: "sponsorship",
@@ -119,7 +117,7 @@ export default async function ServicesPage({ params }: Props) {
         t("services.service_categories.sponsorship.services.4"),
       ],
       color: "bg-white border-gray-200",
-      iconColor: "text-pink-600",
+      iconColor: "text-primary",
     },
     {
       id: "special-services",
@@ -138,9 +136,10 @@ export default async function ServicesPage({ params }: Props) {
         t("services.service_categories.special_services.services.6"),
         t("services.service_categories.special_services.services.7"),
         t("services.service_categories.special_services.services.8"),
+        t("services.service_categories.special_services.services.9"),
       ],
       color: "bg-white border-gray-200",
-      iconColor: "text-red-600",
+      iconColor: "text-primary",
     },
   ];
 
@@ -167,9 +166,9 @@ export default async function ServicesPage({ params }: Props) {
     },
   ];
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+    <div className="min-h-screen bg-gradient-to-br from-primary/5 to-primary/10">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 to-indigo-700">
+      <section className="py-20 bg-primary">
         <div className="container mx-auto px-6">
           <div className="text-center text-white">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
@@ -182,7 +181,7 @@ export default async function ServicesPage({ params }: Props) {
               <Button
                 asChild
                 size="lg"
-                className="bg-white text-blue-600 hover:bg-gray-100"
+                className="bg-white text-primary hover:bg-gray-100"
               >
                 <Link
                   href="https://calendly.com/icbmlaw"
@@ -196,9 +195,9 @@ export default async function ServicesPage({ params }: Props) {
               <Button
                 asChild
                 size="lg"
-                className="bg-green-600 hover:bg-green-700 text-white border-none shadow-lg hover:shadow-xl transition-all duration-300"
+                className="bg-[#D9BA4E] hover:bg-[#c9a83e] text-primary border-none shadow-lg hover:shadow-xl transition-all duration-300"
               >
-                <Link href="tel:+14169927429" className="flex items-center">
+                <Link href="tel:+14166392655" className="flex items-center">
                   <Phone className="mr-2 h-5 w-5" />
                   {t("cta.call_now")}
                 </Link>
@@ -215,7 +214,7 @@ export default async function ServicesPage({ params }: Props) {
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
               {t("services.page.section_title")}
             </h2>
-            <div className="w-24 h-1 bg-blue-600 mx-auto mb-6"></div>
+            <div className="w-24 h-1 bg-[#D9BA4E] mx-auto mb-6"></div>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               {t("services.page.section_subtitle")}
             </p>
@@ -263,7 +262,7 @@ export default async function ServicesPage({ params }: Props) {
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
               {t("services.page.why_choose_title")}
             </h2>
-            <div className="w-24 h-1 bg-blue-600 mx-auto mb-6"></div>
+            <div className="w-24 h-1 bg-[#D9BA4E] mx-auto mb-6"></div>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               {t("services.page.why_choose_subtitle")}
             </p>
@@ -276,8 +275,8 @@ export default async function ServicesPage({ params }: Props) {
                 className="text-center bg-white hover:shadow-lg transition-shadow duration-300"
               >
                 <CardHeader>
-                  <div className="w-16 h-16 mx-auto bg-blue-100 rounded-full flex items-center justify-center mb-4">
-                    <item.icon className="h-8 w-8 text-blue-600" />
+                  <div className="w-16 h-16 mx-auto bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                    <item.icon className="h-8 w-8 text-primary" />
                   </div>
                   <CardTitle className="text-lg">{item.title}</CardTitle>
                 </CardHeader>
@@ -291,9 +290,9 @@ export default async function ServicesPage({ params }: Props) {
       </section>
 
       {/* Special Programs Highlight */}
-      <section className="py-20 bg-gradient-to-r from-green-600 to-teal-600">
+      <section className="py-20 bg-[#D9BA4E]">
         <div className="container mx-auto px-6">
-          <div className="text-center text-white">
+          <div className="text-center text-primary">
             <Building className="h-16 w-16 mx-auto mb-6 opacity-80" />
             <h2 className="text-3xl font-bold mb-4">
               {t("services.page.special_programs_title")}
@@ -302,7 +301,7 @@ export default async function ServicesPage({ params }: Props) {
               {t("services.page.special_programs_subtitle")}
             </p>
             <div className="grid gap-4 md:grid-cols-3 max-w-4xl mx-auto">
-              <div className="bg-white/10 rounded-lg p-4 backdrop-blur-sm">
+              <div className="bg-primary/10 rounded-lg p-4 backdrop-blur-sm">
                 <h3 className="font-semibold mb-2">
                   {t("services.special_features.no_english.title")}
                 </h3>
@@ -310,7 +309,7 @@ export default async function ServicesPage({ params }: Props) {
                   {t("services.special_features.no_english.description")}
                 </p>
               </div>
-              <div className="bg-white/10 rounded-lg p-4 backdrop-blur-sm">
+              <div className="bg-primary/10 rounded-lg p-4 backdrop-blur-sm">
                 <h3 className="font-semibold mb-2">
                   {t("services.special_features.direct_pr.title")}
                 </h3>
@@ -318,7 +317,7 @@ export default async function ServicesPage({ params }: Props) {
                   {t("services.special_features.direct_pr.description")}
                 </p>
               </div>
-              <div className="bg-white/10 rounded-lg p-4 backdrop-blur-sm">
+              <div className="bg-primary/10 rounded-lg p-4 backdrop-blur-sm">
                 <h3 className="font-semibold mb-2">
                   {t("services.special_features.work_permit.title")}
                 </h3>
@@ -326,47 +325,6 @@ export default async function ServicesPage({ params }: Props) {
                   {t("services.special_features.work_permit.description")}
                 </p>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20 bg-blue-600">
-        <div className="container mx-auto px-6">
-          <div className="text-center text-white">
-            <h2 className="text-3xl font-bold mb-4">
-              {t("services.page.cta_title")}
-            </h2>
-            <p className="text-xl mb-8 max-w-3xl mx-auto opacity-90">
-              {t("services.page.cta_subtitle")}
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                asChild
-                size="lg"
-                className="bg-white text-blue-600 hover:bg-gray-100"
-              >
-                <Link href="/contact">
-                  <FileText className="mr-2 h-5 w-5" />
-                  {t("services.page.get_started")}
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
-              </Button>
-              <Button
-                asChild
-                size="lg"
-                className="bg-green-600 hover:bg-green-700 text-white"
-              >
-                <Link
-                  href="https://calendly.com/icbmlaw"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Calendar className="mr-2 h-5 w-5" />
-                  {t("services.page.schedule_consultation")}
-                </Link>
-              </Button>
             </div>
           </div>
         </div>

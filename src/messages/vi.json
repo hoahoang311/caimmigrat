@@ -138,7 +138,8 @@
           "Yêu Cầu Xem Xét Lại",
           "Phục Hồi Tội Phạm",
           "Tài Liệu Du Lịch Thường Trú (PRTD)",
-          "Vấn Đề CBSA & Xem Xét Giam Giữ"
+          "Vấn Đề CBSA & Xem Xét Giam Giữ",
+          "Giấy Phép Cư Trú Tạm Thời"
         ]
       }
     },
@@ -246,7 +247,7 @@
       "faq_items": [
         {
           "question": "Buổi tư vấn kéo dài bao lâu?",
-          "answer": "Buổi tư vấn ban đầu thường kéo dài 60-90 phút, cho phép chúng tôi đánh giá kỹ lưỡng tình huống của bạn và đưa ra khuyến nghị chi tiết."
+          "answer": "Buổi tư vấn ban đầu thường kéo dài 30 phút, cho phép chúng tôi đánh giá tình huống của bạn và đưa ra khuyến nghị."
         },
         {
           "question": "Tôi nên mang theo những tài liệu gì?",
@@ -417,8 +418,8 @@
         "title": "Thông Tin Liên Hệ",
         "content": "Nếu bạn có câu hỏi về Chính Sách Bảo Mật này hoặc muốn thực hiện quyền bảo mật của mình, vui lòng liên hệ với chúng tôi:",
         "company_name": "ICBM Law",
-        "email": "Email: info@icbmlaw.com",
-        "phone": "Điện thoại: +1 416-992-7429",
+        "email": "Email: info@icbmlaw.ca",
+        "phone": "Điện thoại: +1 416-639-2655",
         "address": "Địa chỉ: 240 Humberline Dr, Toronto, ON M9W 5X1",
         "business_hours": "Giờ làm việc: Thứ Hai - Thứ Sáu: 10:00 AM - 5:00 PM"
       }
@@ -523,8 +524,8 @@
         "title": "Thông Tin Liên Hệ",
         "content": "Để biết thêm thông tin về các Điều Khoản Dịch Vụ này hoặc để thảo luận về dịch vụ của chúng tôi, vui lòng liên hệ với chúng tôi:",
         "company_name": "ICBM Law",
-        "email": "Email: info@icbmlaw.com",
-        "phone": "Điện thoại: +1 416-992-7429",
+        "email": "Email: info@icbmlaw.ca",
+        "phone": "Điện thoại: +1 416-639-2655",
         "address": "Địa chỉ: 240 Humberline Dr, Toronto, ON M9W 5X1",
         "business_hours": "Giờ làm việc: Thứ Hai - Thứ Sáu: 10:00 AM - 5:00 PM",
         "license_note": "Tư vấn định cư có giấy phép cung cấp dịch vụ chuyên nghiệp trên khắp Canada"

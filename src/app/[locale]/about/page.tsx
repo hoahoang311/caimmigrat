@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 import Image from "next/image";
-import { getTranslations } from 'next-intl/server';
 
 export const metadata: Metadata = {
   title: "About Us - ICBM Law",
@@ -16,29 +16,29 @@ export default async function AboutPage({ params }: Props) {
   const { locale } = await params;
   const t = await getTranslations({ locale });
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+    <div className="min-h-screen bg-gradient-to-br from-primary/5 to-primary/10">
       <div className="container mx-auto px-6 py-16">
         {/* Header Section */}
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            {t('about.page.title')}
+            {t("about.page.title")}
           </h1>
-          <div className="w-24 h-1 bg-blue-600 mx-auto mb-8"></div>
+          <div className="w-24 h-1 bg-[#D9BA4E] mx-auto mb-8"></div>
         </div>
 
         {/* Mission Statement */}
         <div className="max-w-4xl mx-auto mb-16">
           <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
             <p className="text-lg md:text-xl text-gray-700 leading-relaxed mb-8">
-              {t('about.page.mission_intro')}
+              {t("about.page.mission_intro")}
             </p>
-            <div className="border-l-4 border-blue-600 pl-6 mb-8">
+            <div className="border-l-4 border-primary pl-6 mb-8">
               <p className="text-xl text-gray-800 font-medium italic">
-                {t('about.page.mission_statement')}
+                {t("about.page.mission_statement")}
               </p>
             </div>
-            <p className="text-lg text-blue-600 font-semibold text-center">
-              {t('about.page.tagline')}
+            <p className="text-lg text-primary font-semibold text-center">
+              {t("about.page.tagline")}
             </p>
           </div>
         </div>
@@ -46,34 +46,37 @@ export default async function AboutPage({ params }: Props) {
         {/* Team Section */}
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
-            {t('about.page.team_title')}
+            {t("about.page.team_title")}
           </h2>
 
           <div className="grid md:grid-cols-2 gap-8 md:gap-12 max-w-4xl mx-auto">
             {/* Moumita Chakraborty */}
-            <div className="bg-white rounded-2xl shadow-xl overflow-hidden transform hover:scale-105 transition-transform duration-300">
-              <div className="relative aspect-[4/3] bg-gradient-to-br from-blue-100 to-indigo-200">
+            <div className="bg-white flex flex-col rounded-2xl shadow-xl overflow-hidden transform hover:scale-105 transition-transform duration-300">
+              <div className="relative aspect-[4/3] bg-gradient-to-br from-primary/10 to-primary/20">
                 <Image
-                  src="/team/moumita-chakraborty.jpg"
+                  src="/team/mou.jpeg"
                   alt="Moumita Chakraborty, MBA, Managing Partner"
                   fill
                   className="object-cover"
+                  style={{ objectPosition: "0% 30%" }}
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-2">
-                  {t('about.page.moumita.name')}
-                </h3>
-                <p className="text-blue-600 font-semibold mb-2">
-                  {t('about.page.moumita.title')}
-                </p>
-                <p className="text-gray-600 mb-4">
-                  {t('about.page.moumita.description')}
-                </p>
-                <div className="bg-blue-50 rounded-lg p-3">
-                  <p className="text-sm font-medium text-blue-800">
-                    {t('about.page.moumita.license')}
+              <div className="flex-1 p-6 flex flex-col justify-between">
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">
+                    {t("about.page.moumita.name")}
+                  </h3>
+                  <p className="text-[#D9BA4E] font-semibold mb-2">
+                    {t("about.page.moumita.title")}
+                  </p>
+                  <p className="text-gray-600 mb-4">
+                    {t("about.page.moumita.description")}
+                  </p>
+                </div>
+                <div className="bg-primary/10 rounded-lg p-3">
+                  <p className="text-sm font-medium text-primary">
+                    {t("about.page.moumita.license")}
                   </p>
                 </div>
               </div>
@@ -81,28 +84,28 @@ export default async function AboutPage({ params }: Props) {
 
             {/* Richard Brown */}
             <div className="bg-white rounded-2xl shadow-xl overflow-hidden transform hover:scale-105 transition-transform duration-300">
-              <div className="relative aspect-[4/3] bg-gradient-to-br from-gray-100 to-blue-200">
+              <div className="relative aspect-[4/3] bg-gradient-to-br from-primary/10 to-primary/20">
                 <Image
-                  src="/team/richard-brown.jpg"
+                  src="/team/richard.jpeg"
                   alt="Richard Brown, Paralegal, Senior Partner"
                   fill
-                  className="object-cover"
+                  className="object-cover object-top"
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-bold text-gray-900 mb-2">
-                  {t('about.page.richard.name')}
+                  {t("about.page.richard.name")}
                 </h3>
-                <p className="text-blue-600 font-semibold mb-2">
-                  {t('about.page.richard.title')}
+                <p className="text-[#D9BA4E] font-semibold mb-2">
+                  {t("about.page.richard.title")}
                 </p>
                 <p className="text-gray-600 mb-4">
-                  {t('about.page.richard.description')}
+                  {t("about.page.richard.description")}
                 </p>
-                <div className="bg-blue-50 rounded-lg p-3">
-                  <p className="text-sm font-medium text-blue-800">
-                    {t('about.page.richard.license')}
+                <div className="bg-primary/10 rounded-lg p-3">
+                  <p className="text-sm font-medium text-primary">
+                    {t("about.page.richard.license")}
                   </p>
                 </div>
               </div>

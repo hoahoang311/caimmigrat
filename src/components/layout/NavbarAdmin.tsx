@@ -1,7 +1,7 @@
 "use client";
 
+import ICBMLogo from "@/components/shared/ICBMLogo";
 import { Button } from "@/components/ui/button";
-import ICBMLogo from "@/components/ui/ICBMLogo";
 import { createClientComponentClient } from "@/lib/auth";
 import { LogOut } from "lucide-react";
 import Link from "next/link";

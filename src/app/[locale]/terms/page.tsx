@@ -15,14 +15,14 @@ export default async function TermsPage({ params }: Props) {
   const { locale } = await params;
   const t = await getTranslations({ locale });
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100">
+    <div className="min-h-screen bg-gradient-to-br from-primary/5 to-primary/10">
       <div className="container mx-auto px-6 py-16">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
               {t("terms.title")}
             </h1>
-            <div className="w-24 h-1 bg-blue-600 mx-auto mb-6"></div>
+            <div className="w-24 h-1 bg-[#D9BA4E] mx-auto mb-6"></div>
             <p className="text-lg text-gray-600">
               {t("terms.last_updated")}{" "}
               {new Date().toLocaleDateString("en-CA", {
@@ -64,7 +64,7 @@ export default async function TermsPage({ params }: Props) {
               <h2 className="text-2xl font-bold text-gray-900 mb-4">
                 3. {t("terms.sections.qualifications.title")}
               </h2>
-              <div className="bg-blue-50 rounded-lg p-6 mb-4">
+              <div className="bg-primary/5 rounded-lg p-6 mb-4">
                 <p className="text-gray-700 leading-relaxed mb-3">
                   {t("terms.sections.qualifications.content")}
                 </p>
@@ -114,7 +114,7 @@ export default async function TermsPage({ params }: Props) {
                   <li>{t("terms.sections.fees.items.2")}</li>
                   <li>{t("terms.sections.fees.items.3")}</li>
                 </ul>
-                <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4">
+                <div className="bg-[#D9BA4E]/10 border-l-4 border-[#D9BA4E] p-4">
                   <div className="text-gray-700 leading-relaxed">
                     <p>{t("terms.sections.fees.important")}</p>
                   </div>
@@ -126,7 +126,7 @@ export default async function TermsPage({ params }: Props) {
               <h2 className="text-2xl font-bold text-gray-900 mb-4">
                 6. {t("terms.sections.guarantee.title")}
               </h2>
-              <div className="bg-red-50 border-l-4 border-red-400 p-4">
+              <div className="bg-primary/5 border-l-4 border-primary p-4">
                 <div className="text-gray-700 leading-relaxed">
                   <p>{t("terms.sections.guarantee.disclaimer")}</p>
                 </div>
@@ -214,7 +214,7 @@ export default async function TermsPage({ params }: Props) {
               <h2 className="text-2xl font-bold text-gray-900 mb-4">
                 14. {t("terms.sections.contact.title")}
               </h2>
-              <div className="bg-blue-50 rounded-lg p-6">
+              <div className="bg-primary/5 rounded-lg p-6">
                 <p className="text-gray-700 leading-relaxed mb-4">
                   {t("terms.sections.contact.content")}
                 </p>

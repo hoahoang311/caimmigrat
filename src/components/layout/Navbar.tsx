@@ -1,7 +1,7 @@
 "use client";
 
+import ICBMLogo from "@/components/shared/ICBMLogo";
 import { Button } from "@/components/ui/button";
-import ICBMLogo from "@/components/ui/ICBMLogo";
 import { LanguageSwitcher } from "@/components/ui/LanguageSwitcher";
 import { Menu, X } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
@@ -33,16 +33,16 @@ export default function Navbar() {
 
   // Regular website header
   return (
-    <nav className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <nav className="sticky top-0 z-50 w-full bg-primary backdrop-blur supports-[backdrop-filter]:bg-primary">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center">
-            <Link href={`/${locale}`} className="flex items-center space-x-2">
-              <ICBMLogo size="md" />
-              <span className="text-xl font-bold text-foreground">
-                ICBM Law
-              </span>
+          <div className="flex items-center h-full">
+            <Link
+              href={`/${locale}`}
+              className="flex items-center space-x-3 h-full py-2"
+            >
+              <ICBMLogo size="md" className="h-full" />
             </Link>
           </div>
 
@@ -53,7 +53,7 @@ export default function Navbar() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground hover:bg-muted"
+                  className="rounded-md px-3 py-2 text-sm font-medium text-white transition-colors hover:text-white hover:bg-white/10"
                 >
                   {item.name}
                 </Link>
@@ -63,8 +63,10 @@ export default function Navbar() {
 
           {/* Language Switcher & CTA Button */}
           <div className="hidden md:flex items-center space-x-4">
-            <LanguageSwitcher />
-            <Button asChild className="bg-blue-600 hover:bg-blue-700">
+            <Button
+              asChild
+              className="bg-[#D9BA4E] hover:bg-[#b89851] text-primary font-semibold"
+            >
               <Link href={`/${locale}/contact`}>{t("book_consultation")}</Link>
             </Button>
           </div>
@@ -76,6 +78,7 @@ export default function Navbar() {
               size="sm"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Toggle menu"
+              className="text-white hover:bg-white/10"
             >
               {isMenuOpen ? (
                 <X className="h-6 w-6" />
@@ -90,13 +93,13 @@ export default function Navbar() {
       {/* Mobile Navigation Menu */}
       {isMenuOpen && (
         <div className="md:hidden">
-          <div className="border-t px-2 pb-3 pt-2 sm:px-3">
+          <div className="border-t border-white/20 px-2 pb-3 pt-2 sm:px-3">
             <div className="space-y-1">
               {navigation.map((item) => (
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="block rounded-md px-3 py-2 text-base font-medium text-muted-foreground transition-colors hover:text-foreground hover:bg-muted"
+                  className="block rounded-md px-3 py-2 text-base font-medium text-white transition-colors hover:text-white hover:bg-white/10"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}
@@ -108,7 +111,7 @@ export default function Navbar() {
                 </div>
                 <Button
                   asChild
-                  className="w-full bg-blue-600 hover:bg-blue-700"
+                  className="w-full bg-[#D9BA4E] hover:bg-[#b89851] text-primary font-semibold"
                 >
                   <Link
                     href={`/${locale}/contact`}

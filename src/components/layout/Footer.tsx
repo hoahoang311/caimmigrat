@@ -1,9 +1,8 @@
 "use client";
 
-import NewsletterForm from "@/components/forms/NewsletterForm";
-import ICBMLogo from "@/components/ui/ICBMLogo";
+import ICBMLogo from "@/components/shared/ICBMLogo";
 import { Clock, Facebook, Instagram, Mail, MapPin, Phone } from "lucide-react";
-import { useTranslations, useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -21,80 +20,34 @@ export default function Footer() {
     return null;
   }
   return (
-    <footer className="bg-slate-900 text-white">
-      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-          {/* Company Info */}
-          <div className="space-y-4">
-            <div className="flex items-center space-x-2">
-              <ICBMLogo
-                size="md"
-                className="!bg-gradient-to-br !from-blue-400 !to-indigo-500"
-              />
-              <span className="text-xl font-bold">ICBM Law</span>
-            </div>
-            <p className="text-slate-300 text-sm leading-relaxed">
-              {t("footer.tagline")}
-            </p>
-          </div>
-
-          {/* Contact Information */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold">
-              {t("footer.contact_info")}
-            </h3>
-            <div className="space-y-3 text-sm text-slate-300">
-              <div className="flex items-start space-x-2">
-                <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0" />
-                <span>
-                  240 Humberline Dr
-                  <br />
-                  Toronto, ON M9W 5X1
-                </span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Phone className="h-4 w-4 flex-shrink-0" />
-                <a
-                  href="tel:+14169927429"
-                  className="hover:text-blue-400 transition-colors"
-                >
-                  +1 416-992-7429
-                </a>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Mail className="h-4 w-4 flex-shrink-0" />
-                <a
-                  href="mailto:info@icbmlaw.com"
-                  className="hover:text-blue-400 transition-colors"
-                >
-                  info@icbmlaw.com
-                </a>
-              </div>
-              <div className="flex items-start space-x-2">
-                <Clock className="h-4 w-4 mt-0.5 flex-shrink-0" />
-                <span>{t("footer.business_hours")}</span>
-              </div>
+    <footer className="bg-primary text-white">
+      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr]">
+          {/* Company Logo */}
+          <div className="flex flex-col justify-between space-y-6">
+            <div className="flex items-center">
+              <ICBMLogo size="xl" className="absolute -top-5 right-6" />
             </div>
 
             {/* Social Media Links */}
             <div className="flex space-x-4">
               <a
                 href="#"
-                className="text-slate-400 hover:text-blue-400 transition-colors"
+                className="text-white/60 hover:text-[#D9BA4E] transition-colors"
                 aria-label="Facebook"
               >
                 <Facebook className="h-5 w-5" />
               </a>
               <a
                 href="#"
-                className="text-slate-400 hover:text-blue-400 transition-colors"
+                className="text-white/60 hover:text-[#D9BA4E] transition-colors"
                 aria-label="Instagram"
               >
                 <Instagram className="h-5 w-5" />
               </a>
               <a
                 href="#"
-                className="text-slate-400 hover:text-blue-400 transition-colors"
+                className="text-white/60 hover:text-[#D9BA4E] transition-colors"
                 aria-label="TikTok"
               >
                 <svg
@@ -108,7 +61,7 @@ export default function Footer() {
               </a>
               <a
                 href="#"
-                className="text-slate-400 hover:text-blue-400 transition-colors"
+                className="text-white/60 hover:text-[#D9BA4E] transition-colors"
                 aria-label="Threads"
               >
                 <svg
@@ -123,37 +76,104 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Newsletter Signup */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold">
-              {t("footer.newsletter_title")}
-            </h3>
-            <p className="text-sm text-slate-300">
-              {t("footer.newsletter_description")}
+          {/* Tagline */}
+          <div className="space-y-6">
+            <h3 className="text-lg font-semibold text-white">About Us</h3>
+            <p className="text-white/80 text-md leading-relaxed">
+              {t("footer.tagline")}
             </p>
-            <NewsletterForm />
+          </div>
+
+          {/* Contact Information */}
+          <div className="space-y-6">
+            <h3 className="text-lg font-semibold text-white">
+              {t("footer.contact_info")}
+            </h3>
+            <div className="space-y-4 text-sm text-white/80">
+              <div className="flex items-start space-x-3">
+                <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0" />
+                <span>
+                  240 Humberline Dr
+                  <br />
+                  Toronto, ON M9W 5X1
+                </span>
+              </div>
+              <div className="flex items-center space-x-3">
+                <Phone className="h-4 w-4 flex-shrink-0" />
+                <a
+                  href="tel:+14166392655"
+                  className="hover:text-[#D9BA4E] transition-colors"
+                >
+                  +1 416-639-2655
+                </a>
+              </div>
+              <div className="flex items-center space-x-3">
+                <Mail className="h-4 w-4 flex-shrink-0" />
+                <a
+                  href="mailto:info@icbmlaw.ca"
+                  className="hover:text-[#D9BA4E] transition-colors"
+                >
+                  info@icbmlaw.ca
+                </a>
+              </div>
+              <div className="flex items-start space-x-3">
+                <Clock className="h-4 w-4 mt-0.5 flex-shrink-0" />
+                <span>{t("footer.business_hours")}</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Quick Links */}
+          <div className="space-y-6">
+            <h3 className="text-lg font-semibold text-white">Quick Links</h3>
+            <div className="space-y-3 text-sm text-white/80">
+              <Link
+                href={`/${locale}`}
+                className="block hover:text-[#D9BA4E] transition-colors"
+              >
+                Home
+              </Link>
+              <Link
+                href={`/${locale}/services`}
+                className="block hover:text-[#D9BA4E] transition-colors"
+              >
+                Services
+              </Link>
+              <Link
+                href={`/${locale}/about`}
+                className="block hover:text-[#D9BA4E] transition-colors"
+              >
+                About
+              </Link>
+              <Link
+                href={`/${locale}/contact`}
+                className="block hover:text-[#D9BA4E] transition-colors"
+              >
+                Contact
+              </Link>
+            </div>
           </div>
         </div>
 
         {/* Bottom Border */}
-        <div className="mt-8 border-t border-slate-800 pt-8">
+        <div className="mt-8 border-t border-white/20 pt-8">
           <div className="flex flex-col items-center justify-between space-y-4 sm:flex-row sm:space-y-0">
-            <p className="text-sm text-slate-400">
+            <p className="text-sm text-white/60">
               {t("footer.copyright").replace(
                 "2024",
                 new Date().getFullYear().toString()
               )}
             </p>
-            <div className="flex space-x-6 text-sm text-slate-400">
+            <div className="flex space-x-6 text-sm text-white/60">
               <Link
                 href={`/${locale}/privacy`}
-                className="hover:text-blue-400 transition-colors"
+                className="hover:text-[#D9BA4E] transition-colors"
               >
-{t("footer.privacy_link")}
+                {t("footer.privacy_link")}
               </Link>
               <Link
                 href={`/${locale}/terms`}
-                className="hover:text-blue-400 transition-colors"
+                className="hover:text-[#D9BA4E] transition-colors"
               >
                 {t("footer.terms")}
               </Link>

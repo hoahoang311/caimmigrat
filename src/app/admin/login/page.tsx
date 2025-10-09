@@ -1,5 +1,6 @@
 "use client";
 
+import ICBMLogo from "@/components/shared/ICBMLogo";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import {
@@ -9,7 +10,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import ICBMLogo from "@/components/ui/ICBMLogo";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { createClientComponentClient } from "@/lib/auth";
