@@ -1,0 +1,18 @@
+# Required variables
+bucket_name = "caimmigration-website-prod"
+
+# Optional variables
+aws_region   = "us-east-1"
+environment  = "prod"
+
+# Custom domain configuration (optional)
+# domain_name          = "example.com"
+# ssl_certificate_arn  = "arn:aws:acm:us-east-1:123456789012:certificate/12345678-1234-1234-1234-123456789012"
+
+# CloudFront configuration
+cloudfront_price_class = "PriceClass_100"
+
+# GitHub Actions deployment (optional)
+# create_github_actions_role   = true
+# github_repository           = "owner/repo-name"
+# create_github_oidc_provider = true
