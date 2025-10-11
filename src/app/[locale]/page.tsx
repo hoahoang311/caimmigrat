@@ -10,9 +10,9 @@ import {
   ArrowRight,
   Award,
   Calendar,
-  MessageCircle,
-  Phone,
+  Quote,
   Shield,
+  Star,
   Users,
 } from "lucide-react";
 import { getTranslations } from "next-intl/server";
@@ -53,24 +53,16 @@ export default async function HomePage({ params }: Props) {
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
       <section
-        className="relative bg-gradient-to-br from-primary/5 to-primary/10 py-20 lg:py-32"
+        className="relative bg-gradient-to-br from-primary/5 to-primary/10 py-12 lg:py-16"
         style={{
           minHeight: "100vh",
         }}
       >
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col gap-12 items-center">
-            <div className="space-y-8 text-center max-w-4xl">
-              <div className="space-y-4">
-                <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl lg:text-6xl">
-                  {t("hero.title")}
-                </h1>
-                <p className="text-xl text-gray-600 leading-relaxed">
-                  {t("hero.subtitle")}
-                </p>
-              </div>
-
-              <div className="relative w-full h-[500px]">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-full">
+          <div className="flex flex-col justify-center items-center gap-8 h-full">
+            <div className="w-full max-w-5xl">
+              {/* Landing Image */}
+              <div className="relative w-full h-[600px] lg:h-[700px] mb-8">
                 <Image
                   src="/landing_page.jpeg"
                   alt="ICBM Law"
@@ -80,7 +72,8 @@ export default async function HomePage({ params }: Props) {
                 />
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              {/* Call-to-Action Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
                 <Button
                   asChild
                   size="lg"
@@ -109,22 +102,28 @@ export default async function HomePage({ params }: Props) {
               </div>
 
               {/* Quick Stats */}
-              <div className="grid grid-cols-3 gap-6 pt-8 border-t border-gray-200 max-w-2xl mx-auto">
+              <div className="grid grid-cols-3 gap-6 pt-6 border-t border-gray-200 max-w-3xl mx-auto">
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-[#D9BA4E]">5000+</div>
-                  <div className="text-sm text-gray-600">
+                  <div className="text-3xl lg:text-4xl font-bold text-[#D9BA4E]">
+                    3000+
+                  </div>
+                  <div className="text-sm lg:text-base text-gray-600 mt-2">
                     {t("stats.applications")}
                   </div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-[#D9BA4E]">10+</div>
-                  <div className="text-sm text-gray-600">
+                  <div className="text-3xl lg:text-4xl font-bold text-[#D9BA4E]">
+                    20+
+                  </div>
+                  <div className="text-sm lg:text-base text-gray-600 mt-2">
                     {t("stats.experience")}
                   </div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-[#D9BA4E]">98%</div>
-                  <div className="text-sm text-gray-600">
+                  <div className="text-3xl lg:text-4xl font-bold text-[#D9BA4E]">
+                    96%
+                  </div>
+                  <div className="text-sm lg:text-base text-gray-600 mt-2">
                     {t("stats.success_rate")}
                   </div>
                 </div>
@@ -169,38 +168,50 @@ export default async function HomePage({ params }: Props) {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-gray-50">
+      {/* Testimonials Section */}
+      <section className="py-20 bg-gradient-to-br from-primary/5 to-primary/10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center space-y-8">
-            <h2 className="text-3xl font-bold text-primary sm:text-4xl">
-              {t("cta.title")}
+          <div className="text-center space-y-4 mb-16">
+            <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">
+              {t("testimonials.title")}
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              {t("cta.subtitle")}
+              {t("testimonials.subtitle")}
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                asChild
-                size="lg"
-                className="bg-white hover:bg-gray-100 text-primary"
+          </div>
+
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {[0, 1, 2, 3, 4, 5].map((index) => (
+              <Card
+                key={index}
+                className="bg-white border-none shadow-lg hover:shadow-xl transition-shadow"
               >
-                <Link href={`${locale}/contact`}>
-                  {t("cta.ask_question")}
-                  <MessageCircle className="ml-2 h-5 w-5" />
-                </Link>
-              </Button>
-              <Button
-                asChild
-                size="lg"
-                className="bg-primary hover:bg-primary/90 text-white border-none shadow-lg hover:shadow-xl transition-all duration-300"
-              >
-                <Link href="tel:+14166392655" className="flex items-center">
-                  <Phone className="mr-2 h-5 w-5" />
-                  {t("cta.call_now")}
-                </Link>
-              </Button>
-            </div>
+                <CardHeader>
+                  <div className="flex items-center gap-1 mb-4">
+                    {[...Array(5)].map((_, i) => (
+                      <Star
+                        key={i}
+                        className="h-5 w-5 fill-[#D9BA4E] text-[#D9BA4E]"
+                      />
+                    ))}
+                  </div>
+                  <Quote className="h-8 w-8 text-primary/20 mb-2" />
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <p className="text-gray-700 leading-relaxed">
+                    {t(`testimonials.items.${index}.text`)}
+                  </p>
+                  <div className="border-t border-gray-200 pt-4">
+                    <p className="font-semibold text-gray-900">
+                      {t(`testimonials.items.${index}.name`)}
+                    </p>
+                    <p className="text-sm text-[#D9BA4E] font-medium">
+                      {t(`testimonials.items.${index}.program`)}
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>

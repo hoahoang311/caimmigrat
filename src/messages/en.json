@@ -2,13 +2,14 @@
   "nav": {
     "home": "Home",
     "services": "Services",
+    "camp": "Camp",
     "about": "About",
     "contact": "Contact",
     "book_consultation": "Book Consultation"
   },
   "hero": {
-    "title": "Your Canadian Immigration Partner",
-    "subtitle": "Expert immigration services with proven success rates. Let us guide you through your journey to Canada.",
+    "title": "",
+    "subtitle": "",
     "cta": "Get Started Today"
   },
   "services": {
@@ -95,6 +96,10 @@
         "description": "Permanent residence pathways for skilled professionals",
         "services": [
           "Express Entry System",
+          "International Experience Class (IEC)",
+          "Federal Skilled Worker Program (FSWP)",
+          "Federal Skilled Trade Program (FSTP)",
+          "Canadian Experience Class (CEC)",
           "Provincial Nominee Programs (PNP)",
           "Atlantic Immigration Program (AIP)",
           "Rural Community Immigration Pilots (RCIP)",
@@ -116,7 +121,7 @@
         ]
       },
       "sponsorship": {
-        "title": "Family Sponsorship",
+        "title": "Sponsorship",
         "description": "Reunite with your loved ones in Canada",
         "services": [
           "Spousal & Common Law Sponsorship",
@@ -184,7 +189,8 @@
     "clients_helped": "Clients Helped",
     "page": {
       "title": "About ICBM Law",
-      "mission_intro": "Step into a world of unparalleled expertise and personalized guidance with ICBM Law, a distinguished Canadian immigration consultancy crafted to transform your aspirations of calling Canada home into reality. Founded by Moumita Chakraborty, a highly accomplished Regulated Canadian Immigration Consultant (RCIC) with an MBA, and Richard Brown, a Licensed Paralegal with Law Society of Ontario and certified Immigration Consultant, our firm embodies a legacy of excellence. With over 20 years of collective experience in immigration, education, and legal services, we are your trusted partners in navigating the intricate pathways to permanent residency, family reunification, academic pursuits, or professional advancement in Canada.",
+      "mission_intro": "Step into a world of unparalleled expertise and personalized guidance with ICBM Law, a distinguished Canadian immigration consultancy crafted to transform your aspirations of calling Canada home into reality.",
+      "mission_intro2": "ICBM Law unites the established legacies of MICS (Mou Immigration Consultancy Services) —founded in 2019 by Moumita Chakraborty, a highly accomplished Regulated Canadian Immigration Consultant (RCIC) with an MBA—and Bagal Immigration & Legal Services —established in 2015 by Richard Brown, an eminent Licensed Paralegal with the Law Society of Ontario and also a Certified Immigration Consultant. Together, our firm embodies a legacy of excellence, drawing on over 15 years of collective experience in immigration, education, and legal services to serve as your trusted partners in navigating the intricate pathways to permanent residency, family reunification, academic pursuits, or professional advancement in Canada.",
       "mission_statement": "At ICBM Law, we don't just process applications—we direct journeys. Our bespoke approach ensures that every client, from every corner of the globe, receives tailored solutions, unwavering support, and a seamless experience as they embark on their Canadian dream.",
       "tagline": "Let us guide you with precision, passion, and a commitment to your success.",
       "team_title": "Meet Our Leadership Team",
@@ -327,6 +333,42 @@
     "applications": "Successful Applications",
     "experience": "Years Experience",
     "success_rate": "Success Rate"
+  },
+  "testimonials": {
+    "title": "What Our Clients Say",
+    "subtitle": "Real stories from clients who achieved their Canadian immigration dreams with our help",
+    "items": [
+      {
+        "name": "Ishpinder Singh",
+        "program": "Work Permit & PR",
+        "text": "I had an excellent experience working with Richard and Kelly for my Work Permit and Permanent Residency applications. From start to finish, they were professional, knowledgeable, and always available to answer my questions. They guided me through every step of the process with patience and clarity, making everything smooth and stress free."
+      },
+      {
+        "name": "Nidhi Aery",
+        "program": "Express Entry & PNP",
+        "text": "I am pleased to share my positive experience with Mr. Richard at ICBM Law. He assisted me with my Permanent Residence Express Entry profile, managed my work permit extension, and guided me through the challenges of a refused PNP application. Throughout the entire process, he was incredibly cooperative, consistently offering thoughtful and valid guidance."
+      },
+      {
+        "name": "Suprabh Kesav",
+        "program": "Permanent Residence",
+        "text": "Richard and Kelly are very knowledgeable in what they do. I applied my PR through them and they were there to help in every step! I'll recommend ICBM Law to everyone!"
+      },
+      {
+        "name": "Oniel Armstrong",
+        "program": "Immigration Appeal",
+        "text": "I had a case with the immigration refugee and citizenship that was refused and Richard fought for me. In the space of three months after the fight I have a permanent residence. He is the best and he's very helpful. Anyone looking for immigration help look no more. Richard Brown is the man."
+      },
+      {
+        "name": "Jahnoy Clue",
+        "program": "Permanent Residence",
+        "text": "Good firm I'm so pleased with the service. Kelly and Mr. Brown did a really good job, I got my PR in less than a year I'm so happy…"
+      },
+      {
+        "name": "Richmond Nyarko",
+        "program": "Immigration Services",
+        "text": "Would give a 10 if there were as many stars, good service, excellent communication, very reliable, fantastic firm. Mr. Brown is a top Lawyer, highly recommended!"
+      }
+    ]
   },
   "newsletter": {
     "email_placeholder": "Enter your email",

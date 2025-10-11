@@ -2,13 +2,14 @@
   "nav": {
     "home": "Trang Chủ",
     "services": "Dịch Vụ",
+    "camp": "Trại Hè",
     "about": "Về Chúng Tôi",
     "contact": "Liên Hệ",
     "book_consultation": "Đặt Lịch Tư Vấn"
   },
   "hero": {
-    "title": "Đối Tác Định Cư Canada Của Bạn",
-    "subtitle": "Dịch vụ định cư chuyên nghiệp với tỷ lệ thành công đã được chứng minh. Hãy để chúng tôi hướng dẫn bạn trong hành trình đến Canada.",
+    "title": "",
+    "subtitle": "",
     "cta": "Bắt Đầu Ngay Hôm Nay"
   },
   "services": {
@@ -95,6 +96,10 @@
         "description": "Con đường thường trú cho các chuyên gia lành nghề",
         "services": [
           "Hệ Thống Express Entry",
+          "Chương Trình Kinh Nghiệm Quốc Tế (IEC)",
+          "Chương Trình Lao Động Lành Nghề Liên Bang (FSWP)",
+          "Chương Trình Nghề Lành Nghề Liên Bang (FSTP)",
+          "Chương Trình Kinh Nghiệm Canada (CEC)",
           "Chương Trình Đề Cử Tỉnh Bang (PNP)",
           "Chương Trình Định Cư Atlantic (AIP)",
           "Chương Trình Thí Điểm Nông Thôn & Miền Bắc (RNIP)",
@@ -324,6 +329,42 @@
     "applications": "Hồ Sơ Thành Công",
     "experience": "Năm Kinh Nghiệm",
     "success_rate": "Tỷ Lệ Thành Công"
+  },
+  "testimonials": {
+    "title": "Khách Hàng Nói Gì Về Chúng Tôi",
+    "subtitle": "Những câu chuyện thực tế từ khách hàng đã đạt được ước mơ định cư Canada với sự giúp đỡ của chúng tôi",
+    "items": [
+      {
+        "name": "Ishpinder Singh",
+        "program": "Giấy Phép Lao Động & PR",
+        "text": "Tôi đã có trải nghiệm tuyệt vời khi làm việc với Richard và Kelly cho đơn xin Giấy Phép Lao Động và Thường Trú. Từ đầu đến cuối, họ rất chuyên nghiệp, am hiểu và luôn sẵn sàng trả lời các câu hỏi của tôi. Họ đã hướng dẫn tôi qua từng bước của quá trình với sự kiên nhẫn và rõ ràng, làm mọi thứ suôn sẻ và không căng thẳng."
+      },
+      {
+        "name": "Nidhi Aery",
+        "program": "Express Entry & PNP",
+        "text": "Tôi rất vui được chia sẻ trải nghiệm tích cực với ông Richard tại ICBM Law. Ông đã hỗ trợ tôi với hồ sơ Thường Trú Express Entry, quản lý gia hạn giấy phép lao động, và hướng dẫn tôi vượt qua thử thách của đơn PNP bị từ chối. Trong suốt quá trình, ông rất hợp tác, luôn đưa ra hướng dẫn chu đáo và hợp lý."
+      },
+      {
+        "name": "Suprabh Kesav",
+        "program": "Thường Trú",
+        "text": "Richard và Kelly rất am hiểu về công việc của họ. Tôi đã nộp đơn PR qua họ và họ luôn ở đó để giúp đỡ ở mọi bước! Tôi sẽ giới thiệu ICBM Law cho mọi người!"
+      },
+      {
+        "name": "Oniel Armstrong",
+        "program": "Kháng Cáo Định Cư",
+        "text": "Tôi có một vụ việc với cơ quan di trú tị nạn và công dân bị từ chối và Richard đã đấu tranh cho tôi. Chỉ trong ba tháng sau đó tôi đã có thường trú. Ông ấy là người giỏi nhất và rất hữu ích. Bất kỳ ai đang tìm kiếm sự trợ giúp về định cư, đừng tìm nữa. Richard Brown là người đàn ông đó."
+      },
+      {
+        "name": "Jahnoy Clue",
+        "program": "Thường Trú",
+        "text": "Công ty tốt, tôi rất hài lòng với dịch vụ. Kelly và ông Brown đã làm rất tốt công việc, tôi đã nhận được PR trong vòng chưa đầy một năm, tôi rất vui…"
+      },
+      {
+        "name": "Richmond Nyarko",
+        "program": "Dịch Vụ Định Cư",
+        "text": "Sẽ cho 10 sao nếu có nhiều sao như vậy, dịch vụ tốt, giao tiếp xuất sắc, rất đáng tin cậy, công ty tuyệt vời. Ông Brown là luật sư hàng đầu, rất khuyến nghị!"
+      }
+    ]
   },
   "newsletter": {
     "email_placeholder": "Nhập email của bạn",

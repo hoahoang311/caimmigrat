@@ -20,8 +20,9 @@ export default function Navbar() {
 
   const navigation = [
     { name: t("home"), href: `/${locale}` },
-    { name: t("services"), href: `/${locale}/services` },
     { name: t("about"), href: `/${locale}/about` },
+    { name: t("services"), href: `/${locale}/services` },
+    { name: t("camp"), href: `/${locale}/summer-camp` },
     { name: t("contact"), href: `/${locale}/contact` },
   ];
 

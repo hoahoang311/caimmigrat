@@ -47,6 +47,7 @@ next-env.d.ts
 *.zip
 SUPABASE_SETUP.md
 ADMIN_SETUP.md
+EMAIL_SETUP.md
 
 .github/
 terraform/
