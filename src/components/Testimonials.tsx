@@ -76,7 +76,7 @@ const Testimonilas = () => {
 
   const testimonialCard = (index: number, key: string) => (
     <div key={key} className="flex-shrink-0 w-[350px] mx-4">
-      <Card className="bg-white border-none shadow-lg hover:shadow-xl transition-shadow h-[520px] flex flex-col">
+      <Card className="bg-white border-none shadow-lg hover:shadow-xl transition-shadow h-[580px] flex flex-col">
         <CardHeader className="pb-4">
           <div className="flex items-center gap-1 mb-4">
             {[...Array(5)].map((_, i) => (
@@ -86,7 +86,7 @@ const Testimonilas = () => {
           <Quote className="h-8 w-8 text-primary/20" />
         </CardHeader>
         <CardContent className="space-y-4 flex-1 flex flex-col">
-          <p className="text-gray-700 leading-relaxed flex-1">
+          <p className="text-gray-700 leading-relaxed flex-1 text-sm">
             {t(`testimonials.items.${index}.text`)}
           </p>
           <div className="border-t border-gray-200 pt-4">
