@@ -127,12 +127,12 @@ export default async function SummerCampPage() {
 
             {/* Summer Camp Cover Image */}
             <div className="mt-12">
-              <div className="relative w-auto h-[400px] md:h-[500px] lg:h-[600px] rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-green-500 via-white to-green-600">
+              <div className="relative w-full h-[400px] md:h-[500px] lg:h-[600px] rounded-2xl overflow-hidden shadow-2xl">
                 <Image
                   src="/camp/camp_cover.jpeg"
                   alt="Toronto Summer Camp 2026 - FIFA World Cup Special Edition"
                   fill
-                  className="object-cover md:object-contain relative z-10"
+                  className="object-cover"
                   priority
                 />
               </div>
