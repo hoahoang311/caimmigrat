@@ -170,6 +170,45 @@ export const database = {
     return data || [];
   },
 
+  async exportNewsletterSubscribersToExcel() {
+    if (!isSupabaseConfigured()) {
+      throw new Error("Supabase not configured");
+    }
+
+    const XLSX = await import("xlsx");
+
+    // Get all subscribers
+    const subscribers = await this.getNewsletterSubscribers();
+
+    // Prepare data for Excel
+    const data = subscribers.map((subscriber) => ({
+      Email: subscriber.email,
+      "Subscribed At": subscriber.subscribed_at
+        ? new Date(subscriber.subscribed_at).toLocaleString()
+        : "",
+    }));
+
+    // Create workbook and worksheet
+    const workbook = XLSX.utils.book_new();
+    const worksheet = XLSX.utils.json_to_sheet(data);
+    XLSX.utils.book_append_sheet(workbook, worksheet, "Subscribers");
+
+    // Generate Excel file buffer (for browser use array buffer)
+    const excelBuffer = XLSX.write(workbook, {
+      type: "array",
+      bookType: "xlsx",
+    });
+
+    const fileName = `subscribers-${
+      new Date().toISOString().split("T")[0]
+    }.xlsx`;
+
+    return {
+      buffer: excelBuffer,
+      fileName,
+    };
+  },
+
   // Consultation bookings
   async createConsultationBooking(booking: ConsultationBooking) {
     if (!isSupabaseConfigured()) {

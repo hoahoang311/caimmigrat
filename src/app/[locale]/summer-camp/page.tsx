@@ -132,7 +132,7 @@ export default async function SummerCampPage() {
                   src="/camp/camp_cover.jpeg"
                   alt="Toronto Summer Camp 2026 - FIFA World Cup Special Edition"
                   fill
-                  className="object-contain relative z-10"
+                  className="object-cover md:object-contain relative z-10"
                   priority
                 />
               </div>

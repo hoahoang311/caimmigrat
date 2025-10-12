@@ -22,6 +22,7 @@ import {
 } from "lucide-react";
 import { unstable_noStore as noStore } from "next/cache";
 import InquiryCalendar from "./components/InquiryCalendar";
+import SubscribersTab from "./components/SubscribersTab";
 
 export default async function AdminDashboard() {
   noStore();
@@ -37,7 +38,7 @@ export default async function AdminDashboard() {
   ]);
 
   return (
-    <div className="h-full bg-gray-50">
+    <div className="h-full bg-gray-50 md:overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 h-full flex flex-col">
         {/* Stats Cards */}
         <div className="flex-shrink-0">
@@ -111,60 +112,7 @@ export default async function AdminDashboard() {
           </TabsList>
 
           <TabsContent value="subscribers" className="flex-1 overflow-hidden">
-            <Card className="h-full flex flex-col">
-              <CardHeader className="flex-shrink-0">
-                <CardTitle className="flex items-center space-x-2">
-                  <Mail className="h-5 w-5 text-green-600" />
-                  <span>Newsletter Subscribers</span>
-                </CardTitle>
-                <CardDescription>
-                  All active newsletter subscribers
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="overflow-auto flex-1">
-                <div className="space-y-4">
-                  {newsletterSubs.map((subscriber) => (
-                    <div key={subscriber.id} className="border rounded-lg p-4">
-                      <div className="flex justify-between items-start mb-2">
-                        <h4 className="font-semibold">{subscriber.email}</h4>
-                        <span className="text-xs text-gray-500">
-                          {subscriber.subscribed_at
-                            ? new Date(
-                                subscriber.subscribed_at
-                              ).toLocaleDateString()
-                            : ""}
-                        </span>
-                      </div>
-                      {subscriber.preferred_topics && (
-                        <div className="space-y-1">
-                          <p className="text-sm text-gray-600">
-                            Interested in:
-                          </p>
-                          <div className="flex flex-wrap gap-1">
-                            {subscriber.preferred_topics
-                              .split(",")
-                              .map((topic: string, index: number) => (
-                                <span
-                                  key={index}
-                                  className="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full"
-                                >
-                                  {topic.trim()}
-                                </span>
-                              ))}
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                  ))}
-                  {newsletterSubs.length === 0 && (
-                    <div className="text-center py-8">
-                      <Mail className="h-12 w-12 text-gray-300 mx-auto mb-4" />
-                      <p className="text-gray-500">No subscribers yet</p>
-                    </div>
-                  )}
-                </div>
-              </CardContent>
-            </Card>
+            <SubscribersTab subscribers={newsletterSubs} />
           </TabsContent>
 
           <TabsContent value="inquiries" className="flex-1 overflow-hidden">

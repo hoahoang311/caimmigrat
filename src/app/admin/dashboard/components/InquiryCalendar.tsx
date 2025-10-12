@@ -158,9 +158,9 @@ export default function InquiryCalendar({ inquiries }: InquiryCalendarProps) {
   }
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 h-full overflow-auto lg:overflow-hidden">
       {/* Calendar */}
-      <Card className="lg:col-span-1">
+      <Card className="lg:col-span-1 flex-shrink-0">
         <CardHeader>
           <CardTitle className="flex items-center justify-between">
             <div className="flex items-center space-x-2">
@@ -272,8 +272,8 @@ export default function InquiryCalendar({ inquiries }: InquiryCalendarProps) {
       </Card>
 
       {/* Filtered Inquiries */}
-      <Card className="lg:col-span-2">
-        <CardHeader>
+      <Card className="lg:col-span-2 flex-shrink-0 lg:h-full lg:flex lg:flex-col">
+        <CardHeader className="flex-shrink-0">
           <CardTitle className="flex items-center space-x-2">
             <MessageSquare className="h-5 w-5 text-blue-600" />
             <span>
@@ -292,8 +292,8 @@ export default function InquiryCalendar({ inquiries }: InquiryCalendarProps) {
               : `Showing ${filteredInquiries.length} recent inquiries`}
           </CardDescription>
         </CardHeader>
-        <CardContent>
-          <div className="space-y-4 max-h-96 overflow-y-auto">
+        <CardContent className="lg:overflow-auto lg:flex-1">
+          <div className="space-y-4 lg:max-h-none">
             {filteredInquiries.slice(0, 10).map((inquiry, idx) => (
               <div
                 key={inquiry?.id || "" + idx}

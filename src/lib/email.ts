@@ -1,5 +1,11 @@
 import nodemailer from "nodemailer";
 
+// Global contact constants
+const COMPANY_NAME = "ICBM Law - Immigration & Business Management";
+const COMPANY_EMAIL = "info@icbmlaw.ca";
+const COMPANY_PHONE = "+1 416-639-2655";
+const COMPANY_ADDRESS = "240 Humberline Dr, Toronto, ON M9W 5X1, Canada";
+
 export interface EmailOptions {
   to: string | string[];
   subject: string;
@@ -206,7 +212,7 @@ export async function sendSummerCampRegistrationEmail(data: {
             </div>
 
             <div class="footer">
-              <p><strong>ICBM Law - Immigration & Business Management</strong></p>
+              <p><strong>${COMPANY_NAME}</strong></p>
               <p>Toronto Summer Camp 2026 - FIFA World Cup Special Edition</p>
             </div>
           </div>
@@ -241,7 +247,7 @@ Program Details:
   })}
 
 ---
-ICBM Law - Immigration & Business Management
+${COMPANY_NAME}
 Toronto Summer Camp 2026 - FIFA World Cup Special Edition
   `;
 
@@ -257,7 +263,7 @@ Toronto Summer Camp 2026 - FIFA World Cup Special Edition
       replyTo: data.parentEmail,
     },
     true,
-    adminEmail || "camp@icbmlaw.ca"
+    `"ICBM Law" <${adminEmail || "camp@icbmlaw.ca"}>`
   );
 
   // Send confirmation to parent
@@ -316,8 +322,8 @@ Toronto Summer Camp 2026 - FIFA World Cup Special Edition
             <p>If you have any questions, please don't hesitate to contact us.</p>
 
             <div class="footer">
-              <p><strong>ICBM Law - Immigration & Business Management</strong></p>
-              <p>Email: info@icbmlaw.ca | Phone: [Your Phone Number]</p>
+              <p><strong>${COMPANY_NAME}</strong></p>
+              <p>Email: ${COMPANY_EMAIL} | Phone: ${COMPANY_PHONE}</p>
               <p>Toronto Summer Camp 2026 - An Unforgettable Adventure Awaits!</p>
             </div>
           </div>
@@ -334,7 +340,7 @@ Toronto Summer Camp 2026 - FIFA World Cup Special Edition
       cc: data.studentEmail,
     },
     true,
-    adminEmail || "camp@icbmlaw.ca"
+    `"ICBM Law" <${adminEmail || "camp@icbmlaw.ca"}>`
   );
 }
 
@@ -442,9 +448,9 @@ export async function sendContactFormEmail(data: {
             </div>
 
             <div class="footer">
-              <p><strong>ICBM Law - Immigration & Business Management</strong></p>
-              <p>240 Humberline Dr, Toronto, ON M9W 5X1, Canada</p>
-              <p>Phone: +1 416-639-2655 | Email: info@icbmlaw.ca</p>
+              <p><strong>${COMPANY_NAME}</strong></p>
+              <p>${COMPANY_ADDRESS}</p>
+              <p>Phone: ${COMPANY_PHONE} | Email: ${COMPANY_EMAIL}</p>
             </div>
           </div>
         </div>
@@ -474,9 +480,9 @@ Message:
 ${data.message}
 
 ---
-ICBM Law - Immigration & Business Management
-240 Humberline Dr, Toronto, ON M9W 5X1, Canada
-Phone: +1 416-639-2655 | Email: info@icbmlaw.ca
+${COMPANY_NAME}
+${COMPANY_ADDRESS}
+Phone: ${COMPANY_PHONE} | Email: ${COMPANY_EMAIL}
   `;
 
   // Send notification to admin
@@ -493,7 +499,7 @@ Phone: +1 416-639-2655 | Email: info@icbmlaw.ca
       replyTo: data.email,
     },
     false,
-    adminEmail || "info@icbmlaw.ca"
+    `"ICBM Law" <${adminEmail || "info@icbmlaw.ca"}>`
   );
 
   // Send confirmation to client
@@ -538,13 +544,13 @@ Phone: +1 416-639-2655 | Email: info@icbmlaw.ca
             <p><strong>In the meantime:</strong></p>
             <ul>
               <li>Check out our <a href="https://www.icbmlaw.ca/services" style="color: #1e40af;">services page</a> for more information</li>
-              <li>For urgent matters, call us at <a href="tel:+14166392655" style="color: #1e40af;">+1 416-639-2655</a></li>
+              <li>For urgent matters, call us at <a href="tel:${COMPANY_PHONE.replace(/\s/g, "")}" style="color: #1e40af;">${COMPANY_PHONE}</a></li>
             </ul>
 
             <div class="footer">
-              <p><strong>ICBM Law - Immigration & Business Management</strong></p>
-              <p>240 Humberline Dr, Toronto, ON M9W 5X1, Canada</p>
-              <p>Phone: +1 416-639-2655 | Email: info@icbmlaw.ca</p>
+              <p><strong>${COMPANY_NAME}</strong></p>
+              <p>${COMPANY_ADDRESS}</p>
+              <p>Phone: ${COMPANY_PHONE} | Email: ${COMPANY_EMAIL}</p>
               <p style="margin-top: 15px;">
                 <a href="https://www.facebook.com/profile.php?id=61581800467455" style="margin: 0 5px; color: #1e40af;">Facebook</a> |
                 <a href="https://www.instagram.com/icbm.law.ca/" style="margin: 0 5px; color: #1e40af;">Instagram</a> |
@@ -564,6 +570,6 @@ Phone: +1 416-639-2655 | Email: info@icbmlaw.ca
       html: confirmationHtml,
     },
     false,
-    adminEmail || "info@icbmlaw.ca"
+    `"ICBM Law" <${adminEmail || "info@icbmlaw.ca"}>`
   );
 }

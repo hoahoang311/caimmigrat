@@ -28,17 +28,6 @@ export async function middleware(request: NextRequest) {
       return authResult;
     }
 
-    // Handle admin dashboard and other protected admin routes
-    // if (
-    //   pathname.startsWith("/admin/dashboard") ||
-    //   (pathname.startsWith("/admin/") && !pathname.startsWith("/admin/login"))
-    // ) {
-    //   console.log(
-    //     "🔒 Protected admin route accessed, checking authentication..."
-    //   );
-    //   return await updateSession(request);
-    // }
-
     return NextResponse.next();
   }
 
@@ -79,22 +68,35 @@ async function checkAuthAndRedirect(
     const url = request.nextUrl.clone();
 
     if (user) {
-      console.log("✅ User authenticated, redirecting to dashboard");
-      url.pathname = authenticatedRedirect;
+      console.log("✅ User authenticated");
 
-      if (pathname === "/admin/dashboard") {
+      // If already on dashboard or other protected pages, allow access
+      if (
+        pathname.startsWith("/admin/dashboard") ||
+        (pathname.startsWith("/admin/") && pathname !== "/admin/login")
+      ) {
         return NextResponse.next();
       }
+
+      // If on /admin root, redirect to dashboard
+      if (pathname === "/admin") {
+        url.pathname = authenticatedRedirect;
+        return NextResponse.redirect(url);
+      }
     } else {
+      console.log("🚫 No user found");
+
+      // If already on login page, allow access
       if (pathname === "/admin/login") {
         return NextResponse.next();
       }
 
-      console.log("🚫 No user found, redirecting to login");
+      // Redirect to login
       url.pathname = unauthenticatedRedirect;
+      return NextResponse.redirect(url);
     }
 
-    return NextResponse.redirect(url);
+    return NextResponse.next();
   } catch (error) {
     console.error("❌ Auth check failed:", error);
     // On error, redirect to login for safety
