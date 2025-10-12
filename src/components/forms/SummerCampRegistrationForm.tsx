@@ -133,7 +133,7 @@ export default function SummerCampRegistrationForm() {
 
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
             {/* Program 1 */}
-            <Card className="border-2 border-gray-200 hover:border-[#D9BA4E] transition-colors">
+            <Card className="border-2 border-gray-200 hover:border-[#D9BA4E] transition-colors flex flex-col">
               <CardHeader className="bg-gradient-to-br from-primary/5 to-primary/10">
                 <div className="text-sm font-semibold text-[#D9BA4E] mb-2">
                   PROGRAM 1
@@ -145,7 +145,7 @@ export default function SummerCampRegistrationForm() {
                   Flexible start dates in June 2026: 1st, 7th, or 14th
                 </CardDescription>
               </CardHeader>
-              <CardContent className="pt-6">
+              <CardContent className="pt-6 flex flex-col justify-between flex-grow">
                 <ul className="space-y-3">
                   {program1Features.map((feature, index) => (
                     <li key={index} className="flex items-start space-x-3">
@@ -584,28 +584,33 @@ export default function SummerCampRegistrationForm() {
       )}
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-gray-800 to-gray-900 text-white">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
-          <Trophy className="h-16 w-16 mx-auto mb-6 text-[#D9BA4E]" />
-          <h2 className="text-3xl font-bold mb-4">LIMITED SPACES AVAILABLE!</h2>
-          <p className="text-xl mb-8 opacity-90">
+      <section className="py-20 bg-gradient-to-br from-teal-600 via-emerald-600 to-primary text-white relative overflow-hidden">
+        {/* Decorative Elements */}
+        <div className="absolute inset-0 bg-gradient-to-r from-teal-500/10 to-emerald-500/10"></div>
+        <div className="absolute top-0 left-0 w-64 h-64 bg-white/5 rounded-full -translate-x-32 -translate-y-32"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-white/5 rounded-full translate-x-48 translate-y-48"></div>
+
+        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <Trophy className="h-16 w-16 mx-auto mb-6 text-[#D9BA4E] drop-shadow-lg" />
+          <h2 className="text-3xl font-bold mb-4 drop-shadow-md">LIMITED SPACES AVAILABLE!</h2>
+          <p className="text-xl mb-8 font-medium">
             Don&apos;t miss the 2026 FIFA World Cup Special Edition.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 max-w-2xl mx-auto">
-            <div className="bg-white/10 rounded-lg p-6 backdrop-blur-sm">
+            <div className="bg-white/90 text-gray-900 rounded-lg p-6 shadow-xl transform hover:scale-105 transition-transform">
               <div className="flex items-center justify-center space-x-2 mb-2">
-                <Calendar className="h-5 w-5 text-[#D9BA4E]" />
+                <Calendar className="h-5 w-5 text-teal-600" />
                 <p className="font-semibold">Registration Deadline</p>
               </div>
-              <p className="text-2xl font-bold">1st March 2026</p>
+              <p className="text-2xl font-bold text-teal-700">1st March 2026</p>
             </div>
-            <div className="bg-white/10 rounded-lg p-6 backdrop-blur-sm">
+            <div className="bg-white/90 text-gray-900 rounded-lg p-6 shadow-xl transform hover:scale-105 transition-transform">
               <div className="flex items-center justify-center space-x-2 mb-2">
-                <Calendar className="h-5 w-5 text-[#D9BA4E]" />
+                <Calendar className="h-5 w-5 text-teal-600" />
                 <p className="font-semibold">Full Payment Due</p>
               </div>
-              <p className="text-2xl font-bold">31st March 2026</p>
+              <p className="text-2xl font-bold text-teal-700">31st March 2026</p>
             </div>
           </div>
 
@@ -614,14 +619,14 @@ export default function SummerCampRegistrationForm() {
             <Button
               onClick={handleEnrollClick}
               size="lg"
-              className="bg-[#D9BA4E] hover:bg-[#c9a83e] text-primary text-lg px-8 py-6"
+              className="bg-[#D9BA4E] hover:bg-[#c9a83e] text-primary text-lg px-10 py-7 shadow-xl font-bold transform hover:scale-105 transition-all"
             >
               ENROLL TODAY
             </Button>
           </div>
 
-          <div className="mt-8 pt-8 border-t border-white/20">
-            <p className="text-sm opacity-80 max-w-3xl mx-auto">
+          <div className="mt-8 pt-8 border-t border-white/30">
+            <p className="text-sm max-w-3xl mx-auto bg-white/10 backdrop-blur-sm rounded-lg p-4">
               <strong>Cancellation Protection:</strong> A partial or full refund
               is issued if the Canadian Visa application is refused upon
               submission of IRCC refusal letter. See terms and conditions

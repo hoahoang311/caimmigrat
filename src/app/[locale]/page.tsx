@@ -1,3 +1,4 @@
+import Testimonilas from "@/components/Testimonials";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -6,15 +7,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import {
-  ArrowRight,
-  Award,
-  Calendar,
-  Quote,
-  Shield,
-  Star,
-  Users,
-} from "lucide-react";
+import { ArrowRight, Award, Calendar, Shield, Users } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 import Link from "next/link";
@@ -58,11 +51,20 @@ export default async function HomePage({ params }: Props) {
           minHeight: "100vh",
         }}
       >
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-full">
-          <div className="flex flex-col justify-center items-center gap-8 h-full">
-            <div className="w-full max-w-5xl">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col gap-12 items-center">
+            <div className="space-y-8 text-center max-w-5xl">
+              <div className="space-y-4">
+                <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl text-center">
+                  {t("hero.title")}
+                </h1>
+                <p className="text-xl text-gray-600 leading-relaxed text-center">
+                  {t("hero.subtitle")}
+                </p>
+              </div>
+
               {/* Landing Image */}
-              <div className="relative w-full h-[600px] lg:h-[700px] mb-8">
+              <div className="relative w-full h-[300px] lg:h-[500px] mb-8">
                 <Image
                   src="/landing_page.jpeg"
                   alt="ICBM Law"
@@ -104,7 +106,7 @@ export default async function HomePage({ params }: Props) {
               {/* Quick Stats */}
               <div className="grid grid-cols-3 gap-6 pt-6 border-t border-gray-200 max-w-3xl mx-auto">
                 <div className="text-center">
-                  <div className="text-3xl lg:text-4xl font-bold text-[#D9BA4E]">
+                  <div className="text-3xl lg:text-5xl font-bold text-[#D9BA4E]">
                     3000+
                   </div>
                   <div className="text-sm lg:text-base text-gray-600 mt-2">
@@ -112,15 +114,15 @@ export default async function HomePage({ params }: Props) {
                   </div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl lg:text-4xl font-bold text-[#D9BA4E]">
-                    20+
+                  <div className="text-3xl lg:text-5xl font-bold text-[#D9BA4E]">
+                    15+
                   </div>
                   <div className="text-sm lg:text-base text-gray-600 mt-2">
                     {t("stats.experience")}
                   </div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl lg:text-4xl font-bold text-[#D9BA4E]">
+                  <div className="text-3xl lg:text-5xl font-bold text-[#D9BA4E]">
                     96%
                   </div>
                   <div className="text-sm lg:text-base text-gray-600 mt-2">
@@ -169,52 +171,7 @@ export default async function HomePage({ params }: Props) {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20 bg-gradient-to-br from-primary/5 to-primary/10">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center space-y-4 mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">
-              {t("testimonials.title")}
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              {t("testimonials.subtitle")}
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {[0, 1, 2, 3, 4, 5].map((index) => (
-              <Card
-                key={index}
-                className="bg-white border-none shadow-lg hover:shadow-xl transition-shadow"
-              >
-                <CardHeader>
-                  <div className="flex items-center gap-1 mb-4">
-                    {[...Array(5)].map((_, i) => (
-                      <Star
-                        key={i}
-                        className="h-5 w-5 fill-[#D9BA4E] text-[#D9BA4E]"
-                      />
-                    ))}
-                  </div>
-                  <Quote className="h-8 w-8 text-primary/20 mb-2" />
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <p className="text-gray-700 leading-relaxed">
-                    {t(`testimonials.items.${index}.text`)}
-                  </p>
-                  <div className="border-t border-gray-200 pt-4">
-                    <p className="font-semibold text-gray-900">
-                      {t(`testimonials.items.${index}.name`)}
-                    </p>
-                    <p className="text-sm text-[#D9BA4E] font-medium">
-                      {t(`testimonials.items.${index}.program`)}
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
+      <Testimonilas />
     </div>
   );
 }

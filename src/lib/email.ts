@@ -20,10 +20,10 @@ export interface EmailOptions {
  * - EMAIL_PASSWORD: SMTP password
  * - EMAIL_FROM: Default sender email address
  */
-function createTransporter() {
+function createTransporter(isCamp: boolean) {
   const host = process.env.EMAIL_HOST;
   const port = parseInt(process.env.EMAIL_PORT || "587");
-  const user = process.env.EMAIL_USER;
+  const user = isCamp ? process.env.EMAIL_USER_CAMP : process.env.EMAIL_USER;
   const password = process.env.EMAIL_PASSWORD;
 
   if (!host || !user || !password) {
@@ -49,14 +49,16 @@ function createTransporter() {
  * @returns Promise that resolves when email is sent successfully
  * @throws Error if email configuration is missing or sending fails
  */
-export async function sendEmail(options: EmailOptions) {
+export async function sendEmail(
+  options: EmailOptions,
+  isCamp = false,
+  from: string
+) {
   try {
-    const transporter = createTransporter();
-
-    const defaultFromName = process.env.EMAIL_FROM_NAME || "ICBM Law";
+    const transporter = createTransporter(isCamp);
 
     const mailOptions = {
-      from: options.from || defaultFromName,
+      from,
       to: Array.isArray(options.to) ? options.to.join(", ") : options.to,
       subject: options.subject,
       text: options.text,
@@ -73,8 +75,6 @@ export async function sendEmail(options: EmailOptions) {
           : options.bcc
         : undefined,
     };
-
-    console.log(mailOptions);
 
     const info = await transporter.sendMail(mailOptions);
 
@@ -244,15 +244,19 @@ Toronto Summer Camp 2026 - FIFA World Cup Special Edition
   `;
 
   // Send notification to admin
-  const adminEmail = process.env.ADMIN_EMAIL || process.env.EMAIL_USER;
+  const adminEmail = process.env.EMAIL_CAMP_ADMIN;
 
-  await sendEmail({
-    to: adminEmail || "admin@icbmlaw.ca",
-    subject: `New Summer Camp Registration: ${data.firstName} ${data.lastName}`,
-    text: textContent,
-    html: htmlContent,
-    replyTo: data.parentEmail,
-  });
+  await sendEmail(
+    {
+      to: adminEmail || "camp@icbmlaw.ca",
+      subject: `New Summer Camp Registration: ${data.firstName} ${data.lastName}`,
+      text: textContent,
+      html: htmlContent,
+      replyTo: data.parentEmail,
+    },
+    true,
+    adminEmail || "camp@icbmlaw.ca"
+  );
 
   // Send confirmation to parent
   const confirmationHtml = `
@@ -320,12 +324,16 @@ Toronto Summer Camp 2026 - FIFA World Cup Special Edition
     </html>
   `;
 
-  await sendEmail({
-    to: data.parentEmail,
-    subject: "Summer Camp Registration Confirmed - Toronto 2026",
-    html: confirmationHtml,
-    cc: data.studentEmail,
-  });
+  await sendEmail(
+    {
+      to: data.parentEmail,
+      subject: "Summer Camp Registration Confirmed - Toronto 2026",
+      html: confirmationHtml,
+      cc: data.studentEmail,
+    },
+    true,
+    adminEmail || "camp@icbmlaw.ca"
+  );
 }
 
 /**
@@ -470,17 +478,21 @@ Phone: +1 416-639-2655 | Email: info@icbmlaw.ca
   `;
 
   // Send notification to admin
-  const adminEmail = process.env.ADMIN_EMAIL || process.env.EMAIL_USER;
+  const adminEmail = process.env.EMAIL_INFO;
 
-  await sendEmail({
-    to: adminEmail || "info@icbmlaw.ca",
-    subject: `New Contact Form: ${data.firstName} ${data.lastName}${
-      data.subject ? ` - ${data.subject}` : ""
-    }`,
-    text: textContent,
-    html: htmlContent,
-    replyTo: data.email,
-  });
+  await sendEmail(
+    {
+      to: adminEmail || "info@icbmlaw.ca",
+      subject: `New Contact Form: ${data.firstName} ${data.lastName}${
+        data.subject ? ` - ${data.subject}` : ""
+      }`,
+      text: textContent,
+      html: htmlContent,
+      replyTo: data.email,
+    },
+    false,
+    adminEmail || "info@icbmlaw.ca"
+  );
 
   // Send confirmation to client
   const confirmationHtml = `
@@ -543,9 +555,13 @@ Phone: +1 416-639-2655 | Email: info@icbmlaw.ca
     </html>
   `;
 
-  await sendEmail({
-    to: data.email,
-    subject: "Thank you for contacting ICBM Law",
-    html: confirmationHtml,
-  });
+  await sendEmail(
+    {
+      to: data.email,
+      subject: "Thank you for contacting ICBM Law",
+      html: confirmationHtml,
+    },
+    false,
+    adminEmail || "info@icbmlaw.ca"
+  );
 }

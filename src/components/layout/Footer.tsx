@@ -8,6 +8,10 @@ import { useEffect, useState } from "react";
 
 export default function Footer() {
   const [mounted, setMounted] = useState(false);
+  const [email, setEmail] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [message, setMessage] = useState("");
+  const [messageType, setMessageType] = useState<"success" | "error" | "">("");
   const locale = useLocale();
 
   useEffect(() => {
@@ -15,6 +19,45 @@ export default function Footer() {
   }, []);
 
   const t = useTranslations();
+
+  const handleSubscribe = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setMessage("");
+    setMessageType("");
+
+    try {
+      const response = await fetch("/api/newsletter", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setMessage(t("newsletter.success"));
+        setMessageType("success");
+        setEmail("");
+      } else {
+        setMessage(data.error || t("newsletter.error"));
+        setMessageType("error");
+      }
+    } catch (error) {
+      console.log(error);
+      setMessage(t("newsletter.error"));
+      setMessageType("error");
+    } finally {
+      setIsSubmitting(false);
+      // Clear message after 5 seconds
+      setTimeout(() => {
+        setMessage("");
+        setMessageType("");
+      }, 5000);
+    }
+  };
 
   if (!mounted) {
     return null;
@@ -115,35 +158,45 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Quick Links */}
+          {/* Newsletter Subscription */}
           <div className="space-y-6">
-            <h3 className="text-lg font-semibold text-white">Quick Links</h3>
-            <div className="space-y-3 text-sm text-white/80">
-              <Link
-                href={`/${locale}`}
-                className="block hover:text-[#D9BA4E] transition-colors"
+            <h3 className="text-lg font-semibold text-white">
+              {t("footer.newsletter_title")}
+            </h3>
+            <p className="text-sm text-white/80">
+              {t("footer.newsletter_description")}
+            </p>
+            <form onSubmit={handleSubscribe} className="space-y-3">
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder={t("newsletter.email_placeholder")}
+                required
+                disabled={isSubmitting}
+                className="w-full px-4 py-2 rounded-md bg-white/10 border border-white/20 text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-[#D9BA4E] focus:border-transparent disabled:opacity-50"
+              />
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full px-4 py-2 bg-[#D9BA4E] text-primary font-semibold rounded-md hover:bg-[#C5A943] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Home
-              </Link>
-              <Link
-                href={`/${locale}/services`}
-                className="block hover:text-[#D9BA4E] transition-colors"
-              >
-                Services
-              </Link>
-              <Link
-                href={`/${locale}/about`}
-                className="block hover:text-[#D9BA4E] transition-colors"
-              >
-                About
-              </Link>
-              <Link
-                href={`/${locale}/contact`}
-                className="block hover:text-[#D9BA4E] transition-colors"
-              >
-                Contact
-              </Link>
-            </div>
+                {isSubmitting
+                  ? t("newsletter.subscribing")
+                  : t("newsletter.subscribe")}
+              </button>
+              {message && (
+                <p
+                  className={`text-sm ${
+                    messageType === "success"
+                      ? "text-green-300"
+                      : "text-red-300"
+                  }`}
+                >
+                  {message}
+                </p>
+              )}
+            </form>
           </div>
         </div>
 

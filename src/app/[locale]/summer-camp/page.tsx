@@ -14,7 +14,6 @@ import {
 } from "@/components/ui/tooltip";
 import { Camera, Globe, GraduationCap } from "lucide-react";
 import type { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 
 export const metadata: Metadata = {
@@ -25,14 +24,7 @@ export const metadata: Metadata = {
     "Toronto summer camp, FIFA World Cup 2026, University of Toronto camp, Canon Canada arts program, international student camp, English ESL camp Canada",
 };
 
-type Props = {
-  params: Promise<{ locale: string }>;
-};
-
-export default async function SummerCampPage({ params }: Props) {
-  const { locale } = await params;
-  const t = await getTranslations({ locale });
-
+export default async function SummerCampPage() {
   const whyChoose = [
     {
       icon: GraduationCap,
@@ -50,7 +42,7 @@ export default async function SummerCampPage({ params }: Props) {
       icon: Camera,
       title: "Arts, Leadership & English Fluency",
       description:
-        "Elevate communication through our communicative language program. Gain practical skills and a Level 1 Certificate through the prestigious Canon Canada Arts Training Program (Video Storytelling & Photography).",
+        "Earn an Ontario Ministry of Education approved Certificate (Specialist High Skills Major) & Level 1 Certificate in Video Storytelling and Photography from Canon Canada, which essentially boost your academic profile and pave a pathway to study in Canada.",
     },
   ];
 
@@ -84,7 +76,7 @@ export default async function SummerCampPage({ params }: Props) {
                 <div className="flex flex-wrap justify-center items-stretch gap-8 md:gap-12">
                   <Tooltip>
                     <TooltipTrigger asChild>
-                      <div className="relative w-48 h-32 grayscale hover:grayscale-0 transition-all cursor-pointer">
+                      <div className="relative w-48 h-32 hover:grayscale transition-all cursor-pointer">
                         <Image
                           src="/camp/partner-logo-1.jpg"
                           alt="University of Toronto"
@@ -100,7 +92,7 @@ export default async function SummerCampPage({ params }: Props) {
 
                   <Tooltip>
                     <TooltipTrigger asChild>
-                      <div className="relative w-48 h-32 grayscale hover:grayscale-0 transition-all cursor-pointer">
+                      <div className="relative w-48 h-32 hover:grayscale transition-all cursor-pointer">
                         <Image
                           src="/camp/partner-logo-2.jpg"
                           alt="Canon Canada"
@@ -116,7 +108,7 @@ export default async function SummerCampPage({ params }: Props) {
 
                   <Tooltip>
                     <TooltipTrigger asChild>
-                      <div className="relative w-48 h-32 grayscale hover:grayscale-0 transition-all cursor-pointer">
+                      <div className="relative w-48 h-32 hover:grayscale transition-all cursor-pointer">
                         <Image
                           src="/camp/partner-logo-3.jpg"
                           alt="FIFA World Cup 2026"

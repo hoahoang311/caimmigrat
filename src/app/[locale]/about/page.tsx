@@ -60,8 +60,7 @@ export default async function AboutPage({ params }: Props) {
                   src="/team/mou.jpeg"
                   alt="Moumita Chakraborty, MBA, Managing Partner"
                   fill
-                  className="object-cover"
-                  style={{ objectPosition: "30% 30%" }}
+                  className="object-cover object-top"
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
@@ -126,8 +125,8 @@ export default async function AboutPage({ params }: Props) {
           <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
             <div className="flex flex-col md:flex-row items-center justify-center gap-12 md:gap-20">
               {/* RCIC Logo */}
-              <div className="flex flex-col items-center">
-                <div className="relative w-96 h-64 mb-4">
+              <div className="flex flex-col items-center w-full md:w-96">
+                <div className="relative w-full h-64 mb-4">
                   <Image
                     src="/RCIC_logo.webp"
                     alt="RCIC - Regulated Canadian Immigration Consultant"
@@ -138,8 +137,8 @@ export default async function AboutPage({ params }: Props) {
               </div>
 
               {/* LSO Logo */}
-              <div className="flex flex-col items-center">
-                <div className="relative w-96 h-64 mb-4">
+              <div className="flex flex-col items-center w-full md:w-96">
+                <div className="relative w-full h-64 mb-4">
                   <Image
                     src="/LSO_Logo_Colour.png"
                     alt="LSO - Law Society of Ontario"

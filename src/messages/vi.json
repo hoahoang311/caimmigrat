@@ -8,8 +8,8 @@
     "book_consultation": "Đặt Lịch Tư Vấn"
   },
   "hero": {
-    "title": "",
-    "subtitle": "",
+    "title": "Đối Tác Định Cư Canada Của Bạn",
+    "subtitle": "Dịch vụ định cư chuyên nghiệp với tỷ lệ thành công đã được chứng minh. Hãy để chúng tôi hướng dẫn bạn trong hành trình đến Canada.",
     "cta": "Bắt Đầu Ngay Hôm Nay"
   },
   "services": {
@@ -189,9 +189,10 @@
     "clients_helped": "Khách Hàng Đã Hỗ Trợ",
     "page": {
       "title": "Về ICBM Law",
-      "mission_intro": "Chào mừng đến với ICBM Law, công ty tư vấn định cư Canada hàng đầu được thành lập bởi Moumita Chakraborty, một RCIC xuất sắc có MBA, và Richard Brown, một Trợ lý Pháp lý Có Giấy phép và Tư vấn Định cư Được chứng nhận. Với hơn 16 năm kinh nghiệm kết hợp trong lĩnh vực định cư, giáo dục và dịch vụ pháp lý, ICBM Law cam kết hướng dẫn khách hàng trên toàn thế giới trong hành trình biến Canada thành ngôi nhà vĩnh viễn, đoàn tụ gia đình, theo đuổi việc học hoặc thăng tiến cơ hội nghề nghiệp.",
-      "mission_statement": "Sứ mệnh của chúng tôi là cung cấp sự hướng dẫn kiên định cho những ai bắt đầu hành trình đến Canada, đồng thời nuôi dưỡng những đóng góp của họ cho cảnh quan kinh tế thịnh vượng của đất nước này.",
-      "tagline": "Hãy để ICBM thắp sáng con đường đến một tương lai tươi sáng hơn ở Canada.",
+      "mission_intro": "Bước vào thế giới chuyên môn vô song và hướng dẫn cá nhân hóa với ICBM Law, một công ty tư vấn định cư Canada xuất sắc được thiết kế để biến khát vọng biến Canada thành ngôi nhà của bạn thành hiện thực.",
+      "mission_intro2": "ICBM Law hợp nhất di sản đã được thiết lập của MICS (Dịch Vụ Tư Vấn Định Cư Mou) — được thành lập vào năm 2019 bởi Moumita Chakraborty, một Tư Vấn Định Cư Canada Được Quản Lý (RCIC) có trình độ cao với bằng MBA — và Dịch Vụ Định Cư & Pháp Lý Bagal — được thành lập vào năm 2015 bởi Richard Brown, một Trợ Lý Pháp Lý Có Giấy Phép nổi tiếng với Hội Luật Sư Ontario và cũng là một Tư Vấn Định Cư Được Chứng Nhận. Cùng nhau, công ty của chúng tôi thể hiện di sản xuất sắc, dựa trên hơn 15 năm kinh nghiệm tập thể trong định cư, giáo dục và dịch vụ pháp lý để phục vụ như đối tác tin cậy của bạn trong việc điều hướng các con đường phức tạp đến thường trú vĩnh viễn, đoàn tụ gia đình, theo đuổi học tập hoặc thăng tiến nghề nghiệp tại Canada.",
+      "mission_statement": "Tại ICBM Law, chúng tôi không chỉ xử lý hồ sơ—chúng tôi định hướng hành trình. Cách tiếp cận tùy chỉnh của chúng tôi đảm bảo rằng mọi khách hàng, từ mọi góc độ trên thế giới, nhận được các giải pháp được điều chỉnh, hỗ trợ không lay chuyển và trải nghiệm liền mạch khi họ bắt đầu ước mơ Canada của mình.",
+      "tagline": "Hãy để chúng tôi hướng dẫn bạn với sự chính xác, đam mê và cam kết với sự thành công của bạn.",
       "team_title": "Gặp Gỡ Đội Ngũ Lãnh Đạo",
       "moumita": {
         "name": "Moumita Chakraborty",
@@ -233,7 +234,10 @@
       "phone": "Điện Thoại",
       "email": "Email",
       "business_hours": "Giờ Làm Việc",
-      "business_hours_details": ["Thứ Hai - Thứ Sáu: 10:00 AM - 5:00 PM", "Thứ Bảy & Chủ Nhật: Đóng Cửa"],
+      "business_hours_details": [
+        "Thứ Hai - Thứ Sáu: 10:00 AM - 5:00 PM",
+        "Thứ Bảy & Chủ Nhật: Đóng Cửa"
+      ],
       "location_title": "Vị Trí Của Chúng Tôi",
       "location_description": "Ghé thăm văn phòng của chúng tôi tại Toronto để được tư vấn trực tiếp và dịch vụ cá nhân hóa.",
       "visit_office_title": "Tại Sao Nên Đến Văn Phòng?",
@@ -363,6 +367,56 @@
         "name": "Richmond Nyarko",
         "program": "Dịch Vụ Định Cư",
         "text": "Sẽ cho 10 sao nếu có nhiều sao như vậy, dịch vụ tốt, giao tiếp xuất sắc, rất đáng tin cậy, công ty tuyệt vời. Ông Brown là luật sư hàng đầu, rất khuyến nghị!"
+      },
+      {
+        "name": "Sanjay và Smita Barve",
+        "program": "Super Visa",
+        "text": "Chúng tôi đã cố gắng xin visa thăm viếng và super visa 3 lần thông qua các luật sư và cơ quan khác, và mỗi lần đều bị TỪ CHỐI. Chúng tôi cảm thấy tuyệt vọng cho đến khi gặp Moumita. Cô ấy đã đánh giá các lần bị từ chối và xử lý đơn mới cho chúng tôi rất nhanh chóng. Giá của cô ấy cũng rất phải chăng. Cả hai chúng tôi đã nhận được Supervisa và đã đến thăm con trai mình hai lần ở Toronto."
+      },
+      {
+        "name": "Arup Majumder",
+        "program": "Thường Trú",
+        "text": "Moumita đã làm cho quá trình PR rất suôn sẻ. Cô ấy cho tôi thấy chính xác những gì cô ấy đang làm, và rất chuyên nghiệp và nhạy cảm với vụ việc của tôi. Tôi thực sự khuyến nghị bất kỳ ai, và đặc biệt là sinh viên quốc tế đang tìm kiếm hướng dẫn để đạt PR nên làm việc với Moumita. Giá cô ấy báo đã bao gồm toàn bộ quá trình. Bây giờ tôi là công dân Canada. Cảm ơn Moumita!"
+      },
+      {
+        "name": "Nazmul Ahmed",
+        "program": "Quốc Tịch",
+        "text": "Tôi tìm thấy Moumita trên mạng. Tôi thấy rằng cô ấy là tư vấn viên có giấy phép và đã liên hệ với cô ấy để được giúp đỡ về đơn xin quốc tịch. Cô ấy rất nhanh nhạy và cung cấp cho tôi hướng dẫn đúng đắn. Đã thu thập tất cả tài liệu của tôi và nộp đơn quốc tịch. Tôi đã giới thiệu rất nhiều thành viên trong gia đình vì cô ấy đáng tin cậy và rất thân thiện."
+      },
+      {
+        "name": "Khursid Iqbal",
+        "program": "Gia Hạn Visa Thăm Viếng",
+        "text": "Anh rể tôi đã nhận được visa thăm viếng và đến nhà chúng tôi ở Bowmanville, nhưng sau đó muốn dành nhiều thời gian hơn với gia đình. Moumita đã đến và thăm tôi tại nhà và tư vấn với chúng tôi về cách anh ấy có thể kéo dài thời gian lưu trú bên trong Canada với tư cách là khách thăm. Cô ấy đã xử lý đơn đúng thời hạn và anh ấy đã nhận được gia hạn 1 năm! Thực sự khuyến nghị cô ấy."
+      },
+      {
+        "name": "Prosanta và Geeta Borthakur",
+        "program": "Bảo Lãnh PGP",
+        "text": "Vợ chồng tôi đã làm đơn Bảo Lãnh PGP với Moumita. Cô ấy đã liên lạc rất nhanh chóng và ngay khi chúng tôi giữ cô ấy, cô ấy đã chia sẻ danh sách kiểm tra tài liệu và bắt đầu quá trình. Chúng tôi đã làm nhập cảnh bên trong Canada vào tháng 5 năm 2024 và đoàn tụ với các con trai và cháu trai của chúng tôi. Cảm ơn đã làm cho điều này trở thành một quá trình dễ dàng."
+      },
+      {
+        "name": "Rahul Borthakur",
+        "program": "Bảo Lãnh Cha Mẹ & Ông Bà",
+        "text": "Cha mẹ tôi đã đến Canada vào tháng 5 năm 2024, với Thường Trú thông qua chương trình Bảo Lãnh Cha Mẹ và Ông Bà. Vào năm 2020, tôi đã có Moumita nộp hồ sơ cho Bảo Lãnh PGP, và vào tháng 10 năm 2022, chúng tôi đã nhận được lời mời nộp đơn. Moumita Chakraborty đã hướng dẫn cha mẹ tôi trong quá trình nộp đơn, cung cấp danh sách kiểm tra chi tiết và liên lạc với cơ quan định cư thay mặt họ. Cô ấy rất hiểu biết và chủ động, giữ cho chúng tôi được cập nhật trong suốt quá trình. Tôi thực sự khuyến nghị Moumita vì sự hỗ trợ xuất sắc của cô ấy trong việc đưa cha mẹ tôi đến gần gia đình chúng tôi hơn."
+      },
+      {
+        "name": "Sahil Viradia",
+        "program": "Đơn PR & Giấy Phép Lao Động",
+        "text": "Nếu bạn đang tìm kiếm bất kỳ dịch vụ định cư nào, đây là nơi tốt nhất bạn có thể tư vấn, đặc biệt là Moumita đã giúp tôi với quá trình đơn PR. Từ buổi tư vấn đầu tiên, cô ấy đã hướng dẫn tôi trong toàn bộ quá trình xin giấy phép lao động và các luồng tôi nên nộp đơn cho PR. Cô ấy cực kỳ kiên nhẫn, dành thời gian giải thích chi tiết từng bước của quá trình và trả lời tất cả các câu hỏi của tôi. Tôi thực sự khuyến nghị Moumita, nếu bạn đang tìm kiếm đại lý định cư đáng tin cậy, hiểu biết và thực sự quan tâm đến khách hàng của mình!"
+      },
+      {
+        "name": "Bittu Sharma",
+        "program": "Định Cư PR",
+        "text": "Moumita Chakraborty là người bạn muốn nói chuyện nếu bạn đang tìm kiếm các lựa chọn định cư PR."
+      },
+      {
+        "name": "MB",
+        "program": "Đơn PR",
+        "text": "Rất khuyến nghị!!! Trong cuộc hẹn, Moumita đã lấy tất cả thông tin của tôi và tìm ra giải pháp tốt nhất. Cô ấy nói cho tôi biết các bước tiếp theo của tôi là gì. Chúng tôi đang tích cực làm việc trên đơn PR của tôi."
+      },
+      {
+        "name": "Arup Majumder",
+        "program": "Thường Trú & Quốc Tịch",
+        "text": "Tôi đã làm việc với Moumita Chakraborty liên quan đến Thường Trú của tôi và cô ấy đã rất hữu ích trong suốt quá trình và rất chuyên nghiệp. Luôn vượt ra ngoài trách nhiệm của mình. Tôi chắc chắn sẽ giới thiệu Moumita cho PR, Giấy Phép Lao Động hoặc bất kỳ nhu cầu liên quan đến định cư nào khác của bạn."
       }
     ]
   },

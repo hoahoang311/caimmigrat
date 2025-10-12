@@ -25,7 +25,7 @@ import InquiryCalendar from "./components/InquiryCalendar";
 
 export default async function AdminDashboard() {
   noStore();
-  
+
   const [inquiries, newsletterSubs, consultations]: [
     Inquiry[],
     NewsletterSubscriber[],
@@ -37,53 +37,59 @@ export default async function AdminDashboard() {
   ]);
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div className="h-full bg-gray-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 h-full flex flex-col">
         {/* Stats Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-          <Card>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">
-                Total Inquiries
-              </CardTitle>
-              <MessageSquare className="h-4 w-4 text-blue-600" />
-            </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold">{inquiries.length}</div>
-              <p className="text-xs text-gray-500">Contact form submissions</p>
-            </CardContent>
-          </Card>
+        <div className="flex-shrink-0">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <Card>
+              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                <CardTitle className="text-sm font-medium">
+                  Total Inquiries
+                </CardTitle>
+                <MessageSquare className="h-4 w-4 text-blue-600" />
+              </CardHeader>
+              <CardContent>
+                <div className="text-2xl font-bold">{inquiries.length}</div>
+                <p className="text-xs text-gray-500">
+                  Contact form submissions
+                </p>
+              </CardContent>
+            </Card>
 
-          <Card>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">
-                Newsletter Subscribers
-              </CardTitle>
-              <Mail className="h-4 w-4 text-green-600" />
-            </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold">{newsletterSubs.length}</div>
-              <p className="text-xs text-gray-500">Active subscribers</p>
-            </CardContent>
-          </Card>
+            <Card>
+              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                <CardTitle className="text-sm font-medium">
+                  Newsletter Subscribers
+                </CardTitle>
+                <Mail className="h-4 w-4 text-green-600" />
+              </CardHeader>
+              <CardContent>
+                <div className="text-2xl font-bold">
+                  {newsletterSubs.length}
+                </div>
+                <p className="text-xs text-gray-500">Active subscribers</p>
+              </CardContent>
+            </Card>
 
-          <Card>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">
-                Consultation Bookings
-              </CardTitle>
-              <Calendar className="h-4 w-4 text-purple-600" />
-            </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold">{consultations.length}</div>
-              <p className="text-xs text-gray-500">Appointment requests</p>
-            </CardContent>
-          </Card>
+            <Card>
+              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                <CardTitle className="text-sm font-medium">
+                  Consultation Bookings
+                </CardTitle>
+                <Calendar className="h-4 w-4 text-purple-600" />
+              </CardHeader>
+              <CardContent>
+                <div className="text-2xl font-bold">{consultations.length}</div>
+                <p className="text-xs text-gray-500">Appointment requests</p>
+              </CardContent>
+            </Card>
+          </div>
         </div>
 
         {/* Main Content Tabs */}
-        <Tabs defaultValue="inquiries" className="w-full">
-          <TabsList className="grid w-full grid-cols-3 mb-8">
+        <Tabs defaultValue="inquiries" className="w-full flex-1 flex flex-col overflow-hidden">
+          <TabsList className="grid w-full grid-cols-3 mb-8 flex-shrink-0">
             <TabsTrigger
               value="subscribers"
               className="flex items-center gap-2"
@@ -104,9 +110,9 @@ export default async function AdminDashboard() {
             </TabsTrigger>
           </TabsList>
 
-          <TabsContent value="subscribers">
-            <Card>
-              <CardHeader>
+          <TabsContent value="subscribers" className="flex-1 overflow-hidden">
+            <Card className="h-full flex flex-col">
+              <CardHeader className="flex-shrink-0">
                 <CardTitle className="flex items-center space-x-2">
                   <Mail className="h-5 w-5 text-green-600" />
                   <span>Newsletter Subscribers</span>
@@ -115,9 +121,9 @@ export default async function AdminDashboard() {
                   All active newsletter subscribers
                 </CardDescription>
               </CardHeader>
-              <CardContent>
+              <CardContent className="overflow-auto flex-1">
                 <div className="space-y-4">
-                  {newsletterSubs.slice(0, 20).map((subscriber) => (
+                  {newsletterSubs.map((subscriber) => (
                     <div key={subscriber.id} className="border rounded-lg p-4">
                       <div className="flex justify-between items-start mb-2">
                         <h4 className="font-semibold">{subscriber.email}</h4>
@@ -161,13 +167,13 @@ export default async function AdminDashboard() {
             </Card>
           </TabsContent>
 
-          <TabsContent value="inquiries">
+          <TabsContent value="inquiries" className="flex-1 overflow-hidden">
             <InquiryCalendar inquiries={inquiries} />
           </TabsContent>
 
-          <TabsContent value="consultations">
-            <Card>
-              <CardHeader>
+          <TabsContent value="consultations" className="flex-1 overflow-hidden">
+            <Card className="h-full flex flex-col">
+              <CardHeader className="flex-shrink-0">
                 <CardTitle className="flex items-center space-x-2">
                   <Calendar className="h-5 w-5 text-purple-600" />
                   <span>Consultation Requests</span>
@@ -176,7 +182,7 @@ export default async function AdminDashboard() {
                   All appointment booking requests
                 </CardDescription>
               </CardHeader>
-              <CardContent>
+              <CardContent className="overflow-auto flex-1">
                 <div className="space-y-4">
                   {consultations.map((booking) => (
                     <div key={booking.id} className="border rounded-lg p-4">

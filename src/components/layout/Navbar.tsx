@@ -2,7 +2,6 @@
 
 import ICBMLogo from "@/components/shared/ICBMLogo";
 import { Button } from "@/components/ui/button";
-import { LanguageSwitcher } from "@/components/ui/LanguageSwitcher";
 import { Menu, X } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
@@ -105,7 +104,7 @@ export default function Navbar() {
               ))}
               <div className="px-3 py-2 space-y-2">
                 <div className="flex justify-center">
-                  <LanguageSwitcher />
+                  {/* <LanguageSwitcher /> */}
                 </div>
                 <Button
                   asChild
