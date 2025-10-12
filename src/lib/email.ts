@@ -26,6 +26,8 @@ function createTransporter(isCamp: boolean) {
   const user = isCamp ? process.env.EMAIL_USER_CAMP : process.env.EMAIL_USER;
   const password = process.env.EMAIL_PASSWORD;
 
+  console.log(process.env);
+
   if (!host || !user || !password) {
     throw new Error(
       "Email configuration is missing. Please set EMAIL_HOST, EMAIL_USER, and EMAIL_PASSWORD environment variables."
