@@ -535,7 +535,7 @@ Phone: +1 416-639-2655 | Email: info@icbmlaw.ca
 
             <p><strong>In the meantime:</strong></p>
             <ul>
-              <li>Check out our <a href="https://icbmlaw.ca/services" style="color: #1e40af;">services page</a> for more information</li>
+              <li>Check out our <a href="https://www.icbmlaw.ca/services" style="color: #1e40af;">services page</a> for more information</li>
               <li>For urgent matters, call us at <a href="tel:+14166392655" style="color: #1e40af;">+1 416-639-2655</a></li>
             </ul>
 
