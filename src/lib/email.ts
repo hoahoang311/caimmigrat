@@ -21,12 +21,12 @@ export interface EmailOptions {
  * - EMAIL_FROM: Default sender email address
  */
 function createTransporter(isCamp: boolean) {
-  const host = process.env.EMAIL_HOST;
-  const port = parseInt(process.env.EMAIL_PORT || "587");
-  const user = isCamp ? process.env.EMAIL_USER_CAMP : process.env.EMAIL_USER;
-  const password = process.env.EMAIL_PASSWORD;
-
-  console.log(process.env);
+  const host = process.env.NEXT_PUBLIC_EMAIL_HOST;
+  const port = parseInt(process.env.NEXT_PUBLIC_EMAIL_PORT || "587");
+  const user = isCamp
+    ? process.env.NEXT_PUBLIC_EMAIL_USER_CAMP
+    : process.env.NEXT_PUBLIC_EMAIL_INFO;
+  const password = process.env.NEXT_PUBLIC_EMAIL_PASSWORD;
 
   if (!host || !user || !password) {
     throw new Error(
@@ -246,7 +246,7 @@ Toronto Summer Camp 2026 - FIFA World Cup Special Edition
   `;
 
   // Send notification to admin
-  const adminEmail = process.env.EMAIL_CAMP_ADMIN;
+  const adminEmail = process.env.NEXT_PUBLIC_EMAIL_CAMP_ADMIN;
 
   await sendEmail(
     {
@@ -480,7 +480,7 @@ Phone: +1 416-639-2655 | Email: info@icbmlaw.ca
   `;
 
   // Send notification to admin
-  const adminEmail = process.env.EMAIL_INFO;
+  const adminEmail = process.env.NEXT_PUBLIC_EMAIL_INFO;
 
   await sendEmail(
     {
