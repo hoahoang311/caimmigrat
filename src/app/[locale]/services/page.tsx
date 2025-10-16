@@ -6,6 +6,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Translation } from "@/types";
 // Lucide icons - tree-shaken automatically, only imported icons are bundled
 import {
   Award,
@@ -46,7 +47,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 // Helper function to build services data
-function getServicesData(t: any) {
+function getServicesData(t: Translation) {
   return [
     {
       id: "temporary-visa",
@@ -154,7 +155,7 @@ function getServicesData(t: any) {
 }
 
 // Helper function to build why choose us data
-function getWhyChooseUsData(t: any) {
+function getWhyChooseUsData(t: Translation) {
   return [
     {
       icon: Users,

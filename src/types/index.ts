@@ -1,3 +1,5 @@
+import { getTranslations } from "next-intl/server";
+
 export interface AssessmentFormData {
   name: string;
   email: string;
@@ -26,3 +28,5 @@ export interface ContactInfo {
   email?: string;
   mapUrl?: string;
 }
+
+export type Translation = Awaited<ReturnType<typeof getTranslations>>;

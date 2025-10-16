@@ -5,6 +5,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Translation } from "@/types";
 import { Clock, Facebook, Instagram, Mail, MapPin, Phone } from "lucide-react";
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
@@ -47,7 +48,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 // Helper function to get contact info data
-function getContactInfoData(t: any) {
+function getContactInfoData(t: Translation) {
   return [
     {
       icon: MapPin,
