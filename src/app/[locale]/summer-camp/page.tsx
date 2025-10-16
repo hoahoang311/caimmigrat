@@ -1,4 +1,3 @@
-import SummerCampRegistrationForm from "@/components/forms/SummerCampRegistrationForm";
 import {
   Card,
   CardContent,
@@ -15,6 +14,33 @@ import {
 import { Camera, Globe, GraduationCap } from "lucide-react";
 import type { Metadata } from "next";
 import Image from "next/image";
+import dynamic from "next/dynamic";
+import { Suspense } from "react";
+
+// Lazy load SummerCampRegistrationForm component
+const SummerCampRegistrationForm = dynamic(
+  () => import("@/components/forms/SummerCampRegistrationForm"),
+  {
+    loading: () => (
+      <section className="py-20 bg-gradient-to-br from-primary/5 to-primary/10">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center space-y-4 mb-16">
+            <div className="h-10 bg-gray-200 rounded w-96 mx-auto animate-pulse" />
+            <div className="h-6 bg-gray-200 rounded w-64 mx-auto animate-pulse" />
+          </div>
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
+            {[1, 2].map((i) => (
+              <div
+                key={i}
+                className="h-96 bg-gray-200 rounded-lg animate-pulse"
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+    ),
+  }
+);
 
 export const metadata: Metadata = {
   title: "Toronto Summer Camp 2026 - FIFA World Cup Special Edition | ICBM Law",
@@ -24,8 +50,11 @@ export const metadata: Metadata = {
     "Toronto summer camp, FIFA World Cup 2026, University of Toronto camp, Canon Canada arts program, international student camp, English ESL camp Canada",
 };
 
-export default async function SummerCampPage() {
-  const whyChoose = [
+export const revalidate = 60;
+
+// Helper function to get why choose data
+function getWhyChooseData() {
+  return [
     {
       icon: GraduationCap,
       title: "Elite University Experience",
@@ -45,6 +74,10 @@ export default async function SummerCampPage() {
         "Earn an Ontario Ministry of Education approved Certificate (Specialist High Skills Major) & Level 1 Certificate in Video Storytelling and Photography from Canon Canada, which essentially boost your academic profile and pave a pathway to study in Canada.",
     },
   ];
+}
+
+export default async function SummerCampPage() {
+  const whyChoose = getWhyChooseData();
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -82,6 +115,9 @@ export default async function SummerCampPage() {
                           alt="University of Toronto"
                           fill
                           className="object-contain"
+                          sizes="192px"
+                          loading="lazy"
+                          quality={90}
                         />
                       </div>
                     </TooltipTrigger>
@@ -98,6 +134,9 @@ export default async function SummerCampPage() {
                           alt="Canon Canada"
                           fill
                           className="object-contain"
+                          sizes="192px"
+                          loading="lazy"
+                          quality={90}
                         />
                       </div>
                     </TooltipTrigger>
@@ -114,6 +153,9 @@ export default async function SummerCampPage() {
                           alt="FIFA World Cup 2026"
                           fill
                           className="object-contain"
+                          sizes="192px"
+                          loading="lazy"
+                          quality={90}
                         />
                       </div>
                     </TooltipTrigger>
@@ -134,6 +176,8 @@ export default async function SummerCampPage() {
                   fill
                   className="object-cover"
                   priority
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 90vw, 1280px"
+                  quality={85}
                 />
               </div>
             </div>
@@ -174,7 +218,28 @@ export default async function SummerCampPage() {
       </section>
 
       {/* Programs, Registration Form, and CTA Section */}
-      <SummerCampRegistrationForm />
+      <Suspense
+        fallback={
+          <section className="py-20 bg-gradient-to-br from-primary/5 to-primary/10">
+            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+              <div className="text-center space-y-4 mb-16">
+                <div className="h-10 bg-gray-200 rounded w-96 mx-auto animate-pulse" />
+                <div className="h-6 bg-gray-200 rounded w-64 mx-auto animate-pulse" />
+              </div>
+              <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
+                {[1, 2].map((i) => (
+                  <div
+                    key={i}
+                    className="h-96 bg-gray-200 rounded-lg animate-pulse"
+                  />
+                ))}
+              </div>
+            </div>
+          </section>
+        }
+      >
+        <SummerCampRegistrationForm />
+      </Suspense>
     </div>
   );
 }

@@ -35,7 +35,9 @@ export default function SubscribersTab({ subscribers }: SubscribersTabProps) {
       const url = URL.createObjectURL(blob);
       const link = document.createElement("a");
       link.href = url;
-      link.download = `subscribers-${new Date().toISOString().split("T")[0]}.xlsx`;
+      link.download = `subscribers-${
+        new Date().toISOString().split("T")[0]
+      }.xlsx`;
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -49,7 +51,7 @@ export default function SubscribersTab({ subscribers }: SubscribersTabProps) {
   };
 
   return (
-    <Card className="h-full flex flex-col">
+    <Card className="md:h-full flex flex-col overflow-auto md:overflow-hidden">
       <CardHeader className="flex-shrink-0">
         <div className="flex items-center justify-between">
           <div className="space-y-1">
@@ -70,7 +72,7 @@ export default function SubscribersTab({ subscribers }: SubscribersTabProps) {
           </Button>
         </div>
       </CardHeader>
-      <CardContent className="overflow-auto flex-1">
+      <CardContent className="md:overflow-auto flex-1">
         <div className="space-y-4">
           {subscribers.map((subscriber) => (
             <div key={subscriber.id} className="border rounded-lg p-4">

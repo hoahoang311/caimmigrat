@@ -2,23 +2,67 @@
 
 import { Quote, Star } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { useEffect, useRef, useState } from "react";
+import { memo, useEffect, useMemo, useRef, useState } from "react";
 import { Card, CardContent, CardHeader } from "./ui/card";
 
-const Testimonilas = () => {
+// Memoized testimonial card component
+const TestimonialCard = memo(({ index }: { index: number }) => {
   const t = useTranslations();
+
+  return (
+    <div className="flex-shrink-0 w-[350px] mx-4">
+      <Card className="bg-white border-none shadow-lg hover:shadow-xl transition-shadow h-[580px] flex flex-col">
+        <CardHeader className="pb-4">
+          <div className="flex items-center gap-1 mb-4">
+            {[...Array(5)].map((_, i) => (
+              <Star key={i} className="h-5 w-5 fill-[#D9BA4E] text-[#D9BA4E]" />
+            ))}
+          </div>
+          <Quote className="h-8 w-8 text-primary/20" />
+        </CardHeader>
+        <CardContent className="space-y-4 flex-1 flex flex-col">
+          <p className="text-gray-700 leading-relaxed flex-1 text-sm">
+            {t(`testimonials.items.${index}.text`)}
+          </p>
+          <div className="border-t border-gray-200 pt-4">
+            <p className="font-semibold text-gray-900">
+              {t(`testimonials.items.${index}.name`)}
+            </p>
+            <p className="text-sm text-[#D9BA4E] font-medium">
+              {t(`testimonials.items.${index}.program`)}
+            </p>
+          </div>
+        </CardContent>
+      </Card>
+    </div>
+  );
+});
+
+TestimonialCard.displayName = "TestimonialCard";
+
+const Testimonials = () => {
   const sliderRef = useRef<HTMLDivElement>(null);
   const [isPaused, setIsPaused] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
   const resumeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const t = useTranslations();
 
-  const visibleCount = 16; // Show 8 testimonials at a time in the slider
+  const visibleCount = 16; // Show 16 testimonials at a time in the slider
 
-  // Track scroll position to update active dot
+  // Memoize card width calculation
+  const cardWidth = useMemo(() => 350 + 32, []);
+
+  // Track scroll position to update active dot with throttling
   useEffect(() => {
+    let lastUpdate = 0;
+    const throttleMs = 200; // Reduce update frequency
+
     const handleScroll = () => {
+      const now = Date.now();
+      if (now - lastUpdate < throttleMs) return;
+      lastUpdate = now;
+
       if (sliderRef.current && !isPaused) {
-        const cardWidth = 350 + 32; // card width + margins
         const scrollLeft = Math.abs(
           parseInt(
             getComputedStyle(sliderRef.current)
@@ -32,9 +76,9 @@ const Testimonilas = () => {
       }
     };
 
-    const interval = setInterval(handleScroll, 100);
+    const interval = setInterval(handleScroll, throttleMs);
     return () => clearInterval(interval);
-  }, [isPaused, visibleCount]);
+  }, [isPaused, visibleCount, cardWidth]);
 
   const handleDotClick = (index: number) => {
     if (sliderRef.current) {
@@ -44,7 +88,6 @@ const Testimonilas = () => {
       }
 
       // Calculate the position to scroll to
-      const cardWidth = 350 + 32; // card width + margins
       const scrollPosition = -index * cardWidth;
 
       // Pause the animation and set active index
@@ -74,32 +117,10 @@ const Testimonilas = () => {
     };
   }, []);
 
-  const testimonialCard = (index: number, key: string) => (
-    <div key={key} className="flex-shrink-0 w-[350px] mx-4">
-      <Card className="bg-white border-none shadow-lg hover:shadow-xl transition-shadow h-[580px] flex flex-col">
-        <CardHeader className="pb-4">
-          <div className="flex items-center gap-1 mb-4">
-            {[...Array(5)].map((_, i) => (
-              <Star key={i} className="h-5 w-5 fill-[#D9BA4E] text-[#D9BA4E]" />
-            ))}
-          </div>
-          <Quote className="h-8 w-8 text-primary/20" />
-        </CardHeader>
-        <CardContent className="space-y-4 flex-1 flex flex-col">
-          <p className="text-gray-700 leading-relaxed flex-1 text-sm">
-            {t(`testimonials.items.${index}.text`)}
-          </p>
-          <div className="border-t border-gray-200 pt-4">
-            <p className="font-semibold text-gray-900">
-              {t(`testimonials.items.${index}.name`)}
-            </p>
-            <p className="text-sm text-[#D9BA4E] font-medium">
-              {t(`testimonials.items.${index}.program`)}
-            </p>
-          </div>
-        </CardContent>
-      </Card>
-    </div>
+  // Memoize testimonial indices
+  const testimonialIndices = useMemo(
+    () => Array.from({ length: visibleCount }, (_, i) => i),
+    [visibleCount]
   );
 
   return (
@@ -121,20 +142,20 @@ const Testimonilas = () => {
               ref={sliderRef}
               className={`slider-track ${isPaused ? "paused" : ""}`}
             >
-              {/* First set - display first 8 testimonials */}
-              {Array.from({ length: visibleCount }, (_, i) => i).map((index) =>
-                testimonialCard(index, `set1-${index}`)
-              )}
+              {/* First set - display testimonials */}
+              {testimonialIndices.map((index) => (
+                <TestimonialCard key={`set1-${index}`} index={index} />
+              ))}
               {/* Second set (duplicate) - for seamless loop */}
-              {Array.from({ length: visibleCount }, (_, i) => i).map((index) =>
-                testimonialCard(index, `set2-${index}`)
-              )}
+              {testimonialIndices.map((index) => (
+                <TestimonialCard key={`set2-${index}`} index={index} />
+              ))}
             </div>
           </div>
 
           {/* Navigation Dots - one for each visible testimonial */}
           <div className="flex justify-center gap-3 mt-8 flex-wrap">
-            {Array.from({ length: visibleCount }, (_, i) => i).map((index) => (
+            {testimonialIndices.map((index) => (
               <button
                 key={index}
                 onClick={() => handleDotClick(index)}
@@ -190,4 +211,4 @@ const Testimonilas = () => {
   );
 };
 
-export default Testimonilas;
+export default Testimonials;

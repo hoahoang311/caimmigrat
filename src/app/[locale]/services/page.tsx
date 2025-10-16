@@ -6,6 +6,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+// Lucide icons - tree-shaken automatically, only imported icons are bundled
 import {
   Award,
   Briefcase,
@@ -26,23 +27,27 @@ import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import Link from "next/link";
 
-export const metadata: Metadata = {
-  title: "Immigration Services - ICBM Law",
-  description:
-    "Comprehensive Canadian immigration services including temporary visas, study permits, skilled worker programs, investor programs, sponsorship, and specialized legal services.",
-  keywords:
-    "Canadian immigration services, temporary visa, study permit, express entry, PNP, investor programs, sponsorship, immigration appeals",
-};
-
 type Props = {
   params: Promise<{ locale: string }>;
 };
 
-export default async function ServicesPage({ params }: Props) {
+export const revalidate = 60;
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale });
 
-  const services = [
+  return {
+    title: `${t("services.page.title")} - ICBM Law`,
+    description: t("services.page.subtitle"),
+    keywords:
+      "Canadian immigration services, temporary visa, study permit, express entry, PNP, investor programs, sponsorship, immigration appeals",
+  };
+}
+
+// Helper function to build services data
+function getServicesData(t: any) {
+  return [
     {
       id: "temporary-visa",
       icon: Plane,
@@ -146,8 +151,11 @@ export default async function ServicesPage({ params }: Props) {
       iconColor: "text-primary",
     },
   ];
+}
 
-  const whyChooseUs = [
+// Helper function to build why choose us data
+function getWhyChooseUsData(t: any) {
+  return [
     {
       icon: Users,
       title: t("services.why_choose.expert_team.title"),
@@ -169,6 +177,16 @@ export default async function ServicesPage({ params }: Props) {
       description: t("services.why_choose.legal_expertise.description"),
     },
   ];
+}
+
+export default async function ServicesPage({ params }: Props) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale });
+
+  // Build data using helper functions
+  const services = getServicesData(t);
+  const whyChooseUs = getWhyChooseUsData(t);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-primary/5 to-primary/10">
       {/* Hero Section */}

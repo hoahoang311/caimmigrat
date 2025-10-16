@@ -38,7 +38,7 @@ export default async function AdminDashboard() {
   ]);
 
   return (
-    <div className="h-full bg-gray-50 md:overflow-hidden">
+    <div className="md:h-full bg-gray-50 overflow-auto lg:overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 h-full flex flex-col">
         {/* Stats Cards */}
         <div className="flex-shrink-0">
@@ -89,7 +89,10 @@ export default async function AdminDashboard() {
         </div>
 
         {/* Main Content Tabs */}
-        <Tabs defaultValue="inquiries" className="w-full flex-1 flex flex-col overflow-hidden">
+        <Tabs
+          defaultValue="inquiries"
+          className="w-full flex-1 flex flex-col overflow-auto lg:overflow-hidden"
+        >
           <TabsList className="grid w-full grid-cols-3 mb-8 flex-shrink-0">
             <TabsTrigger
               value="subscribers"
@@ -120,7 +123,7 @@ export default async function AdminDashboard() {
           </TabsContent>
 
           <TabsContent value="consultations" className="flex-1 overflow-hidden">
-            <Card className="h-full flex flex-col">
+            <Card className="h-full flex flex-col md:overflow-hidden overflow-auto">
               <CardHeader className="flex-shrink-0">
                 <CardTitle className="flex items-center space-x-2">
                   <Calendar className="h-5 w-5 text-purple-600" />

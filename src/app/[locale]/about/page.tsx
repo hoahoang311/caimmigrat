@@ -2,15 +2,21 @@ import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 
-export const metadata: Metadata = {
-  title: "About Us - ICBM Law",
-  description:
-    "Learn about ICBM Law, a premier Canadian immigration consultancy founded by Moumita Chakraborty and Richard Brown with over 16 years of combined expertise.",
-};
+export const revalidate = 60;
 
 type Props = {
   params: Promise<{ locale: string }>;
 };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale });
+
+  return {
+    title: `${t("about.page.title")} - ICBM Law`,
+    description: t("about.page.mission_intro"),
+  };
+}
 
 export default async function AboutPage({ params }: Props) {
   const { locale } = await params;
@@ -61,7 +67,9 @@ export default async function AboutPage({ params }: Props) {
                   alt="Moumita Chakraborty, MBA, Managing Partner"
                   fill
                   className="object-cover object-top"
-                  sizes="(max-width: 768px) 100vw, 50vw"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 600px"
+                  priority
+                  quality={85}
                 />
               </div>
               <div className="flex-1 p-6 flex flex-col justify-between">
@@ -92,7 +100,9 @@ export default async function AboutPage({ params }: Props) {
                   alt="Richard Brown, Paralegal, Senior Partner"
                   fill
                   className="object-cover object-top"
-                  sizes="(max-width: 768px) 100vw, 50vw"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 600px"
+                  priority
+                  quality={85}
                 />
               </div>
               <div className="flex-1 p-6 flex flex-col justify-between">
@@ -132,6 +142,9 @@ export default async function AboutPage({ params }: Props) {
                     alt="RCIC - Regulated Canadian Immigration Consultant"
                     fill
                     className="object-contain"
+                    sizes="(max-width: 768px) 100vw, 384px"
+                    loading="lazy"
+                    quality={90}
                   />
                 </div>
               </div>
@@ -144,6 +157,9 @@ export default async function AboutPage({ params }: Props) {
                     alt="LSO - Law Society of Ontario"
                     fill
                     className="object-contain"
+                    sizes="(max-width: 768px) 100vw, 384px"
+                    loading="lazy"
+                    quality={90}
                   />
                 </div>
               </div>
