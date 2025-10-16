@@ -1,5 +1,6 @@
 "use client";
 
+import { BookingPopup } from "@/components/shared/BookingPopup";
 import ICBMLogo from "@/components/shared/ICBMLogo";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
@@ -9,6 +10,7 @@ import { useEffect, useState } from "react";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [bookingOpen, setBookingOpen] = useState(false);
   const t = useTranslations("nav");
   const locale = useLocale();
   const [mounted, setMounted] = useState(false);
@@ -28,8 +30,6 @@ export default function Navbar() {
   if (!mounted) {
     return null;
   }
-
-  // Check if we're on an admin route (except /admin and /admin/login)
 
   // Regular website header
   return (
@@ -61,10 +61,10 @@ export default function Navbar() {
           {/* Language Switcher & CTA Button */}
           <div className="hidden md:flex items-center space-x-4">
             <Button
-              asChild
+              onClick={() => setBookingOpen(true)}
               className="bg-[#D9BA4E] hover:bg-[#b89851] text-primary font-semibold"
             >
-              <Link href={`/${locale}/contact`}>{t("book_consultation")}</Link>
+              {t("book_consultation")}
             </Button>
           </div>
 
@@ -107,21 +107,22 @@ export default function Navbar() {
                   {/* <LanguageSwitcher /> */}
                 </div>
                 <Button
-                  asChild
+                  onClick={() => {
+                    setIsMenuOpen(false);
+                    setBookingOpen(true);
+                  }}
                   className="w-full bg-[#D9BA4E] hover:bg-[#b89851] text-primary font-semibold"
                 >
-                  <Link
-                    href={`/${locale}/contact`}
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    {t("book_consultation")}
-                  </Link>
+                  {t("book_consultation")}
                 </Button>
               </div>
             </div>
           </div>
         </div>
       )}
+
+      {/* Booking Popup */}
+      <BookingPopup open={bookingOpen} onOpenChange={setBookingOpen} />
     </nav>
   );
 }

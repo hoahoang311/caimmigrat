@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -6,12 +5,12 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { ArrowRight, Award, Calendar, Shield, Users } from "lucide-react";
+import { Award, Shield, Users } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 import Image from "next/image";
-import Link from "next/link";
 import dynamic from "next/dynamic";
 import { Suspense } from "react";
+import HomeClient from "./HomeClient";
 
 // Lazy load Testimonials component
 const Testimonials = dynamic(() => import("@/components/Testimonials"), {
@@ -107,33 +106,11 @@ export default async function HomePage({ params }: Props) {
               </div>
 
               {/* Call-to-Action Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-                <Button
-                  asChild
-                  size="lg"
-                  className="bg-[#D9BA4E] hover:bg-[#c9a83e] text-primary"
-                >
-                  <Link href={`${locale}/contact`}>
-                    {t("hero.cta")}
-                    <ArrowRight className="ml-2 h-5 w-5" />
-                  </Link>
-                </Button>
-                <Button
-                  asChild
-                  variant="outline"
-                  size="lg"
-                  className="border-primary text-primary hover:bg-primary hover:text-white"
-                >
-                  <Link
-                    href="https://calendly.com/icbmlaw"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Calendar className="mr-2 h-5 w-5" />
-                    {t("nav.book_consultation")}
-                  </Link>
-                </Button>
-              </div>
+              <HomeClient
+                locale={locale}
+                ctaText={t("hero.cta")}
+                bookConsultationText={t("nav.book_consultation")}
+              />
 
               {/* Quick Stats */}
               <div className="grid grid-cols-3 gap-6 pt-6 border-t border-gray-200 max-w-3xl mx-auto">
