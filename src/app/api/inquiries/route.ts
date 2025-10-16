@@ -41,23 +41,22 @@ export async function POST(request: NextRequest) {
     // Save to database
     const result = await database.createInquiry(inquiry);
 
-    // Send email notifications
-    try {
-      await sendContactFormEmail({
-        firstName: inquiry.first_name,
-        lastName: inquiry.last_name,
-        email: inquiry.email,
-        phone: inquiry.phone,
-        serviceType: inquiry.service_type,
-        subject: inquiry.subject,
-        message: inquiry.message,
-        countryOfOrigin: inquiry.country_of_origin,
-        preferredContactMethod: inquiry.preferred_contact_method || "email",
-      });
-    } catch (emailError) {
+    // Send email notifications in the background (non-blocking)
+    // Don't await this - let it run asynchronously
+    sendContactFormEmail({
+      firstName: inquiry.first_name,
+      lastName: inquiry.last_name,
+      email: inquiry.email,
+      phone: inquiry.phone,
+      serviceType: inquiry.service_type,
+      subject: inquiry.subject,
+      message: inquiry.message,
+      countryOfOrigin: inquiry.country_of_origin,
+      preferredContactMethod: inquiry.preferred_contact_method || "email",
+    }).catch((emailError) => {
+      // Log email errors but don't fail the request
       console.error("Error sending email notification:", emailError);
-      // Don't fail the request if email fails, but log it
-    }
+    });
 
     return NextResponse.json(
       {

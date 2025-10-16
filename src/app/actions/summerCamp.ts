@@ -91,8 +91,9 @@ export async function submitSummerCampRegistration(
       };
     }
 
-    // Send email notifications
-    await sendSummerCampRegistrationEmail({
+    // Send email notifications in the background (non-blocking)
+    // Don't await this - let it run asynchronously
+    sendSummerCampRegistrationEmail({
       firstName: formData.firstName,
       lastName: formData.lastName,
       dateOfBirth: formData.dateOfBirth,
@@ -104,6 +105,9 @@ export async function submitSummerCampRegistration(
       visaType: formData.visaType,
       program: formData.program,
       startDate: formData.startDate,
+    }).catch((emailError) => {
+      // Log email errors but don't fail the request
+      console.error("Error sending camp registration email:", emailError);
     });
 
     return {
