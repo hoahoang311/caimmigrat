@@ -7,7 +7,7 @@
 export interface Metric {
   name: string;
   value: number;
-  rating: 'good' | 'needs-improvement' | 'poor';
+  rating: "good" | "needs-improvement" | "poor";
   delta: number;
   id: string;
 }
@@ -18,10 +18,13 @@ export interface Metric {
  */
 export function sendToGoogleAnalytics(metric: Metric) {
   // Check if gtag is available
-  if (typeof window === 'undefined' || !(window as any).gtag) {
+  if (
+    typeof window === "undefined" ||
+    !(window as Window & typeof globalThis).gtag
+  ) {
     // In development, log to console
-    if (process.env.NODE_ENV === 'development') {
-      console.log('[Web Vitals]', {
+    if (process.env.NODE_ENV === "development") {
+      console.log("[Web Vitals]", {
         name: metric.name,
         value: Math.round(metric.value),
         rating: metric.rating,
@@ -31,8 +34,8 @@ export function sendToGoogleAnalytics(metric: Metric) {
   }
 
   // Send to Google Analytics 4
-  (window as any).gtag('event', metric.name, {
-    event_category: 'Web Vitals',
+  (window as Window & typeof globalThis).gtag?.("event", metric.name, {
+    event_category: "Web Vitals",
     event_label: metric.id,
     value: Math.round(metric.value),
     metric_rating: metric.rating,
@@ -41,8 +44,8 @@ export function sendToGoogleAnalytics(metric: Metric) {
   });
 
   // Also log in development
-  if (process.env.NODE_ENV === 'development') {
-    console.log('[Web Vitals → GA4]', {
+  if (process.env.NODE_ENV === "development") {
+    console.log("[Web Vitals → GA4]", {
       name: metric.name,
       value: Math.round(metric.value),
       rating: metric.rating,
